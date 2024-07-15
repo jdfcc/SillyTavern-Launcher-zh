@@ -6,9 +6,9 @@ REM ############################################################
 :edit_xtts_modules
 title STL [EDIT XTTS MODULES]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / Editor / Edit XTTS Modules%reset%
+echo %blue_fg_strong%/主页 / 工具箱 / 编辑选项 /编辑 XTTS Modules%reset%
 echo -------------------------------------------------------------
-echo Choose XTTS modules to enable or disable (e.g., "1 2 4" to enable Cuda, hs, and cache)
+echo 选择 XTTS 模块打开或关闭 (例如, "1 2 4" 打开 Cuda, hs, 和缓存)
 
 REM Display module options with colors based on their status
 call :printModule "1. cuda (--device cuda)" %xtts_cuda_trigger%
