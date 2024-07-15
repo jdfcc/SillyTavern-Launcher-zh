@@ -1,8 +1,8 @@
 @echo off
 
 :install_7zip
-title STL [INSTALL-7Z]
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing 7-Zip...
+title STL [安装-7Z]
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% 正在安装 7-Zip...
 winget install -e --id 7zip.7zip
 
 rem Get the current PATH value from the registry
@@ -29,16 +29,16 @@ if %zip7_path_exists% neq 0 (
 
     REM Update the PATH value for the current session
     setx PATH "!new_path!" > nul
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%7-zip added to PATH.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% %green_fg_strong%7-zip 已加入系统变量 PATH.%reset%
 ) else (
     set "new_path=%current_path%"
-    echo %blue_fg_strong%[INFO] 7-Zip already exists in PATH.%reset%
+    echo %blue_fg_strong%[信息] 7-Zip 已经存在于系统变量 PATH.%reset%
 )
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%7-Zip installed successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% %green_fg_strong%7-Zip 成功安装.%reset%
 
 REM Prompt user to restart
-echo Restarting launcher...
+echo 正在重启启动器...
 timeout /t 5
 cd /d %stl_root%
 start %stl_root%Launcher.bat

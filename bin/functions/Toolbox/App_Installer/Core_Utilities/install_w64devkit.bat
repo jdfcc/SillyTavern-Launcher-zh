@@ -4,9 +4,9 @@
 REM Check if 7-Zip is installed
 7z > nul 2>&1
 if %errorlevel% neq 0 (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] 7z command not found in PATH.%reset%
-    echo %red_fg_strong%7-Zip is not installed or not found in the system PATH.%reset%
-    echo %red_fg_strong%To install 7-Zip go to:%reset% %blue_bg%/ Toolbox / App Installer / Core Utilities / Install 7-Zip%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[错误] 7z 命令没找到 PATH.%reset%
+    echo %red_fg_strong%7-Zip 没安装或没添加到系统变量PATH中.%reset%
+    echo %red_fg_strong%To install 7-Zip go to:%reset% %blue_bg%/ 工具箱 /APP安装选项 /核心应用 /安装 7-Zip%reset%
     pause
     goto :app_installer_core_utilities
 )
@@ -14,12 +14,12 @@ if %errorlevel% neq 0 (
 REM Check if the folder exists
 if exist "%w64devkit_install_path%" (
     REM Remove w64devkit folder if it already exist
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Removing existing w64devkit installation...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% 正在移除已存在的 w64devkit安装信息...
     rmdir /s /q "%w64devkit_install_path%"
 )
 
 REM Download w64devkit zip archive
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Downloading w64devkit...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% 正在下载 w64devkit...
 curl -L -o "%w64devkit_download_path%" "%w64devkit_download_url%"
 
 REM Extract w64devkit zip archive
@@ -52,15 +52,15 @@ if %ff_path_exists% neq 0 (
 
     REM Update the PATH value for the current session
     setx PATH "!new_path!" > nul
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%w64devkit added to PATH.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% %green_fg_strong%w64devkit 已添加到 PATH中.%reset%
 ) else (
     set "new_path=%current_path%"
-    echo %blue_fg_strong%[INFO] w64devkit already exists in PATH.%reset%
+    echo %blue_fg_strong%[信息] w64devkit 已存在于 PATH中.%reset%
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%w64devkit is installed.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% %green_fg_strong%w64devkit已安装.%reset%
 
 REM Prompt user to restart
-echo Restarting launcher...
+echo 正在重启启动器...
 timeout /t 5
 cd /d %stl_root%
 start %stl_root%Launcher.bat

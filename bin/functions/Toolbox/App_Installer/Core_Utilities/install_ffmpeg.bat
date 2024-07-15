@@ -5,26 +5,26 @@ title STL [INSTALL-FFMPEG]
 REM Check if 7-Zip is installed
 7z > nul 2>&1
 if %errorlevel% neq 0 (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] 7z command not found in PATH.%reset%
-    echo %red_fg_strong%7-Zip is not installed or not found in the system PATH.%reset%
-    echo %red_fg_strong%To install 7-Zip go to:%reset% %blue_bg%/ Toolbox / App Installer / Core Utilities / Install 7-Zip%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[错误] 7z 命令未再系统变量PATH中发现 .%reset%
+    echo %red_fg_strong%7-Zip 没有安装或没有在系统变量PATH中.%reset%
+    echo %red_fg_strong%To install 7-Zip go to:%reset% %blue_bg%/ 工具箱 / APP安装选项 / 核心APP/ 安装 7-Zip%reset%
     pause
     goto :app_installer_core_utilities
 )
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Downloading FFmpeg archive...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% 正在下载 FFmpeg 存档文件...
 curl -L -o "%ffmpeg_download_path%" "%ffmpeg_download_url%"
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Creating ffmpeg directory if it doesn't exist...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% 如果不存在，创建 ffmpeg 目录...
 if not exist "%ffmpeg_install_path%" (
     mkdir "%ffmpeg_install_path%"
 )
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Extracting FFmpeg archive...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% 提取 FFmpeg 存档文件...
 7z x "%ffmpeg_download_path%" -o"%ffmpeg_install_path%"
 
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Moving FFmpeg contents to C:\ffmpeg...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% 移动 FFmpeg 内容到 C:\ffmpeg...
 for /d %%i in ("%ffmpeg_install_path%\ffmpeg-*-full_build") do (
     xcopy "%%i\bin" "%ffmpeg_install_path%\bin" /E /I /Y
     xcopy "%%i\doc" "%ffmpeg_install_path%\doc" /E /I /Y
@@ -56,16 +56,16 @@ if %ff_path_exists% neq 0 (
 
     REM Update the PATH value for the current session
     setx PATH "!new_path!" > nul
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%ffmpeg added to PATH.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% %green_fg_strong%ffmpeg 已添加到 PATH.%reset%
 ) else (
     set "new_path=%current_path%"
-    echo %blue_fg_strong%[INFO] ffmpeg already exists in PATH.%reset%
+    echo %blue_fg_strong%[信息] ffmpeg 已经存在于 PATH中.%reset%
 )
 del "%ffmpeg_download_path%"
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%ffmpeg installed successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% %green_fg_strong%ffmpeg 安装成功.%reset%
 
 REM Prompt user to restart
-echo Restarting launcher...
+echo 正在重启启动器...
 timeout /t 5
 cd /d %stl_root%
 start %stl_root%Launcher.bat
