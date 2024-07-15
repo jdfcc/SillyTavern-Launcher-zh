@@ -2,7 +2,7 @@
 
 :uninstall_ffmpeg
 title STL [UNINSTALL-FFMPEG]
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Uninstalling ffmpeg...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% Uninstalling ffmpeg...
 rmdir /s /q "%ffmpeg_install_path%"
 
 setlocal EnableDelayedExpansion
@@ -17,8 +17,8 @@ reg add "HKCU\Environment" /v PATH /t REG_EXPAND_SZ /d "!new_path!" /f
 
 REM Update the PATH value for the current session
 setx PATH "!new_path!" > nul
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%ffmpeg removed from PATH.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% %green_fg_strong%ffmpeg removed from PATH.%reset%
 endlocal
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%ffmpeg has been uninstalled successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% %green_fg_strong%ffmpeg has been uninstalled successfully.%reset%
 goto :app_uninstaller_core_utilities

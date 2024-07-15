@@ -2,7 +2,7 @@
 
 :uninstall_w64devkit
 title STL [UNINSTALL-VSBUILDTOOLS]
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Uninstalling w64devkit...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% Uninstalling w64devkit...
 rmdir /s /q "%w64devkit_install_path%"
 
 setlocal EnableDelayedExpansion
@@ -17,9 +17,9 @@ reg add "HKCU\Environment" /v PATH /t REG_EXPAND_SZ /d "!new_path!" /f
 
 REM Update the PATH value for the current session
 setx PATH "!new_path!" > nul
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%w64devkit removed from PATH.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% %green_fg_strong%w64devkit removed from PATH.%reset%
 endlocal
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%w64devkit has been uninstalled successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% %green_fg_strong%w64devkit has been uninstalled successfully.%reset%
 pause
 goto :app_uninstaller_core_utilities
