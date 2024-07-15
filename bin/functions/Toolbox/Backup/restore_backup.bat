@@ -12,6 +12,7 @@ echo ================================
 setlocal enabledelayedexpansion
 set "backup_count=0"
 
+
 for %%F in ("%st_backup_path%\st_backup_*.7z") do (
     set /a "backup_count+=1"
     set "backup_files[!backup_count!]=%%~nF"
@@ -32,7 +33,7 @@ if "%restore_choice%" geq "1" (
         7z x "%st_backup_path%\!selected_backup!.7z" -o"temp" -aoa
         xcopy /y /e "temp\data\*" "%st_install_path%\data\"
         rmdir /s /q "temp"
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%!selected_backup! restored successfully.%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[пео╒]%reset% %green_fg_strong%!selected_backup! restored successfully.%reset%
     ) else (
         echo [%DATE% %TIME%] %log_invalidinput% >> %logs_stl_console_path%
         echo %red_bg%[%time%]%reset% %echo_invalidinput%

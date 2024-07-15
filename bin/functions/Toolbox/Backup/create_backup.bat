@@ -100,7 +100,7 @@ if "%use_custom_name%"=="Y" (
 REM Create a backup using 7zip
 7z a "%st_backup_path%\%backup_filename%" "%st_install_path%\data\%selected_user_folder%\*"
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Backup created at %st_backup_path%\%backup_filename%%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[пео╒]%reset% %green_fg_strong%Backup created at %st_backup_path%\%backup_filename%%reset%
 
 pause
 endlocal
