@@ -27,12 +27,15 @@ cmd /c winget install -e --id Git.Git
 ```shell
 git clone https://github.com/SillyTavern/SillyTavern-Launcher.git && cd SillyTavern-Launcher && start installer.bat
 ```
+以后点击laucher.bat运行，退出ST前最好按下ctrl+c。
 方法二： 
 
 直接下载zip，复制以下链接在浏览器打开
 ```shell
 https://github.com/vircus/SillyTavern-Launcher-zh/archive/refs/heads/main.zip
 ```
+解压后双击打开 install.bat安装，以后点击laucher.bat运行，退出ST前最好按下ctrl+c。
+
 ## 🐧 Linux
 1. 打开你喜欢的终端并安装 git
 2. Git 克隆 Sillytavern-Launcher：
