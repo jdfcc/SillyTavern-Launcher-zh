@@ -6,11 +6,11 @@ REM Description:
 REM This script can install sillytavern and/or extras with shortcut to open the launcher.bat
 REM
 REM This script is intended for use on Windows systems.
-REM report any issues or bugs on the GitHub repository.
+REM report any issues or bugs on the GitHub ²Ö¿â.
 REM
-REM GitHub: https://github.com/SillyTavern/SillyTavern-Launcher
-REM Issues: https://github.com/SillyTavern/SillyTavern-Launcher/issues
-title STL Installer [STARTUP CHECK]
+REM GitHub: https://github.com/vircus/SillyTavern-Launcher-zh
+REM Issues: https://github.com/vircus/SillyTavern-Launcher-zh/issues
+title STL °²×° [×´Ì¬¼ì²é]
 setlocal
 
 REM ANSI Escape Code for Colors
@@ -60,8 +60,8 @@ cd /d "%~dp0"
 
 REM Check if folder path has no spaces
 echo "%CD%"| findstr /C:" " >nul && (
-    echo %red_fg_strong%[ERROR] Path cannot have spaces! Please remove them or replace with: - %reset%
-    echo Folders containing spaces makes the launcher unstable
+    echo %red_fg_strong%[´íÎó] Â·¾¶²»ÄÜÓÐ¿Õ¸ñ£¡Çë½«ÆäÉ¾³ý»òÌæ»»Îª: - %reset%
+    echo °üº¬¿Õ¸ñµÄÎÄ¼þ¼Ð»áÊ¹Æô¶¯Æ÷²»ÎÈ¶¨
     echo path: %red_bg%%~dp0%reset%
     pause
     exit /b 1
@@ -69,8 +69,8 @@ echo "%CD%"| findstr /C:" " >nul && (
 
 REM Check if folder path has no special characters
 echo "%CD%"| findstr /R /C:"[!#\$%&()\*+,;<=>?@\[\]\^`{|}~]" >nul && (
-    echo %red_fg_strong%[ERROR] Path cannot have special characters! Please remove them.%reset%
-    echo Folders containing special characters makes the launcher unstable for the following: "[!#\$%&()\*+,;<=>?@\[\]\^`{|}~]" 
+    echo %red_fg_strong%[´íÎó]  Â·¾¶²»ÄÜÓÐÌØÊâ×Ö·û£¡ÇëÉ¾³ýËüÃÇ.%reset%
+    echo °üº¬ÌØÊâ×Ö·ûµÄÎÄ¼þ¼Ð»áÊ¹Æô¶¯Æ÷ÔÚÒÔÏÂÇé¿öÏÂ²»ÎÈ¶¨: "[!#\$%&()\*+,;<=>?@\[\]\^`{|}~]" 
     echo path: %red_bg%%~dp0%reset%
     pause
     exit /b 1
@@ -100,45 +100,45 @@ if %ff_path_exists% neq 0 (
 
     REM Update the PATH value for the current session
     setx PATH "!new_path!" > nul
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%winget added to PATH.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% %green_fg_strong%winget ÒÑ¼ÓÈëÏµÍ³»·¾³±äÁ¿ PATH.%reset%
 ) else (
     set "new_path=%current_path%"
-    echo %blue_fg_strong%[INFO] winget already exists in PATH.%reset%
+    echo %blue_fg_strong%[ÐÅÏ¢] winget ÔÚ»·¾³±äÁ¿ÖÐÒÑ´æÔÚ PATH.%reset%
 )
 
 REM Check if Winget is installed; if not, then install it
 winget --version > nul 2>&1
 if %errorlevel% neq 0 (
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] Winget is not installed on this system.%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] Winget Ã»ÓÐ°²×°ÔÚÏµÍ³ÖÐ.%reset%
     REM Check if the folder exists
     if not exist "%~dp0bin" (
         mkdir "%~dp0bin"
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Created folder: "bin"  
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ´´½¨ÎÄ¼þ¼Ð: "bin"  
     ) else (
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO] "bin" folder already exists.%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢] "bin" ÎÄ¼þ¼ÐÒÑ´æÔÚ.%reset%
     )
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing Winget...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° Winget...
     curl -L -o "%~dp0bin\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle" "https://github.com/microsoft/winget-cli/releases/latest/download/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
     start "" "%~dp0bin\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Winget installed successfully. Please restart the Launcher.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% %green_fg_strong%Winget ³É¹¦°²×°. ÇëÖØÆôÆô¶¯Æ÷.%reset%
     pause
     exit
 ) else (
-    echo %blue_fg_strong%[INFO] Winget is already installed.%reset%
+    echo %blue_fg_strong%[ÐÅÏ¢] Winget ÒÑ¾­°²×°ºÃÁË.%reset%
 )
 endlocal
 
 REM Check if Git is installed if not then install git
 git --version > nul 2>&1
 if %errorlevel% neq 0 (
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] Git is not installed on this system.%reset%
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing Git using Winget...
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] Git Î´°²×° .%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚÓÃ Winget°²×° Git ...
     winget install -e --id Git.Git
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Git installed successfully. Please restart the Installer.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% %green_fg_strong%Git °²×°³É¹¦£¬ÇëÖØÆô°²×°Æ÷.%reset%
     pause
     exit
 ) else (
-    echo %blue_fg_strong%[INFO] Git is already installed.%reset%
+    echo %blue_fg_strong%[ÐÅÏ¢] Git ÒÑ¾­°²×°ºÃÁË.%reset%
 )
 
 REM Get the current PATH value from the registry
@@ -165,57 +165,57 @@ if %ff_path_exists% neq 0 (
 
     REM Update the PATH value for the current session
     setx PATH "!new_path!" > nul
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%miniconda3 added to PATH.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% %green_fg_strong%miniconda3 ÒÑ¼ÓÈëÏµÍ³»·¾³±äÁ¿ PATH.%reset%
 ) else (
     set "new_path=%current_path%"
-    echo %blue_fg_strong%[INFO] miniconda3 already exists in PATH.%reset%
+    echo %blue_fg_strong%[ÐÅÏ¢] miniconda3 ÒÑ¾­´æÔÚÏµÍ³»·¾³±äÁ¿ PATH.%reset%
 )
 
 REM Check if Miniconda3 is installed if not then install Miniconda3
 call conda --version > nul 2>&1
 if %errorlevel% neq 0 (
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] Miniconda3 is not installed on this system.%reset%
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing Miniconda3 using Winget...
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] Miniconda3 Î´°²×° .%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ °²×° Miniconda3 ...
     winget install -e --id Anaconda.Miniconda3
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Miniconda3 installed successfully. Please restart the Installer.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% %green_fg_strong%Miniconda3 °²×°³É¹¦£¬ÇëÖØÆô°²×°Æ÷.%reset%
     pause
     exit
 ) else (
-    echo %blue_fg_strong%[INFO] Miniconda3 is already installed.%reset%
+    echo %blue_fg_strong%[ÐÅÏ¢] Miniconda3 ÒÑ¾­°²×°ºÃÁË.%reset%
 )
 
 REM Check if Python App Execution Aliases exist
 if exist "%LOCALAPPDATA%\Microsoft\WindowsApps\python.exe" (
     REM Disable App Execution Aliases for python.exe
     powershell.exe Remove-Item "%LOCALAPPDATA%\Microsoft\WindowsApps\python.exe" -Force
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Removed Execution Alias for python.exe%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% %green_fg_strong%ÒÆ³ýÖ´ÐÐ±ðÃû for python.exe%reset%
 ) else (
-    echo %blue_fg_strong%[INFO] Execution Alias for python.exe was already removed.%reset%
+    echo %blue_fg_strong%[ÐÅÏ¢] python.exe Ö´ÐÐ±ðÃûÒÑÒÆ³ý.%reset%
 )
 
 REM Check if python3.exe App Execution Alias exists
 if exist "%LOCALAPPDATA%\Microsoft\WindowsApps\python3.exe" (
     REM Disable App Execution Aliases for python3.exe
     powershell.exe Remove-Item "%LOCALAPPDATA%\Microsoft\WindowsApps\python3.exe" -Force
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Removed Execution Alias for python3.exe%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% %green_fg_strong%ÒÆ³ýÖ´ÐÐ±ðÃû for python3.exe%reset%
 ) else (
-    echo %blue_fg_strong%[INFO] Execution Alias for python3.exe was already removed.%reset%
+    echo %blue_fg_strong%[ÐÅÏ¢]  python3.exe Ö´ÐÐ±ðÃûÒÑÒÆ³ý.%reset%
 )
 
 
 REM Installer menu - Frontend
 :installer
-title STL [INSTALLER]
+title STL [°²×°]
 cls
-echo %blue_fg_strong%/ Installer%reset%
+echo %blue_fg_strong%/ °²×°%reset%
 echo ---------------------------------------------------------------
-echo What would you like to do?
-echo 1. Install SillyTavern
-echo 2. Install Extras
-echo 3. Install XTTS
-echo 4. Install All Options From Above
-echo 5. Support
-echo 0. Exit
+echo ÄãÏëÅªÉ¶àÏ£¿
+echo 1. °²×° SillyTavern
+echo 2. °²×° Extras
+echo 3. °²×° XTTS
+echo 4. °²×° ÒÔÉÏÈ«²¿
+echo 5. Ö§³Ö
+echo 0. Àë¿ª
 
 set "choice="
 set /p "choice=Choose Your Destiny (default is 1): "
@@ -237,42 +237,42 @@ if "%choice%"=="1" (
 ) else if "%choice%"=="0" (
     exit
 ) else (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Invalid input. Please enter a valid number.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ÊäÈëÎÞÐ§.ÇëÊäÈëÒ»¸öÓÐÐ§Êý×Ö.%reset%
     pause
     goto :installer
 )
 
 :install_sillytavern
-title STL [INSTALL SILLYTAVERN]
+title STL [°²×° SILLYTAVERN]
 cls
-echo %blue_fg_strong%/ Installer / Install SillyTavern%reset%
+echo %blue_fg_strong%/ °²×° / °²×° SillyTavern%reset%
 echo ---------------------------------------------------------------
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing SillyTavern...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° SillyTavern...
 
 set max_retries=3
 set retry_count=0
 
 :retry_install_sillytavern
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Cloning SillyTavern repository...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ¿ËÂ¡ SillyTavern ²Ö¿â...
 git clone https://github.com/SillyTavern/SillyTavern.git
 
 if %errorlevel% neq 0 (
     set /A retry_count+=1
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] Retry %retry_count% of %max_retries%%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] Retry %retry_count% of %max_retries%%reset%
     if %retry_count% lss %max_retries% goto :retry_install_sillytavern
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Failed to clone repository after %max_retries% retries.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ¿ËÂ¡²Ö¿âÊ§°Ü ÔÚ %max_retries% ÔÙÊÔ.%reset%
     pause
     goto :installer
 )
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%SillyTavern installed successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% %green_fg_strong%SillyTavern ÒÑ³É¹¦°²×°.%reset%
 
 REM Ask if the user wants to create a shortcut
-set /p create_shortcut=Do you want to create a shortcut on the desktop? [Y/n] 
+set /p create_shortcut=ÄãÏë´´½¨×ÀÃæ¿ì½Ý·½Ê½Âð? [Y/n] 
 if /i "%create_shortcut%"=="Y" (
 
     REM Create the shortcut
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Creating shortcut for ST-Launcher...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ´´½¨¿ì½Ý·½Ê½ ST-Launcher...
     %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -Command ^
         "$WshShell = New-Object -ComObject WScript.Shell; " ^
         "$Shortcut = $WshShell.CreateShortcut('%stl_desktopPath%\%stl_shortcutName%'); " ^
@@ -281,10 +281,10 @@ if /i "%create_shortcut%"=="Y" (
         "$Shortcut.WorkingDirectory = '%stl_startIn%'; " ^
         "$Shortcut.Description = '%stl_comment%'; " ^
         "$Shortcut.Save()"
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Shortcut created on the desktop.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% %green_fg_strong%¿ì½Ý·½Ê½ÒÑ´´½¨ÔÚ×ÀÃæ.%reset%
 
     REM Create the shortcut (start.bat)
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Creating shortcut for SillyTavern...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ´´½¨¿ì½Ý·½Ê½ SillyTavern...
     %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -Command ^
         "$WshShell = New-Object -ComObject WScript.Shell; " ^
         "$Shortcut = $WshShell.CreateShortcut('%st_desktopPath%\%st_shortcutName%'); " ^
@@ -293,15 +293,15 @@ if /i "%create_shortcut%"=="Y" (
         "$Shortcut.WorkingDirectory = '%st_startIn%'; " ^
         "$Shortcut.Description = '%st_comment%'; " ^
         "$Shortcut.Save()"
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Shortcut created on the desktop.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% %green_fg_strong%¿ì½Ý·½Ê½ÒÑ´´½¨ÔÚ×ÀÃæ.%reset%
 )
 
 
 REM Ask if the user wants to start the launcher.bat
-set /p start_launcher=Start the launcher now? [Y/n] 
+set /p start_launcher=ÏÖÔÚ´ò¿ªÆô¶¯Æ÷? [Y/n] 
 if /i "%start_launcher%"=="Y" (
     REM Run the launcher
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running launcher in a new window...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÔÚÐÂ´°¿Ú´ò¿ªÆô¶¯Æ÷...
     cd /d "%~dp0"
     start cmd /k launcher.bat
     exit
@@ -310,29 +310,29 @@ goto :installer
 
 
 :install_extras
-title STL [INSTALL EXTRAS]
+title STL [°²×° EXTRAS]
 cls
-echo %blue_fg_strong%/ Installer / Install Extras%reset%
+echo %blue_fg_strong%/ °²×° / °²×° Extras%reset%
 echo ---------------------------------------------------------------
 setlocal enabledelayedexpansion
 chcp 65001 > nul
 
 REM Confirm with the user before proceeding
 echo.
-echo %red_bg%â•”â•â•â•â• INSTALL SUMMARY â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—%reset%
-echo %red_bg%â•‘ Extras has been DISCONTINUED since April 2024 and WON'T receive any new updates or modules.   â•‘%reset%
-echo %red_bg%â•‘ The vast majority of modules are available natively in the main SillyTavern application.      â•‘%reset%
-echo %red_bg%â•‘ You may still install and use it but DON'T expect to get support if you face any issues.      â•‘%reset%
-echo %red_bg%â•‘ Below is a list of package requirements that will get installed:                              â•‘%reset%
-echo %red_bg%â•‘ * SillyTavern-extras [Size: 65 MB]                                                            â•‘%reset%
-echo %red_bg%â•‘ * Visual Studio BuildTools 2022 [Size: 3,10 GB]                                               â•‘%reset%
-echo %red_bg%â•‘ * Miniconda3 [INSTALLED] [Size: 630 MB]                                                       â•‘%reset%
-echo %red_bg%â•‘ * Miniconda3 env - extras [Size: 9,98 GB]                                                     â•‘%reset%
-echo %red_bg%â•‘ * Git [INSTALLED] [Size: 338 MB]                                                              â•‘%reset%
-echo %red_bg%â•‘ * Microsoft Visual C++ 2015-2022 Redistributable (x64) [Size: 20,6 MB]                        â•‘%reset%
-echo %red_bg%â•‘ * Microsoft Visual C++ 2015-2022 Redistributable (x86) [Size: 18 MB]                          â•‘%reset%
-echo %red_bg%â•‘ TOTAL INSTALL SIZE: 13,67 GB                                                                  â•‘%reset%
-echo %red_bg%â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•%reset%
+echo %red_bg%a?¡±a??a??a??a?? INSTALL SUMMARY a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a?¡ª%reset%
+echo %red_bg%a?¡® Extras has been DISCONTINUED since April 2024 and WON'T receive any new updates or modules.   a?¡®%reset%
+echo %red_bg%a?¡® The vast majority of modules are available natively in the main SillyTavern application.      a?¡®%reset%
+echo %red_bg%a?¡® You may still install and use it but DON'T expect to get support if you face any issues.      a?¡®%reset%
+echo %red_bg%a?¡® Below is a list of package requirements that will get installed:                              a?¡®%reset%
+echo %red_bg%a?¡® * SillyTavern-extras [Size: 65 MB]                                                            a?¡®%reset%
+echo %red_bg%a?¡® * Visual Studio BuildTools 2022 [Size: 3,10 GB]                                               a?¡®%reset%
+echo %red_bg%a?¡® * Miniconda3 [INSTALLED] [Size: 630 MB]                                                       a?¡®%reset%
+echo %red_bg%a?¡® * Miniconda3 env - extras [Size: 9,98 GB]                                                     a?¡®%reset%
+echo %red_bg%a?¡® * Git [INSTALLED] [Size: 338 MB]                                                              a?¡®%reset%
+echo %red_bg%a?¡® * Microsoft Visual C++ 2015-2022 Redistributable (x64) [Size: 20,6 MB]                        a?¡®%reset%
+echo %red_bg%a?¡® * Microsoft Visual C++ 2015-2022 Redistributable (x86) [Size: 18 MB]                          a?¡®%reset%
+echo %red_bg%a?¡® TOTAL INSTALL SIZE: 13,67 GB                                                                  a?¡®%reset%
+echo %red_bg%a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??%reset%
 echo.
 set /p "confirmation=Are you sure you want to proceed? [Y/N]: "
 if /i "%confirmation%"=="Y" (
@@ -344,11 +344,11 @@ if /i "%confirmation%"=="Y" (
 
 :install_extras_y
 REM GPU menu - Frontend
-echo What is your GPU?
+echo ÄÄ¸öÊÇÄãµÄ GPU ?
 echo 1. NVIDIA
 echo 2. AMD
-echo 3. None (CPU-only mode)
-echo 0. Cancel install
+echo 3. None (CPU-only Ä£Ê½)
+echo 0. È¡Ïû°²×°
 
 setlocal enabledelayedexpansion
 chcp 65001 > nul
@@ -358,115 +358,115 @@ for /f "skip=1 delims=" %%i in ('wmic path win32_videocontroller get caption') d
 )
 
 echo.
-echo %blue_bg%â•”â•â•â•â• GPU INFO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—%reset%
-echo %blue_bg%â•‘                                               â•‘%reset%
-echo %blue_bg%â•‘* %gpu_info:~1%                   â•‘%reset%
-echo %blue_bg%â•‘                                               â•‘%reset%
-echo %blue_bg%â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•%reset%
+echo %blue_bg%a?¡±a??a??a??a?? GPU ÐÅÏ¢ a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a?¡ª%reset%
+echo %blue_bg%a?¡®                                               a?¡®%reset%
+echo %blue_bg%a?¡®* %gpu_info:~1%                   a?¡®%reset%
+echo %blue_bg%a?¡®                                               a?¡®%reset%
+echo %blue_bg%a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??%reset%
 echo.
 
 endlocal
-set /p gpu_choice=Enter number corresponding to your GPU: 
+set /p gpu_choice=ÊäÈëÓëGPU¶ÔÓ¦µÄÊý×Ö: 
 
 REM GPU menu - Backend
-REM Set the GPU choice in an environment variable for choise callback
+REM Set the GPU choice in an »·¾³ variable for choise callback
 set "GPU_CHOICE=%gpu_choice%"
 
 REM Check the user's response
 if "%gpu_choice%"=="1" (
     REM Install pip requirements
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% GPU choice set to NVIDIA
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% GPU Ñ¡ÔñÉèÖÃÎª NVIDIA
     goto :install_extras_pre
 ) else if "%gpu_choice%"=="2" (
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% GPU choice set to AMD
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% GPU Ñ¡ÔñÉèÖÃÎª AMD
     goto :install_extras_pre
 ) else if "%gpu_choice%"=="3" (
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Using CPU-only mode
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% Ê¹ÓÃ CPU-only Ä£Ê½
     goto :install_extras_pre
 ) else if "%gpu_choice%"=="0" (
     goto :installer
 ) else (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Invalid input. Please enter a valid number.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ÊäÈëÎÞÐ§.ÇëÊäÈëÒ»¸öÓÐÐ§Êý×Ö.%reset%
     pause
     goto :install_extras_y
 )
 
 :install_extras_pre
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing Extras...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° Extras...
 
 set max_retries=3
 set retry_count=0
 
 :retry_extras_pre
-REM Clone the SillyTavern Extras repository
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Cloning SillyTavern-extras repository...
+REM Clone the SillyTavern Extras ²Ö¿â
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ¿ËÂ¡ SillyTavern-extras ²Ö¿â...
 git clone https://github.com/SillyTavern/SillyTavern-extras.git
 
 if %errorlevel% neq 0 (
     set /A retry_count+=1
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] Retry %retry_count% of %max_retries%%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] Retry %retry_count% of %max_retries%%reset%
     if %retry_count% lss %max_retries% goto :retry_extras_pre
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Failed to clone repository after %max_retries% retries.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ¿ËÂ¡²Ö¿âÊ§°Ü ÔÚ %max_retries% retries.%reset%
     pause
     goto :installer
 )
 
 
-REM Create a Conda environment named extras
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Creating Conda environment: %cyan_fg_strong%extras%reset%
+REM Create a Conda »·¾³ named extras
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ´´½¨ Conda »·¾³: %cyan_fg_strong%extras%reset%
 call conda create -n extras python=3.11 -y
 
-REM Activate the conda environment named extras
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Activating Conda environment: %cyan_fg_strong%extras%reset%
+REM Activate the conda »·¾³ named extras
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ¼¤»î Conda »·¾³: %cyan_fg_strong%extras%reset%
 call conda activate extras
 
-REM Navigate to the SillyTavern-extras directory
+REM Navigate to the SillyTavern-extras Ä¿Â¼
 cd "%~dp0SillyTavern-extras"
 
 REM Use the GPU choice made earlier to install requirements for extras
 if "%GPU_CHOICE%"=="1" (
-    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[extras]%reset% %blue_fg_strong%[INFO]%reset% Installing modules for NVIDIA from requirements.txt in conda enviroment: %cyan_fg_strong%extras%reset%
+    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[extras]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚconda»·¾³ÖÐ´Órequirements.txtµÄÉèÖÃ°²×°NVIDIAÄ£¿é: %cyan_fg_strong%extras%reset%
     call conda install -c conda-forge faiss-gpu -y
     pip install -r requirements.txt
     goto :install_extras_post
 ) else if "%GPU_CHOICE%"=="2" (
-    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[extras]%reset% %blue_fg_strong%[INFO]%reset% Installing modules for AMD from requirements-rocm.txt in conda enviroment: %cyan_fg_strong%extras%reset%
+    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[extras]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚconda»·¾³ÖÐ´Órequirements-rocm.txtµÄÉèÖÃ°²×°AMDÄ£¿é: %cyan_fg_strong%extras%reset%
     pip install -r requirements-rocm.txt
     goto :install_extras_post
 ) else if "%GPU_CHOICE%"=="3" (
-    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[extras]%reset% %blue_fg_strong%[INFO]%reset% Installing modules for CPU from requirements-silicon.txt in conda enviroment: %cyan_fg_strong%extras%reset%
+    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[extras]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚconda»·¾³ÖÐ´Órequirements-silicon.txtµÄÉèÖÃ°²×°CPUÄ£¿é: %cyan_fg_strong%extras%reset%
     pip install -r requirements-silicon.txt
     goto :install_extras_post
 )
 
 :install_extras_post
-echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[extras]%reset% %blue_fg_strong%[INFO]%reset% Installing pip requirements from requirements-rvc.txt in conda enviroment: %cyan_fg_strong%extras%reset%
+echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[extras]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° pip requirements from requirements-rvc.txt in conda enviroment: %cyan_fg_strong%extras%reset%
 pip install -r requirements-rvc.txt
 pip install tensorboardX
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing Microsoft.VCRedist.2015+.x64...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° Microsoft.VCRedist.2015+.x64...
 winget install -e --id Microsoft.VCRedist.2015+.x64
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing Microsoft.VCRedist.2015+.x86...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° Microsoft.VCRedist.2015+.x86...
 winget install -e --id Microsoft.VCRedist.2015+.x86
 
 REM Check if file exists
 if not exist "%temp%\vs_buildtools.exe" (
     curl -L -o "%temp%\vs_buildtools.exe" "https://aka.ms/vs/17/release/vs_BuildTools.exe"
 ) else (
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO] "vs_buildtools.exe" file already exists.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢] "vs_buildtools.exe" ÎÄ¼þÒÑ´æÔÚ.%reset%
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing vs_BuildTools...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° vs_BuildTools...
 start "" "%temp%\vs_buildtools.exe" --norestart --passive --downloadThenInstall --includeRecommended --add Microsoft.VisualStudio.Workload.NativeDesktop --add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Workload.MSBuildTools
 
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Extras installed successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% %green_fg_strong%Extras ÒÑ³É¹¦°²×°.%reset%
 
 REM Ask if the user wants to start the launcher.bat
-set /p start_launcher=Start the launcher now? [Y/n] 
+set /p start_launcher=ÏÖÔÚ´ò¿ªÆô¶¯Æ÷? [Y/n] 
 if /i "%start_launcher%"=="Y" (
     REM Run the launcher
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running launcher in a new window...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÔÚÐÂ´°¿Ú´ò¿ªÆô¶¯Æ÷...
     cd /d "%~dp0"
     start cmd /k launcher.bat
     exit
@@ -475,17 +475,17 @@ goto :installer
 
 
 :install_xtts
-title STL [INSTALL XTTS]
+title STL [°²×° XTTS]
 cls
-echo %blue_fg_strong%/ Installer / Install XTTS%reset%
+echo %blue_fg_strong%/ °²×° / °²×° XTTS%reset%
 echo ---------------------------------------------------------------
 
 REM GPU menu - Frontend
-echo What is your GPU?
+echo ÄÄ¸öÊÇÄãµÄ GPU?
 echo 1. NVIDIA
 echo 2. AMD
-echo 3. None (CPU-only mode)
-echo 0. Cancel install
+echo 3. None (CPU-only Ä£Ê½)
+echo 0. È¡Ïû°²×°
 
 setlocal enabledelayedexpansion
 chcp 65001 > nul
@@ -495,35 +495,35 @@ for /f "skip=1 delims=" %%i in ('wmic path win32_videocontroller get caption') d
 )
 
 echo.
-echo %blue_bg%â•”â•â•â•â• GPU INFO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—%reset%
-echo %blue_bg%â•‘                                               â•‘%reset%
-echo %blue_bg%â•‘* %gpu_info:~1%                   â•‘%reset%
-echo %blue_bg%â•‘                                               â•‘%reset%
-echo %blue_bg%â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•%reset%
+echo %blue_bg%a?¡±a??a??a??a?? GPU ÐÅÏ¢ a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a?¡ª%reset%
+echo %blue_bg%a?¡®                                               a?¡®%reset%
+echo %blue_bg%a?¡®* %gpu_info:~1%                   a?¡®%reset%
+echo %blue_bg%a?¡®                                               a?¡®%reset%
+echo %blue_bg%a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??%reset%
 echo.
 
 endlocal
-set /p gpu_choice=Enter number corresponding to your GPU: 
+set /p gpu_choice=ÊäÈëÓëGPU¶ÔÓ¦µÄÊý×Ö: 
 
 REM GPU menu - Backend
-REM Set the GPU choice in an environment variable for choise callback
+REM Set the GPU choice in an »·¾³ variable for choise callback
 set "GPU_CHOICE=%gpu_choice%"
 
 REM Check the user's response
 if "%gpu_choice%"=="1" (
     REM Install pip requirements
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% GPU choice set to NVIDIA
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% GPU Ñ¡ÔñÉèÖÃÎª NVIDIA
     goto :install_xtts_pre
 ) else if "%gpu_choice%"=="2" (
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% GPU choice set to AMD
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% GPU Ñ¡ÔñÉèÖÃÎª AMD
     goto :install_xtts_pre
 ) else if "%gpu_choice%"=="3" (
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Using CPU-only mode
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% Ê¹ÓÃ CPU-only Ä£Ê½
     goto :install_xtts_pre
 ) else if "%gpu_choice%"=="0" (
     goto :installer
 ) else (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Invalid input. Please enter a valid number.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ÊäÈëÎÞÐ§.ÇëÊäÈëÒ»¸öÓÐÐ§Êý×Ö.%reset%
     pause
     goto :install_xtts
 )
@@ -531,101 +531,101 @@ if "%gpu_choice%"=="1" (
 REM Check if the folder exists
 if not exist "%~dp0voice-generation" (
     mkdir "%~dp0voice-generation"
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Created folder: "voice-generation"  
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ´´½¨ÎÄ¼þ¼Ð: "voice-generation"  
 ) else (
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO] "voice-generation" folder already exists.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢] "voice-generation" ÎÄ¼þ¼ÐÒÑ´æÔÚ.%reset%
 )
 cd /d "%~dp0voice-generation"
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing XTTS...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° XTTS...
 
 REM Activate the Miniconda installation
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Activating Miniconda environment...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ¼¤»î Miniconda »·¾³...
 call "%miniconda_path%\Scripts\activate.bat"
 
-REM Create a Conda environment named xtts
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Creating Conda environment: %cyan_fg_strong%xtts%reset%
+REM Create a Conda »·¾³ named xtts
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ´´½¨ Conda »·¾³: %cyan_fg_strong%xtts%reset%
 call conda create -n xtts python=3.10 -y
 
-REM Activate the xtts environment
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Activating Conda environment: %cyan_fg_strong%xtts%reset%
+REM Activate the xtts »·¾³
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ¼¤»î Conda »·¾³: %cyan_fg_strong%xtts%reset%
 call conda activate xtts
 
 REM Use the GPU choice made earlier to install requirements for XTTS
 if "%GPU_CHOICE%"=="1" (
-    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[xtts]%reset% %blue_fg_strong%[INFO]%reset% Installing NVIDIA version of PyTorch in conda enviroment: %cyan_fg_strong%xtts%reset%
+    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[xtts]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° NVIDIA version of PyTorch in conda enviroment: %cyan_fg_strong%xtts%reset%
     pip install torch==2.1.1+cu118 torchvision==0.16.1+cu118  torchaudio==2.1.1+cu118 --index-url https://download.pytorch.org/whl/cu118
     goto :install_xtts_final
 ) else if "%GPU_CHOICE%"=="2" (
-    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[xtts]%reset% %blue_fg_strong%[INFO]%reset% Installing AMD version of PyTorch in conda enviroment: %cyan_fg_strong%xtts%reset%
+    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[xtts]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° AMD version of PyTorch in conda enviroment: %cyan_fg_strong%xtts%reset%
     pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm5.6
     goto :install_xtts_final
 ) else if "%GPU_CHOICE%"=="3" (
-    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[xtts]%reset% %blue_fg_strong%[INFO]%reset% Installing CPU-only version of PyTorch in conda enviroment: %cyan_fg_strong%xtts%reset%
+    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[xtts]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° CPU-only version of PyTorch in conda enviroment: %cyan_fg_strong%xtts%reset%
     pip install torch torchvision torchaudio
     goto :install_xtts_final
 )
 :install_xtts_final
-REM Clone the xtts-api-server repository for voice examples
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Cloning xtts-api-server repository...
+REM Clone the xtts-api-server ²Ö¿â for voice examples
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ¿ËÂ¡ xtts-api-server ²Ö¿â...
 git clone https://github.com/daswer123/xtts-api-server.git
 cd /d "xtts-api-server"
 
 REM Create requirements-custom.txt to install pip requirements
-echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[xtts]%reset% %blue_fg_strong%[INFO]%reset% Creating file: requirements-custom.txt%reset%
+echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[xtts]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ´´½¨ ÎÄ¼þ: requirements-custom.txt%reset%
 echo xtts-api-server > requirements-custom.txt
 echo pydub >> requirements-custom.txt
 echo stream2sentence >> requirements-custom.txt
 echo spacy==3.7.4 >> requirements-custom.txt
 
 REM Install pip requirements
-echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[xtts]%reset% %blue_fg_strong%[INFO]%reset% Installing pip requirements in conda enviroment: %cyan_fg_strong%xtts%reset%
+echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[xtts]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° pip requirements in conda enviroment: %cyan_fg_strong%xtts%reset%
 pip install -r requirements-custom.txt
 
-REM Create folders for xtts
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Creating xtts folders...
+REM Create ÎÄ¼þ¼Ð for xtts
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ´´½¨ xtts ÎÄ¼þ¼Ð...
 mkdir "%~dp0voice-generation\xtts"
 mkdir "%~dp0voice-generation\xtts\speakers"
 mkdir "%~dp0voice-generation\xtts\output"
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Adding voice examples to speakers directory...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ½«ÓïÒôÊ¾ÀýÌí¼Óµ½speakersÄ¿Â¼...
 xcopy "%~dp0voice-generation\xtts-api-server\example\*" "%~dp0voice-generation\xtts\speakers\" /y /e
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Removing the xtts-api-server directory...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚÒÆ³ý the xtts-api-server Ä¿Â¼...
 cd /d "%~dp0"
 rmdir /s /q "%~dp0voice-generation\xtts-api-server"
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%XTTS installed successfully%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% %green_fg_strong%XTTS ÒÑ³É¹¦°²×°%reset%
 pause
 goto :installer
 
 
 :install_all
-title STL [INSTALL EVERYTHING]
+title STL [°²×° EVERYTHING]
 cls
-echo %blue_fg_strong%/ Installer / Install Everything%reset%
+echo %blue_fg_strong%/ °²×° / °²×° Everything%reset%
 echo ---------------------------------------------------------------
 setlocal enabledelayedexpansion
 chcp 65001 > nul
 
 REM Confirm with the user before proceeding
 echo.
-echo %blue_bg%â•”â•â•â•â• INSTALL SUMMARY â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—%reset%
-echo %blue_bg%â•‘ You are about to install all options from the installer.                                      â•‘%reset%
-echo %blue_bg%â•‘ This will include the following options: SillyTavern, SillyTavern-Extras and XTTS             â•‘%reset%
-echo %blue_bg%â•‘ Below is a list of package requirements that will get installed:                              â•‘%reset%
-echo %blue_bg%â•‘ * SillyTavern [Size: 478 MB]                                                                  â•‘%reset%
-echo %blue_bg%â•‘ * SillyTavern-extras [Size: 65 MB]                                                            â•‘%reset%
-echo %blue_bg%â•‘ * xtts [Size: 1.74 GB]                                                                        â•‘%reset%
-echo %blue_bg%â•‘ * Visual Studio BuildTools 2022 [Size: 3.10 GB]                                               â•‘%reset%
-echo %blue_bg%â•‘ * Miniconda3 [INSTALLED] [Size: 630 MB]                                                       â•‘%reset%
-echo %blue_bg%â•‘ * Miniconda3 env - xtts [Size: 6.98 GB]                                                       â•‘%reset%
-echo %blue_bg%â•‘ * Miniconda3 env - extras [Size: 9.98 GB]                                                     â•‘%reset%
-echo %blue_bg%â•‘ * Git [INSTALLED] [Size: 338 MB]                                                              â•‘%reset%
-echo %blue_bg%â•‘ * Node.js [Size: 87.5 MB]                                                                     â•‘%reset%
-echo %blue_bg%â•‘ * Microsoft Visual C++ 2015-2022 Redistributable (x64) [Size: 20.6 MB]                        â•‘%reset%
-echo %blue_bg%â•‘ * Microsoft Visual C++ 2015-2022 Redistributable (x86) [Size: 18 MB]                          â•‘%reset%
-echo %blue_bg%â•‘ TOTAL INSTALL SIZE: 22.56 GB                                                                  â•‘%reset%
-echo %blue_bg%â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•%reset%
+echo %blue_bg%a?¡±a??a??a??a?? INSTALL SUMMARY a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a?¡ª%reset%
+echo %blue_bg%a?¡® You are about to install all options from the installer.                                      a?¡®%reset%
+echo %blue_bg%a?¡® This will include the following options: SillyTavern, SillyTavern-Extras and XTTS             a?¡®%reset%
+echo %blue_bg%a?¡® Below is a list of package requirements that will get installed:                              a?¡®%reset%
+echo %blue_bg%a?¡® * SillyTavern [Size: 478 MB]                                                                  a?¡®%reset%
+echo %blue_bg%a?¡® * SillyTavern-extras [Size: 65 MB]                                                            a?¡®%reset%
+echo %blue_bg%a?¡® * xtts [Size: 1.74 GB]                                                                        a?¡®%reset%
+echo %blue_bg%a?¡® * Visual Studio BuildTools 2022 [Size: 3.10 GB]                                               a?¡®%reset%
+echo %blue_bg%a?¡® * Miniconda3 [INSTALLED] [Size: 630 MB]                                                       a?¡®%reset%
+echo %blue_bg%a?¡® * Miniconda3 env - xtts [Size: 6.98 GB]                                                       a?¡®%reset%
+echo %blue_bg%a?¡® * Miniconda3 env - extras [Size: 9.98 GB]                                                     a?¡®%reset%
+echo %blue_bg%a?¡® * Git [INSTALLED] [Size: 338 MB]                                                              a?¡®%reset%
+echo %blue_bg%a?¡® * Node.js [Size: 87.5 MB]                                                                     a?¡®%reset%
+echo %blue_bg%a?¡® * Microsoft Visual C++ 2015-2022 Redistributable (x64) [Size: 20.6 MB]                        a?¡®%reset%
+echo %blue_bg%a?¡® * Microsoft Visual C++ 2015-2022 Redistributable (x86) [Size: 18 MB]                          a?¡®%reset%
+echo %blue_bg%a?¡® TOTAL INSTALL SIZE: 22.56 GB                                                                  a?¡®%reset%
+echo %blue_bg%a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??%reset%
 echo.
 set /p "confirmation=Are you sure you want to proceed? [Y/N]: "
 if /i "%confirmation%"=="Y" (
@@ -637,11 +637,11 @@ if /i "%confirmation%"=="Y" (
 
 :install_all_y
 REM GPU menu - Frontend
-echo What is your GPU?
+echo ÄÄ¸öÊÇÄãµÄ GPU?
 echo 1. NVIDIA
 echo 2. AMD
-echo 3. None (CPU-only mode)
-echo 0. Cancel install
+echo 3. None (CPU-only Ä£Ê½)
+echo 0. È¡Ïû°²×°
 
 setlocal enabledelayedexpansion
 chcp 65001 > nul
@@ -651,195 +651,195 @@ for /f "skip=1 delims=" %%i in ('wmic path win32_videocontroller get caption') d
 )
 
 echo.
-echo %blue_bg%â•”â•â•â•â• GPU INFO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—%reset%
-echo %blue_bg%â•‘                                               â•‘%reset%
-echo %blue_bg%â•‘* %gpu_info:~1%                   â•‘%reset%
-echo %blue_bg%â•‘                                               â•‘%reset%
-echo %blue_bg%â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•%reset%
+echo %blue_bg%a?¡±a??a??a??a?? GPU ÐÅÏ¢ a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a?¡ª%reset%
+echo %blue_bg%a?¡®                                               a?¡®%reset%
+echo %blue_bg%a?¡®* %gpu_info:~1%                   a?¡®%reset%
+echo %blue_bg%a?¡®                                               a?¡®%reset%
+echo %blue_bg%a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??a??%reset%
 echo.
 
 endlocal
-set /p gpu_choice=Enter number corresponding to your GPU: 
+set /p gpu_choice=ÊäÈëÓëGPU¶ÔÓ¦µÄÊý×Ö: 
 
 REM GPU menu - Backend
-REM Set the GPU choice in an environment variable for choise callback
+REM Set the GPU choice in an »·¾³ variable for choise callback
 set "GPU_CHOICE=%gpu_choice%"
 
 REM Check the user's response
 if "%gpu_choice%"=="1" (
     REM Install pip requirements
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% GPU choice set to NVIDIA
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% GPU Ñ¡ÔñÉèÖÃÎª NVIDIA
     goto :install_all_pre
 ) else if "%gpu_choice%"=="2" (
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% GPU choice set to AMD
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% GPU Ñ¡ÔñÉèÖÃÎª AMD
     goto :install_all_pre
 ) else if "%gpu_choice%"=="3" (
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Using CPU-only mode
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% Ê¹ÓÃ CPU-only Ä£Ê½
     goto :install_all_pre
 ) else if "%gpu_choice%"=="0" (
     goto :installer
 ) else (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Invalid input. Please enter a valid number.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ÊäÈëÎÞÐ§.ÇëÊäÈëÒ»¸öÓÐÐ§Êý×Ö.%reset%
     pause
     goto :install_all
 )
 
 :install_all_pre
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing SillyTavern + Extras + XTTS...
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing SillyTavern...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° SillyTavern + Extras + XTTS...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° SillyTavern...
 
 set max_retries=3
 set retry_count=0
 
 :retry_st_extras_pre
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Cloning SillyTavern repository...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ¿ËÂ¡ SillyTavern ²Ö¿â...
 git clone https://github.com/SillyTavern/SillyTavern.git
 
-if %errorlevel% neq 0 (
+if %´íÎólevel% neq 0 (
     set /A retry_count+=1
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] Retry %retry_count% of %max_retries%%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] Retry %retry_count% of %max_retries%%reset%
     if %retry_count% lss %max_retries% goto :retry_st_extras_pre
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Failed to clone repository after %max_retries% retries.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ¿ËÂ¡²Ö¿âÊ§°Ü ÔÚ %max_retries% retries.%reset%
     pause
     goto :installer
 )
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%SillyTavern installed successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% %green_fg_strong%SillyTavern ÒÑ³É¹¦°²×°.%reset%
 
-REM Clone the SillyTavern Extras repository
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing Extras...
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Cloning SillyTavern-extras repository...
+REM Clone the SillyTavern Extras ²Ö¿â
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° Extras...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ¿ËÂ¡ SillyTavern-extras ²Ö¿â...
 git clone https://github.com/SillyTavern/SillyTavern-extras.git
 
 REM Install script for XTTS 
     REM Check if the folder exists
     if not exist "%~dp0voice-generation" (
         mkdir "%~dp0voice-generation"
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Created folder: "voice-generation"  
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ´´½¨ÎÄ¼þ¼Ð: "voice-generation"  
     ) else (
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO] "voice-generation" folder already exists.%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢] "voice-generation" ÎÄ¼þ¼ÐÒÑ´æÔÚ.%reset%
     )
     cd /d "%~dp0voice-generation"
 
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing XTTS...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° XTTS...
 
     REM Activate the Miniconda installation
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Activating Miniconda environment...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ¼¤»î Miniconda »·¾³...
     call "%miniconda_path%\Scripts\activate.bat"
 
-    REM Create a Conda environment named xtts
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Creating Conda environment: %cyan_fg_strong%xtts%reset%
+    REM Create a Conda »·¾³ named xtts
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ´´½¨ Conda »·¾³: %cyan_fg_strong%xtts%reset%
     call conda create -n xtts python=3.10 -y
 
-    REM Activate the conda environment named xtts 
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Activating Conda environment: %cyan_fg_strong%xtts%reset%
+    REM Activate the conda »·¾³ named xtts 
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ¼¤»î Conda »·¾³: %cyan_fg_strong%xtts%reset%
     call conda activate xtts
 
     REM Use the GPU choice made earlier to install requirements for XTTS
     if "%GPU_CHOICE%"=="1" (
-        echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[xtts]%reset% %blue_fg_strong%[INFO]%reset% Installing NVIDIA version of PyTorch in conda enviroment: %cyan_fg_strong%xtts%reset%
+        echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[xtts]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° NVIDIA version of PyTorch in conda enviroment: %cyan_fg_strong%xtts%reset%
         pip install torch==2.1.1+cu118 torchvision==0.16.1+cu118  torchaudio==2.1.1+cu118 --index-url https://download.pytorch.org/whl/cu118
         goto :install_st_xtts
     ) else if "%GPU_CHOICE%"=="2" (
-        echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[xtts]%reset% %blue_fg_strong%[INFO]%reset% Installing AMD version of PyTorch in conda enviroment: %cyan_fg_strong%xtts%reset%
+        echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[xtts]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° AMD version of PyTorch in conda enviroment: %cyan_fg_strong%xtts%reset%
         pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm5.6
         goto :install_st_xtts
     ) else if "%GPU_CHOICE%"=="3" (
-        echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[xtts]%reset% %blue_fg_strong%[INFO]%reset% Installing CPU-only version of PyTorch in conda enviroment: %cyan_fg_strong%xtts%reset%
+        echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[xtts]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° CPU-only version of PyTorch in conda enviroment: %cyan_fg_strong%xtts%reset%
         pip install torch torchvision torchaudio
         goto :install_st_xtts
     )
 
     :install_st_xtts
-    REM Clone the xtts-api-server repository for voice examples
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Cloning xtts-api-server repository...
+    REM Clone the xtts-api-server ²Ö¿â for voice examples
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ¿ËÂ¡ xtts-api-server ²Ö¿â...
     git clone https://github.com/daswer123/xtts-api-server.git
     cd /d "xtts-api-server"
 
     REM Create requirements-custom.txt to install pip requirements
-    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[xtts]%reset% %blue_fg_strong%[INFO]%reset% Creating file: requirements-custom.txt%reset%
+    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[xtts]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ´´½¨ ÎÄ¼þ: requirements-custom.txt%reset%
     echo xtts-api-server > requirements-custom.txt
     echo pydub >> requirements-custom.txt
     echo stream2sentence >> requirements-custom.txt
     echo spacy==3.7.4 >> requirements-custom.txt
 
     REM Install pip requirements
-    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[xtts]%reset% %blue_fg_strong%[INFO]%reset% Installing pip requirements in conda enviroment: %cyan_fg_strong%xtts%reset%
+    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[xtts]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° pip requirements in conda enviroment: %cyan_fg_strong%xtts%reset%
     pip install -r requirements-custom.txt
 
-    REM Create folders for xtts
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Creating xtts folders...
+    REM Create ÎÄ¼þ¼Ð for xtts
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ´´½¨ xtts ÎÄ¼þ¼Ð...
     mkdir "%~dp0voice-generation\xtts"
     mkdir "%~dp0voice-generation\xtts\speakers"
     mkdir "%~dp0voice-generation\xtts\output"
 
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Adding voice examples to speakers directory...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ½«ÓïÒôÊ¾ÀýÌí¼Óµ½speakersÄ¿Â¼...
     xcopy "%~dp0voice-generation\xtts-api-server\example\*" "%~dp0voice-generation\xtts\speakers\" /y /e
 
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Removing the xtts-api-server directory...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚÒÆ³ý the xtts-api-server Ä¿Â¼...
     cd /d "%~dp0"
     rmdir /s /q "%~dp0voice-generation\xtts-api-server"
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%XTTS installed successfully%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% %green_fg_strong%XTTS ÒÑ³É¹¦°²×°%reset%
 REM End of install script for XTTS
 
 
-REM Create a Conda environment named extras
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Creating Conda environment: %cyan_fg_strong%extras%reset%
+REM Create a Conda »·¾³ named extras
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ´´½¨ Conda »·¾³: %cyan_fg_strong%extras%reset%
 call conda create -n extras python=3.11 -y
 
-REM Activate the conda environment named extras
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Activating Conda environment: %cyan_fg_strong%extras%reset%
+REM Activate the conda »·¾³ named extras
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ¼¤»î Conda »·¾³: %cyan_fg_strong%extras%reset%
 call conda activate extras
 
-REM Navigate to the SillyTavern-extras directory
+REM Navigate to the SillyTavern-extras Ä¿Â¼
 cd "%~dp0SillyTavern-extras"
 
 REM Use the GPU choice made earlier to install requirements for extras
 if "%GPU_CHOICE%"=="1" (
-    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[extras]%reset% %blue_fg_strong%[INFO]%reset% Installing modules for NVIDIA from requirements.txt in conda enviroment: %cyan_fg_strong%extras%reset% 
+    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[extras]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° ÔÚconda»·¾³ÖÐ´Órequirements.txt°²×°NVIDIAÄ£¿é: %cyan_fg_strong%extras%reset% 
     call conda install -c conda-forge faiss-gpu -y
     pip install -r requirements.txt
     goto :install_all_post
 ) else if "%GPU_CHOICE%"=="2" (
-    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[extras]%reset% %blue_fg_strong%[INFO]%reset% Installing modules for AMD from requirements-rocm.txt in conda enviroment: %cyan_fg_strong%extras%reset% 
+    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[extras]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° modules for AMD from requirements-rocm.txt in conda enviroment: %cyan_fg_strong%extras%reset% 
     pip install -r requirements-rocm.txt
     goto :install_all_post
 ) else if "%GPU_CHOICE%"=="3" (
-    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[extras]%reset% %blue_fg_strong%[INFO]%reset% Installing modules for CPU from requirements-silicon.txt in conda enviroment: %cyan_fg_strong%extras%reset% 
+    echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[extras]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° modules for CPU from requirements-silicon.txt in conda enviroment: %cyan_fg_strong%extras%reset% 
     pip install -r requirements-silicon.txt
     goto :install_all_post
 )
 
 :install_all_post
-echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[extras]%reset% %blue_fg_strong%[INFO]%reset% Installing pip requirements from requirements-rvc.txt in conda enviroment: %cyan_fg_strong%extras%reset% 
+echo %blue_bg%[%time%]%reset% %cyan_fg_strong%[extras]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° pip requirements from requirements-rvc.txt in conda enviroment: %cyan_fg_strong%extras%reset% 
 pip install -r requirements-rvc.txt
 pip install tensorboardX
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing Microsoft.VCRedist.2015+.x64...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° Microsoft.VCRedist.2015+.x64...
 winget install -e --id Microsoft.VCRedist.2015+.x64
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing Microsoft.VCRedist.2015+.x86...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° Microsoft.VCRedist.2015+.x86...
 winget install -e --id Microsoft.VCRedist.2015+.x86
 
 REM Check if file exists
 if not exist "%temp%\vs_buildtools.exe" (
     curl -L -o "%temp%\vs_buildtools.exe" "https://aka.ms/vs/17/release/vs_BuildTools.exe"
 ) else (
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO] "vs_buildtools.exe" file already exists.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢] "vs_buildtools.exe" ÎÄ¼þÒÑ´æÔÚ.%reset%
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing vs_BuildTools...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÕýÔÚ°²×° vs_BuildTools...
 start "" "%temp%\vs_buildtools.exe" --norestart --passive --downloadThenInstall --includeRecommended --add Microsoft.VisualStudio.Workload.NativeDesktop --add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Workload.MSBuildTools
 
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Extras installed successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% %green_fg_strong%Extras ÒÑ³É¹¦°²×°.%reset%
 
 
 REM Ask if the user wants to create a shortcut
-set /p create_shortcut=Do you want to create a shortcut on the desktop? [Y/n] 
+set /p create_shortcut=ÄãÏë´´½¨×ÀÃæ¿ì½Ý·½Ê½Âð? [Y/n] 
 if /i "%create_shortcut%"=="Y" (
 
     REM Create the shortcut (launcher.bat)
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Creating shortcut for ST-Launcher...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ´´½¨¿ì½Ý·½Ê½ ST-Launcher...
     %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -Command ^
         "$WshShell = New-Object -ComObject WScript.Shell; " ^
         "$Shortcut = $WshShell.CreateShortcut('%stl_desktopPath%\%stl_shortcutName%'); " ^
@@ -848,10 +848,10 @@ if /i "%create_shortcut%"=="Y" (
         "$Shortcut.WorkingDirectory = '%stl_startIn%'; " ^
         "$Shortcut.Description = '%stl_comment%'; " ^
         "$Shortcut.Save()"
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Shortcut created on the desktop.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% %green_fg_strong%¿ì½Ý·½Ê½ÒÑ´´½¨ÔÚ×ÀÃæ.%reset%
 
     REM Create the shortcut (start.bat)
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Creating shortcut for SillyTavern...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ´´½¨¿ì½Ý·½Ê½ SillyTavern...
     %SystemRoot%\system32\WindowsPowerShell\v1.0\powershell.exe -Command ^
         "$WshShell = New-Object -ComObject WScript.Shell; " ^
         "$Shortcut = $WshShell.CreateShortcut('%st_desktopPath%\%st_shortcutName%'); " ^
@@ -860,15 +860,15 @@ if /i "%create_shortcut%"=="Y" (
         "$Shortcut.WorkingDirectory = '%st_startIn%'; " ^
         "$Shortcut.Description = '%st_comment%'; " ^
         "$Shortcut.Save()"
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Shortcut created on the desktop.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% %green_fg_strong%¿ì½Ý·½Ê½ÒÑ´´½¨ÔÚ×ÀÃæ.%reset%
 )
 
 
 REM Ask if the user wants to start the launcher.bat
-set /p start_launcher=Start the launcher now? [Y/n] 
+set /p start_launcher=ÏÖÔÚ´ò¿ªÆô¶¯Æ÷? [Y/n] 
 if /i "%start_launcher%"=="Y" (
     REM Run the launcher
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running launcher in a new window...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ÐÅÏ¢]%reset% ÔÚÐÂ´°¿Ú´ò¿ªÆô¶¯Æ÷...
     cd /d "%~dp0"
     start cmd /k launcher.bat
     exit
@@ -877,15 +877,15 @@ goto :installer
 
 REM Support menu - Frontend
 :support
-title STL [SUPPORT]
+title STL [Ö§³Ö]
 cls
-echo %blue_fg_strong%/ Installer / Support%reset%
+echo %blue_fg_strong%/ °²×° / Ö§³Ö%reset%
 echo ---------------------------------------------------------------
-echo What would you like to do?
-echo 1. I want to report a issue
-echo 2. Documentation
+echo ÄãÏëÅªÉ¶ÀÕ?
+echo 1. ÎÒÏë±¨ issue(²»Äã²»Ïë)
+echo 2. ÎÄµµ
 echo 3. Discord
-echo 0. Back to Installer
+echo 0. ·µ»Ø°²×°
 
 set /p support_choice=Choose Your Destiny: 
 
@@ -899,13 +899,13 @@ if "%support_choice%"=="1" (
 ) else if "%support_choice%"=="0" (
     goto :installer
 ) else (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Invalid input. Please enter a valid number.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ÊäÈëÎÞÐ§.ÇëÊäÈëÒ»¸öÓÐÐ§Êý×Ö.%reset%
     pause
     goto :support
 )
 
 :issue_report
-start "" "https://github.com/SillyTavern/SillyTavern-Launcher/issues/new/choose"
+start "" "https://github.com/vircus/SillyTavern-Launcher-zh/issues/new/choose"
 goto :support
 
 :documentation
