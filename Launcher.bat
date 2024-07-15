@@ -1,25 +1,25 @@
 @echo off
 REM SillyTavern Launcher (STL)
-REM Created by: Deffcolony
+REM ×÷Õß: Deffcolony
+REM ºº»¯£ºÄãÏ²»¶Ê²Ã´Ö¥Ê¿
+REM ÃèÊö:
+REM ´Ë½Å±¾¿ÉÒÔÆô¶¯¡¢±¸·İºÍĞ¶ÔØÓ¦ÓÃ³ÌĞò
 REM
-REM Description:
-REM This script can launch, backup and uninstall apps
-REM
-REM This script is intended for use on Windows systems.
-REM report any issues or bugs on the GitHub repository.
+REM ´Ë½Å±¾ÓÃÓÚwindowsÏµÍ³
+REM ·¢ÏÖÈÎºÎÎÊÌâ»òBUG¡£±¨¸æ ÒÔÏÂGitHub ²Ö¿â
 REM
 REM GitHub: https://github.com/SillyTavern/SillyTavern-Launcher
 REM Issues: https://github.com/SillyTavern/SillyTavern-Launcher/issues
-title STL [STARTUP CHECK]
+title STL [Æô¶¯¼ì²é]
 setlocal
 
 set "stl_version=1.2.1"
 set "stl_title_pid=STL [TROUBLESHOOTING]"
 
-REM ANSI Escape Code for Colors
+REM ANSI±àÂëµÄÑÕÉ«
 set "reset=[0m"
 
-REM Strong Foreground Colors
+REM Ç°¾°É«
 set "white_fg_strong=[90m"
 set "red_fg_strong=[91m"
 set "green_fg_strong=[92m"
@@ -28,15 +28,15 @@ set "blue_fg_strong=[94m"
 set "magenta_fg_strong=[95m"
 set "cyan_fg_strong=[96m"
 
-REM Normal Background Colors
+REM Õı³£±³¾°É«
 set "red_bg=[41m"
 set "blue_bg=[44m"
 set "yellow_bg=[43m"
 
-REM Environment Variables (winget)
+REM »·¾³±äÁ¿ (winget)
 set "winget_path=%userprofile%\AppData\Local\Microsoft\WindowsApps"
 
-REM Environment Variables (miniconda3)
+REM »·¾³±äÁ¿ (miniconda3)
 set "miniconda_path=%userprofile%\miniconda3"
 set "miniconda_path_mingw=%userprofile%\miniconda3\Library\mingw-w64\bin"
 set "miniconda_path_usrbin=%userprofile%\miniconda3\Library\usr\bin"
@@ -105,27 +105,27 @@ set "ooba_listenport_trigger=false"
 set "ooba_apiport_trigger=false"
 set "ooba_verbose_trigger=false"
 
-REM Define variables for install locations (Core Utilities)
+REM Define variables for install locations (ºËĞÄapp)
 set "stl_root=%~dp0"
 set "st_install_path=%~dp0SillyTavern"
 set "extras_install_path=%~dp0SillyTavern-extras"
 set "st_backup_path=%~dp0SillyTavern-backups"
 
-REM Define variables for install locations (Image Generation)
+REM Define variables for install locations (Í¼Æ¬Éú³É)
 set "image_generation_dir=%~dp0image-generation"
 set "sdwebui_install_path=%image_generation_dir%\stable-diffusion-webui"
 set "sdwebuiforge_install_path=%image_generation_dir%\stable-diffusion-webui-forge"
 set "comfyui_install_path=%image_generation_dir%\ComfyUI"
 set "fooocus_install_path=%image_generation_dir%\Fooocus"
 
-REM Define variables for install locations (Text Completion)
+REM Define variables for install locations (ÎÄ±¾Éú³É)
 set "text_completion_dir=%~dp0text-completion"
 set "ooba_install_path=%text_completion_dir%\text-generation-webui"
 set "koboldcpp_install_path=%text_completion_dir%\dev-koboldcpp"
 set "llamacpp_install_path=%text_completion_dir%\dev-llamacpp"
 set "tabbyapi_install_path=%text_completion_dir%\tabbyAPI"
 
-REM Define variables for install locations (Voice Generation)
+REM Define variables for install locations (ÓïÒôÉú³É)
 set "voice_generation_dir=%~dp0voice-generation"
 set "alltalk_install_path=%voice_generation_dir%\alltalk_tts"
 set "xtts_install_path=%voice_generation_dir%\xtts"
@@ -141,13 +141,13 @@ set "toolbox_dir=%functions_dir%\Toolbox"
 set "troubleshooting_dir=%toolbox_dir%\Troubleshooting"
 set "backup_dir=%toolbox_dir%\Backup"
 
-REM Define variables for the directories for App Installer
+REM Define variables for the directories for APP°²×°
 set "app_installer_image_generation_dir=%functions_dir%\Toolbox\App_Installer\Image_Generation"
 set "app_installer_text_completion_dir=%functions_dir%\Toolbox\App_Installer\Text_Completion"
 set "app_installer_voice_generation_dir=%functions_dir%\Toolbox\App_Installer\Voice_Generation"
 set "app_installer_core_utilities_dir=%functions_dir%\Toolbox\App_Installer\Core_Utilities"
 
-REM Define variables for the directories for App Uninstaller
+REM Define variables for the directories for APPĞ¶ÔØ
 set "app_uninstaller_image_generation_dir=%functions_dir%\Toolbox\App_Uninstaller\Image_Generation"
 set "app_uninstaller_text_completion_dir=%functions_dir%\Toolbox\App_Uninstaller\Text_Completion"
 set "app_uninstaller_voice_generation_dir=%functions_dir%\Toolbox\App_Uninstaller\Voice_Generation"
@@ -169,15 +169,15 @@ if not exist "%log_dir%" (
     mkdir "%log_dir%"
 )
 
-set "log_invalidinput=[ERROR] Invalid input. Please enter a valid number."
-set "echo_invalidinput=%red_fg_strong%[ERROR] Invalid input. Please enter a valid number.%reset%"
+set "log_invalidinput=[´íÎó] ÊäÈëÎŞĞ§¡£ÇëÊäÈëÒ»¸öÓĞĞ§Êı×Ö."
+set "echo_invalidinput=%red_fg_strong%[´íÎó] ÊäÈëÎŞĞ§¡£ÇëÊäÈëÒ»¸öÓĞĞ§Êı×Ö.%reset%"
 
 cd /d "%~dp0"
 
 REM Check if folder path has no spaces
 echo "%CD%"| findstr /C:" " >nul && (
-    echo %red_fg_strong%[ERROR] Path cannot have spaces! Please remove them or replace with: - %reset%
-    echo Folders containing spaces makes the launcher unstable
+    echo %red_fg_strong%[´íÎó] Â·¾¶²»ÄÜÓĞ¿Õ¸ñ£¡Çë½«ÆäÉ¾³ı»òÌæ»»Îª: - %reset%
+    echo °üº¬¿Õ¸ñµÄÎÄ¼ş¼Ğ»áÊ¹Æô¶¯Æ÷²»ÎÈ¶¨
     echo path: %red_bg%%~dp0%reset%
     pause
     exit /b 1
@@ -185,15 +185,15 @@ echo "%CD%"| findstr /C:" " >nul && (
 
 REM Check if folder path has no special characters
 echo "%CD%"| findstr /R /C:"[!#\$%&()\*+,;<=>?@\[\]\^`{|}~]" >nul && (
-    echo %red_fg_strong%[ERROR] Path cannot have special characters! Please remove them.%reset%
-    echo Folders containing special characters makes the launcher unstable for the following: "[!#\$%&()\*+,;<=>?@\[\]\^`{|}~]" 
+    echo %red_fg_strong%[´íÎó] Â·¾¶²»ÄÜÓĞÌØÊâ×Ö·û£¡ÇëÉ¾³ıËüÃÇ.%reset%
+    echo °üº¬ÌØÊâ×Ö·ûµÄÎÄ¼ş¼Ğ»áÊ¹Æô¶¯Æ÷ÔÚÒÔÏÂÇé¿öÏÂ²»ÎÈ¶¨: "[!#\$%&()\*+,;<=>?@\[\]\^`{|}~]" 
     echo path: %red_bg%%~dp0%reset%
     pause
     exit /b 1
 )
 
 REM Check if launcher has updates
-title STL [UPDATE ST-LAUNCHER]
+title STL [¸üĞÂST-Launcher]
 git fetch origin
 for /f %%i in ('git branch --show-current') do set stl_current_branch=%%i
 REM Get the list of commits between local and remote branch
@@ -202,18 +202,18 @@ for /f %%i in ('git rev-list HEAD..%stl_current_branch%@{upstream}') do (
 )
 
 REM If no updates are available, skip the update process
-echo [ %green_fg_strong%OK%reset% ] SillyTavern-Launcher is up to date.%reset%
+echo [ %green_fg_strong%OK%reset% ] SillyTavern-Launcher ÊÇ×îĞÂµÄ.%reset%
 goto :startupcheck_no_update
 
 :startupcheck_found_update
 cls
-echo %blue_fg_strong%[INFO]%reset% %cyan_fg_strong%New update for SillyTavern-Launcher is available!%reset%
-set /p "update_choice=Update now? [Y/n]: "
+echo %blue_fg_strong%[ĞÅÏ¢]%reset% %cyan_fg_strong%SillyTavern LauncherµÄĞÂ¸üĞÂ¿ÉÓÃ!%reset%
+set /p "update_choice=ÏÖÔÚ¸üĞÂ? [Y/n]: "
 if /i "%update_choice%"=="" set update_choice=Y
 if /i "%update_choice%"=="Y" (
     REM Update the repository
     git pull
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%SillyTavern-Launcher updated successfully. Restarting launcher...%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%SillyTavern-Launcher ¸üĞÂ³É¹¦. ÕıÔÚÖØÆô launcher...%reset%
     timeout /t 10
     start launcher.bat
     exit
@@ -224,23 +224,23 @@ if /i "%update_choice%"=="Y" (
 
 
 :startupcheck_no_update
-title STL [STARTUP CHECK]
+title STL [Æô¶¯¼ì²é]
 REM Check if the folder exists
 if not exist "%~dp0bin" (
     mkdir "%~dp0bin"
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Created folder: "bin"  
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% Created folder: "bin"  
 )
 REM Check if the folder exists
 if not exist "%~dp0bin\settings" (
     mkdir "%~dp0bin\settings"
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Created folder: "settings"  
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% Created folder: "settings"  
 )
 
 
 REM Create modules-extras if it doesn't exist
 if not exist %extras_modules_path% (
     type nul > %extras_modules_path%
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Created text file: "modules-extras.txt"  
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% Created text file: "modules-extras.txt"  
 )
 REM Load modules-extras flags from modules
 for /f "tokens=*" %%a in (%extras_modules_path%) do set "%%a"
@@ -249,7 +249,7 @@ for /f "tokens=*" %%a in (%extras_modules_path%) do set "%%a"
 REM Create modules-xtts if it doesn't exist
 if not exist %xtts_modules_path% (
     type nul > %xtts_modules_path%
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Created text file: "modules-xtts.txt"  
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% Created text file: "modules-xtts.txt"  
 )
 REM Load modules-xtts flags from modules-xtts
 for /f "tokens=*" %%a in (%xtts_modules_path%) do set "%%a"
@@ -258,7 +258,7 @@ for /f "tokens=*" %%a in (%xtts_modules_path%) do set "%%a"
 REM Create modules-sdwebui if it doesn't exist
 if not exist %sdwebui_modules_path% (
     type nul > %sdwebui_modules_path%
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Created text file: "modules-sdwebui.txt"  
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% Created text file: "modules-sdwebui.txt"  
 )
 REM Load modules-xtts flags from modules-xtts
 for /f "tokens=*" %%a in (%sdwebui_modules_path%) do set "%%a"
@@ -267,7 +267,7 @@ for /f "tokens=*" %%a in (%sdwebui_modules_path%) do set "%%a"
 REM Create modules-ooba if it doesn't exist
 if not exist %ooba_modules_path% (
     type nul > %ooba_modules_path%
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Created text file: "modules-ooba.txt"  
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% Created text file: "modules-ooba.txt"  
 )
 REM Load modules-ooba flags from modules-ooba
 for /f "tokens=*" %%a in (%ooba_modules_path%) do set "%%a"
@@ -297,27 +297,27 @@ if %ff_path_exists% neq 0 (
 
     REM Update the PATH value for the current session
     setx PATH "!new_path!" > nul
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%winget added to PATH.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%winget Ìí¼Ó½øÏµÍ³±äÁ¿ PATH.%reset%
 ) else (
     set "new_path=%current_path%"
-    echo [ %green_fg_strong%OK%reset% ] Found PATH: winget%reset%
+    echo [ %green_fg_strong%OK%reset% ] ÕÒµ½ÏµÍ³±äÁ¿ PATH: winget%reset%
 )
 
 REM Check if winget is installed; if not, then install it
 winget --version > nul 2>&1
 if %errorlevel% neq 0 (
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] winget is not installed on this system.%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] winget Ã»ÓĞ°²×°.%reset%
     REM Check if the folder exists
     if not exist "%~dp0bin" (
         mkdir "%~dp0bin"
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Created directory: "bin"  
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ´´½¨Ä¿Â¼: "bin"  
     ) else (
-        echo [ %green_fg_strong%OK%reset% ] Found directory: "bin"%reset%
+        echo [ %green_fg_strong%OK%reset% ] ·¢ÏÖÄ¿Â¼: "bin"%reset%
     )
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing winget...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚ°²×° winget...
     curl -L -o "%~dp0bin\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle" "https://github.com/microsoft/winget-cli/releases/latest/download/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
     start "" "%~dp0bin\Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle"
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%winget installed successfully. Please restart the Launcher.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%winget ³É¹¦°²×°. ÇëÖØÆôÆô¶¯Æ÷.%reset%
     pause
     exit
 ) else (
@@ -327,10 +327,10 @@ if %errorlevel% neq 0 (
 REM Check if Git is installed if not then install git
 git --version > nul 2>&1
 if %errorlevel% neq 0 (
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] Git is not installed on this system.%reset%
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing Git using winget...
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] Git Î´°²×°.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÓÃ winget °²×° Git...
     winget install -e --id Git.Git
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Git is installed. Please restart the Launcher.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%Git is installed. ÇëÖØÆôÆô¶¯Æ÷.%reset%
     pause
     exit
 ) else (
@@ -359,7 +359,7 @@ if %ff_path_exists% neq 0 (
 
     REM Update the PATH value for the current session
     setx PATH "!new_path!" > nul
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%miniconda3 added to PATH.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%miniconda3 added to PATH.%reset%
 ) else (
     set "new_path=%current_path%"
     echo [ %green_fg_strong%OK%reset% ] Found PATH: miniconda3%reset%
@@ -368,12 +368,12 @@ if %ff_path_exists% neq 0 (
 REM Check if Miniconda3 is installed if not then install Miniconda3
 call conda --version > nul 2>&1
 if %errorlevel% neq 0 (
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] Miniconda3 is not installed on this system. Could not find command: conda%reset%
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Checking if Miniconda3 exists in app list...
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] Miniconda3 Î´°²×°. ²»ÄÜÕÒµ½ÃüÁî: conda%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ¼ì²éMiniconda3ÊÇ·ñ´æÔÚÓÚÓ¦ÓÃ³ÌĞòÁĞ±íÖĞ...
     winget uninstall --id Anaconda.Miniconda3
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing Miniconda3 using winget...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÓÃ winget °²×° Miniconda3...
     winget install -e --id Anaconda.Miniconda3
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Miniconda3 installed successfully. Please restart the Installer.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%Miniconda3 ³É¹¦°²×°. Please restart the Installer.%reset%
     pause
     exit
 ) else (
@@ -387,7 +387,7 @@ for /f "usebackq tokens=*" %%i in (`powershell -Command "$qwMemorySize = (Get-It
 
 REM Check if the SillyTavern folder exists
 if not exist "%st_install_path%" (
-    set "update_status_st=%red_bg%[ERROR] SillyTavern not found in: "%~dp0"%reset%"
+    set "update_status_st=%red_bg%[´íÎó] SillyTavern Ã»ÕÒµ½ in: "%~dp0"%reset%"
     goto :no_st_install_path
 )
 
@@ -413,7 +413,7 @@ REM ############################################################
 :home
 :no_st_install_path
 cd /d "%st_install_path%"
-title STL [HOME]
+title STL [Ö÷Ò³]
 cls
 
 set "SSL_INFO_FILE=%~dp0\SillyTavern\certs\SillyTavernSSLInfo.txt"
@@ -424,11 +424,11 @@ if exist "%SSL_INFO_FILE%" (
     set "sslOptionSuffix= (With SSL)"
 )
 
-echo %blue_fg_strong%/ Home%reset%
+echo %blue_fg_strong%/ Ö÷Ò³%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
-echo 1. Start SillyTavern%sslOptionSuffix%
-echo 2. Start SillyTavern With Remote Link%sslOptionSuffix%
+echo ÄãÏëÅªÉ¶àÏ?
+echo 1. Æô¶¯ SillyTavern%sslOptionSuffix%
+echo 2. Æô¶¯ SillyTavern ÇÒÒÆ³ı Cloudflare link %sslOptionSuffix%
 REM Check if the custom shortcut file exists and is not empty
 set "custom_name=Create Custom App Shortcut to Launch with SillyTavern"  ; Initialize to default
 if exist "%~dp0bin\settings\custom-shortcut.txt" (
@@ -436,19 +436,19 @@ if exist "%~dp0bin\settings\custom-shortcut.txt" (
     if "!custom_name!"=="" set "custom_name=Create Custom Shortcut"
 )
 echo 3. %custom_name%
-echo 4. Update Manager
-echo 5. Toolbox
-echo 6. Support
-echo 7. More info about LLM models your GPU can run.
-echo 0. Exit
+echo 4. ¸üĞÂ¹ÜÀíÑ¡Ïî
+echo 5. ¹¤¾ßÏä
+echo 6. Ö§³Ö
+echo 7. ²é¿´±¾»úGPU¿ÉÒÔÔËĞĞµÄ¸ü¶àLLMÄ£ĞÍ¡£
+echo 0. ÍË³ö
 
-echo ======== VERSION STATUS =========
+echo =========== °æ±¾×´Ì¬ =============
 REM Get the current Git branch
 for /f %%i in ('git branch --show-current') do set current_branch=%%i
 echo SillyTavern branch: %cyan_fg_strong%%current_branch%%reset%
 echo SillyTavern: %update_status_st%
-echo STL Version: %stl_version%
-echo GPU VRAM: %cyan_fg_strong%%VRAM% GB%reset%
+echo STL °æ±¾: %stl_version%
+echo GPU ÏÔ´æ: %cyan_fg_strong%%VRAM% GB%reset%
 echo =================================
 
 set "choice="
@@ -484,9 +484,9 @@ if "%choice%"=="1" (
         call %functions_dir%\launch\info_vram.bat
         goto :home
     ) else (
-        echo [%DATE% %TIME%] ERROR: info_vram.bat not found in: %functions_dir%\launch >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] info_vram.bat not found in: %functions_dir%\launch%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: info_vram.bat Ã»ÕÒµ½ in: %functions_dir%\launch >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] info_vram.bat Ã»ÕÒµ½ in: %functions_dir%\launch%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :home
@@ -497,9 +497,9 @@ if "%choice%"=="1" (
         call %functions_dir%\launch\exit_stl.bat
         goto :home
     ) else (
-        echo [%DATE% %TIME%] ERROR: exit_stl.bat not found in: %functions_dir%\launch >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] exit_stl.bat not found in: %functions_dir%\launch%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: exit_stl.bat Ã»ÕÒµ½ in: %functions_dir%\launch >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] exit_stl.bat Ã»ÕÒµ½ in: %functions_dir%\launch%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :home
@@ -513,24 +513,24 @@ if "%choice%"=="1" (
 goto :home
 
 REM ############################################################
-REM ############## UPDATE MANAGER - FRONTEND ###################
+REM ############## ¸üĞÂ¹ÜÀíÑ¡Ïî - FRONTEND ###################
 REM ############################################################
 :update_manager
-title STL [UPDATE MANAGER]
+title STL [¸üĞÂ¹ÜÀíÑ¡Ïî]
 cls
-echo %blue_fg_strong%/ Home / Update Manager%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¸üĞÂ¹ÜÀíÑ¡Ïî%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Text Completion
-echo 2. Voice Generation
-echo 3. Image Generation
-echo 4. Core Utilities
-echo 0. Back
+echo 1. ÎÄ±¾Éú³É
+echo 2. ÓïÒôÉú³É
+echo 3. Í¼Æ¬Éú³É
+echo 4. ºËĞÄapp
+echo 0. ·µ»Ø
 
 set /p update_manager_choice=Choose Your Destiny: 
 
-REM ############## UPDATE MANAGER - BACKEND ####################
+REM ############## ¸üĞÂ¹ÜÀíÑ¡Ïî - BACKEND ####################
 if "%update_manager_choice%"=="1" (
     call :update_manager_text_completion
 ) else if "%update_manager_choice%"=="2" (
@@ -550,23 +550,23 @@ if "%update_manager_choice%"=="1" (
 
 
 REM ############################################################
-REM ########## UPDATE MANAGER TEXT COMPLETION - FRONTEND #######
+REM ########## ¸üĞÂ¹ÜÀíÑ¡Ïî ÎÄ±¾Éú³É - FRONTEND #######
 REM ############################################################
 :update_manager_text_completion
-title STL [UPDATE MANAGER TEXT COMPLETION]
+title STL [ÎÄ±¾Éú³É¸üĞÂ¹ÜÀíÑ¡Ïî]
 cls
-echo %blue_fg_strong%/ Home / Update Manager / Text Completion%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¸üĞÂ¹ÜÀíÑ¡Ïî / ÎÄ±¾Éú³É%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Update Text generation web UI (oobabooga)
-echo 2. Update koboldcpp
-echo 3. Update TabbyAPI
-echo 0. Back
+echo 1. ¸üĞÂ Text generation web UI (oobabooga)
+echo 2. ¸üĞÂ koboldcpp
+echo 3. ¸üĞÂ TabbyAPI
+echo 0. ·µ»Ø
 
 set /p update_manager_txt_comp_choice=Choose Your Destiny: 
 
-REM ########## UPDATE MANAGER TEXT COMPLETION - BACKEND #########
+REM ########## ¸üĞÂ¹ÜÀíÑ¡Ïî ÎÄ±¾Éú³É - BACKEND #########
 if "%update_manager_txt_comp_choice%"=="1" (
     call :update_ooba
 ) else if "%update_manager_txt_comp_choice%"=="2" (
@@ -585,7 +585,7 @@ if "%update_manager_txt_comp_choice%"=="1" (
 :update_ooba
 REM Check if text-generation-webui directory exists
 if not exist "%ooba_install_path%" (
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] text-generation-webui directory not found. Skipping update.%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] text-generation-webui Ä¿Â¼Ã»ÓĞ·¢ÏÖ£¬Ìø¹ı¸üĞÂ.%reset%
     pause
     goto :update_manager_text_completion
 )
@@ -595,14 +595,14 @@ set max_retries=3
 set retry_count=0
 
 :retry_update_ooba
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Updating text-generation-webui...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚ¸üĞÂ text-generation-webui...
 cd /d "%ooba_install_path%"
 call git pull
 if %errorlevel% neq 0 (
     set /A retry_count+=1
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] Retry %retry_count% of %max_retries%%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] Retry %retry_count% of %max_retries%%reset%
     if %retry_count% lss %max_retries% goto :retry_update_ooba
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Failed to update text-generation-webui repository after %max_retries% retries.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ¸üĞÂÊ§°Ü text-generation-webui repository after %max_retries% retries.%reset%
     pause
     goto :update_manager_text_completion
 )
@@ -610,14 +610,14 @@ if %errorlevel% neq 0 (
 start "" "update_wizard_windows.bat"
 echo When the update is finished:
 pause
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%text-generation-webui updated successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%text-generation-webui ¸üĞÂ³É¹¦.%reset%
 pause
 goto :update_manager_text_completion
 
 :update_koboldcpp
 REM Check if dev-koboldcpp directory exists
 if not exist "%koboldcpp_install_path%" (
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] dev-koboldcpp directory not found. Skipping update.%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] dev-koboldcpp Ä¿Â¼Ã»ÓĞ·¢ÏÖ£¬Ìø¹ı¸üĞÂ.%reset%
     pause
     goto :update_manager_text_completion
 )
@@ -625,20 +625,20 @@ if not exist "%koboldcpp_install_path%" (
 REM Check if koboldcpp file exists [koboldcpp NVIDIA]
 if exist "%koboldcpp_install_path%\koboldcpp.exe" (
     REM Remove koboldcpp
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Removing existing koboldcpp.exe
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% É¾³ıÏÖÓĞ koboldcpp.exe
     del "%koboldcpp_install_path%\koboldcpp.exe"
     curl -L -o "%koboldcpp_install_path%\koboldcpp.exe" "https://github.com/LostRuins/koboldcpp/releases/latest/download/koboldcpp.exe"
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%koboldcpp updated successfully.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%koboldcpp ¸üĞÂ³É¹¦.%reset%
     pause
     goto :update_manager_text_completion
 )
 REM Check if koboldcpp file exists [koboldcpp AMD]
 if exist "%koboldcpp_install_path%\koboldcpp_rocm.exe" (
     REM Remove koboldcpp_rocm
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Removing existing koboldcpp_rocm.exe
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% É¾³ıÏÖÓĞ koboldcpp_rocm.exe
     del "%koboldcpp_install_path%\koboldcpp_rocm.exe"
     curl -L -o "%koboldcpp_install_path%\koboldcpp_rocm.exe" "https://github.com/YellowRoseCx/koboldcpp-rocm/releases/latest/download/koboldcpp_rocm.exe"
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%koboldcpp_rocm updated successfully.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%koboldcpp_rocm ¸üĞÂ³É¹¦.%reset%
     pause
     goto :update_manager_text_completion
 )
@@ -647,7 +647,7 @@ if exist "%koboldcpp_install_path%\koboldcpp_rocm.exe" (
 :update_tabbyapi
 REM Check if tabbyAPI directory exists
 if not exist "%tabbyapi_install_path%" (
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] tabbyAPI directory not found. Skipping update.%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] tabbyAPI Ä¿Â¼Ã»ÓĞ·¢ÏÖ£¬Ìø¹ı¸üĞÂ.%reset%
     pause
     goto :update_manager_text_completion
 )
@@ -657,40 +657,40 @@ set max_retries=3
 set retry_count=0
 
 :retry_update_tabbyapi
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Updating tabbyAPI...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚ¸üĞÂ tabbyAPI...
 cd /d "%tabbyapi_install_path%"
 call git pull
 if %errorlevel% neq 0 (
     set /A retry_count+=1
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] Retry %retry_count% of %max_retries%%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] Retry %retry_count% of %max_retries%%reset%
     if %retry_count% lss %max_retries% goto :retry_update_tabbyapi
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Failed to update tabbyAPI repository after %max_retries% retries.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ¸üĞÂÊ§°Ü tabbyAPI repository after %max_retries% retries.%reset%
     pause
     goto :update_manager_text_completion
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%tabbyAPI updated successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%tabbyAPI ¸üĞÂ³É¹¦.%reset%
 pause
 goto :update_manager_text_completion
 
 
 REM ############################################################
-REM ########## UPDATE MANAGER VOICE GENERATION - FRONTEND ######
+REM ########## ¸üĞÂ¹ÜÀíÑ¡Ïî ÓïÒôÉú³É - FRONTEND ######
 REM ############################################################
 :update_manager_voice_generation
-title STL [UPDATE MANAGER VOICE GENERATION]
+title STL [¸üĞÂ¹ÜÀíÑ¡Ïî ÓïÒôÉú³É]
 cls
-echo %blue_fg_strong%/ Home / Update Manager / Voice Generation%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¸üĞÂ¹ÜÀíÑ¡Ïî / ÓïÒôÉú³É%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Update AllTalk
-echo 2. Update XTTS
-echo 3. Update RVC
-echo 0. Back
+echo 1. ¸üĞÂ AllTalk
+echo 2. ¸üĞÂ XTTS
+echo 3. ¸üĞÂ RVC
+echo 0. ·µ»Ø
 
 set /p update_manager_voice_gen_choice=Choose Your Destiny: 
 
-REM ########## UPDATE MANAGER TEXT COMPLETION - BACKEND ########
+REM ########## ¸üĞÂ¹ÜÀíÑ¡Ïî ÎÄ±¾Éú³É - BACKEND ########
 if "%update_manager_voice_gen_choice%"=="1" (
     call :update_alltalk
 ) else if "%update_manager_voice_gen_choice%"=="2" (
@@ -709,7 +709,7 @@ if "%update_manager_voice_gen_choice%"=="1" (
 :update_alltalk
 REM Check if alltalk_tts directory exists
 if not exist "%alltalk_install_path%" (
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] alltalk_tts directory not found. Skipping update.%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] alltalk_tts Ä¿Â¼Ã»ÓĞ·¢ÏÖ£¬Ìø¹ı¸üĞÂ.%reset%
     pause
     goto :update_manager_voice_generation
 )
@@ -719,18 +719,18 @@ set max_retries=3
 set retry_count=0
 
 :retry_update_alltalk
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Updating alltalk_tts...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚ¸üĞÂ alltalk_tts...
 cd /d "%alltalk_install_path%"
 call git pull
 if %errorlevel% neq 0 (
     set /A retry_count+=1
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] Retry %retry_count% of %max_retries%%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] Retry %retry_count% of %max_retries%%reset%
     if %retry_count% lss %max_retries% goto :retry_update_alltalk
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Failed to update alltalk_tts repository after %max_retries% retries.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ¸üĞÂÊ§°Ü alltalk_tts repository after %max_retries% retries.%reset%
     pause
     goto :update_manager_voice_generation
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%alltalk_tts updated successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%alltalk_tts ¸üĞÂ³É¹¦.%reset%
 pause
 goto :update_manager_voice_generation
 
@@ -738,15 +738,15 @@ goto :update_manager_voice_generation
 :update_xtts
 REM Check if XTTS directory exists
 if not exist "%xtts_install_path%" (
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] xtts directory not found. Skipping update.%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] xtts Ä¿Â¼Ã»ÓĞ·¢ÏÖ£¬Ìø¹ı¸üĞÂ.%reset%
     pause
     goto :update_manager_voice_generation
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Updating XTTS...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚ¸üĞÂ XTTS...
 call conda activate xtts
 pip install --upgrade xtts-api-server
 call conda deactivate
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%XTTS updated successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%XTTS ¸üĞÂ³É¹¦.%reset%
 pause
 goto :update_manager_voice_generation
 
@@ -754,7 +754,7 @@ goto :update_manager_voice_generation
 :update_rvc
 REM Check if the folder exists
 if not exist "%rvc_install_path%" (
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] Retrieval-based-Voice-Conversion-WebUI directory not found. Skipping update.%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] Retrieval-based-Voice-Conversion-WebUI Ä¿Â¼Ã»ÓĞ·¢ÏÖ£¬Ìø¹ı¸üĞÂ.%reset%
     pause
     goto :update_manager_voice_generation
 )
@@ -764,41 +764,41 @@ set max_retries=3
 set retry_count=0
 
 :retry_update_rvc
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Updating Retrieval-based-Voice-Conversion-WebUI...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚ¸üĞÂ Retrieval-based-Voice-Conversion-WebUI...
 cd /d "%rvc_install_path%"
 call git pull
 if %errorlevel% neq 0 (
     set /A retry_count+=1
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] Retry %retry_count% of %max_retries%%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] Retry %retry_count% of %max_retries%%reset%
     if %retry_count% lss %max_retries% goto :retry_update_rvc
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Failed to update Retrieval-based-Voice-Conversion-WebUI repository after %max_retries% retries.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ¸üĞÂÊ§°Ü Retrieval-based-Voice-Conversion-WebUI repository after %max_retries% retries.%reset%
     pause
     goto :update_manager_voice_generation
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Retrieval-based-Voice-Conversion-WebUI updated successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%Retrieval-based-Voice-Conversion-WebUI ¸üĞÂ³É¹¦.%reset%
 pause
 goto :update_manager_voice_generation
 
 
 REM ############################################################
-REM ######## UPDATE MANAGER IMAGE GENERATION - FRONTEND ########
+REM ######## ¸üĞÂ¹ÜÀíÑ¡Ïî Í¼ÏñÉú³É - FRONTEND ########
 REM ############################################################
 :update_manager_image_generation
-title STL [UPDATE MANAGER IMAGE GENERATION]
+title STL [¸üĞÂ¹ÜÀí Í¼ÏñÉú³É]
 cls
-echo %blue_fg_strong%/ Home / Update Manager / Image Generation%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¸üĞÂ¹ÜÀíÑ¡Ïî / Í¼Æ¬Éú³É%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Update Stable Diffusion web UI
-echo 2. Update Stable Diffusion web UI Forge
-echo 3. Update ComfyUI
-echo 4. Update Fooocus
-echo 0. Back
+echo 1. ¸üĞÂ Stable Diffusion web UI
+echo 2. ¸üĞÂ Stable Diffusion web UI Forge
+echo 3. ¸üĞÂ ComfyUI
+echo 4. ¸üĞÂ Fooocus
+echo 0. ·µ»Ø
 
 set /p update_manager_img_gen_choice=Choose Your Destiny: 
 
-REM ######## UPDATE MANAGER IMAGE GENERATION - BACKEND #########
+REM ######## ¸üĞÂ¹ÜÀíÑ¡Ïî Í¼ÏñÉú³É - BACKEND #########
 if "%update_manager_img_gen_choice%"=="1" (
     call :update_sdwebui
 ) else if "%update_manager_img_gen_choice%"=="2" (
@@ -819,7 +819,7 @@ if "%update_manager_img_gen_choice%"=="1" (
 :update_sdwebui
 REM Check if the folder exists
 if not exist "%sdwebui_install_path%" (
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] stable-diffusion-webui directory not found. Skipping update.%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] stable-diffusion-webui Ä¿Â¼Ã»ÓĞ·¢ÏÖ£¬Ìø¹ı¸üĞÂ.%reset%
     pause
     goto :update_manager_image_generation
 )
@@ -829,18 +829,18 @@ set max_retries=3
 set retry_count=0
 
 :retry_update_sdwebui
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Updating stable-diffusion-webui...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚ¸üĞÂ stable-diffusion-webui...
 cd /d "%sdwebui_install_path%"
 call git pull
 if %errorlevel% neq 0 (
     set /A retry_count+=1
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] Retry %retry_count% of %max_retries%%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] Retry %retry_count% of %max_retries%%reset%
     if %retry_count% lss %max_retries% goto :retry_update_sdwebui
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Failed to update stable-diffusion-webui repository after %max_retries% retries.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ¸üĞÂÊ§°Ü stable-diffusion-webui repository after %max_retries% retries.%reset%
     pause
     goto :update_manager_image_generation
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%stable-diffusion-webui updated successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%stable-diffusion-webui ¸üĞÂ³É¹¦.%reset%
 pause
 goto :update_manager_image_generation
 
@@ -848,7 +848,7 @@ goto :update_manager_image_generation
 :update_sdwebuiforge
 REM Check if the folder exists
 if not exist "%sdwebuiforge_install_path%" (
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] stable-diffusion-webui-forge directory not found. Skipping update.%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] stable-diffusion-webui-forge Ä¿Â¼Ã»ÓĞ·¢ÏÖ£¬Ìø¹ı¸üĞÂ.%reset%
     pause
     goto :update_manager_image_generation
 )
@@ -858,18 +858,18 @@ set max_retries=3
 set retry_count=0
 
 :retry_update_sdwebuiforge
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Updating stable-diffusion-webui-forge...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚ¸üĞÂ stable-diffusion-webui-forge...
 cd /d "%sdwebuiforge_install_path%"
 call git pull
 if %errorlevel% neq 0 (
     set /A retry_count+=1
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] Retry %retry_count% of %max_retries%%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] Retry %retry_count% of %max_retries%%reset%
     if %retry_count% lss %max_retries% goto :retry_update_sdwebuiforge
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Failed to update stable-diffusion-webui-forge repository after %max_retries% retries.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ¸üĞÂÊ§°Ü stable-diffusion-webui-forge repository after %max_retries% retries.%reset%
     pause
     goto :update_manager_image_generation
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%stable-diffusion-webui-forge updated successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%stable-diffusion-webui-forge ¸üĞÂ³É¹¦.%reset%
 pause
 goto :update_manager_image_generation
 
@@ -877,7 +877,7 @@ goto :update_manager_image_generation
 :update_comfyui
 REM Check if the folder exists
 if not exist "%comfyui_install_path%" (
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] ComfyUI directory not found. Skipping update.%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] ComfyUI Ä¿Â¼Ã»ÓĞ·¢ÏÖ£¬Ìø¹ı¸üĞÂ.%reset%
     pause
     goto :update_manager_image_generation
 )
@@ -887,18 +887,18 @@ set max_retries=3
 set retry_count=0
 
 :retry_update_comfyui
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Updating ComfyUI...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚ¸üĞÂ ComfyUI...
 cd /d "%comfyui_install_path%"
 call git pull
 if %errorlevel% neq 0 (
     set /A retry_count+=1
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] Retry %retry_count% of %max_retries%%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] Retry %retry_count% of %max_retries%%reset%
     if %retry_count% lss %max_retries% goto :retry_update_comfyui
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Failed to update ComfyUI repository after %max_retries% retries.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ¸üĞÂÊ§°Ü ComfyUI repository after %max_retries% retries.%reset%
     pause
     goto :update_manager_image_generation
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%ComfyUI updated successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%ComfyUI ¸üĞÂ³É¹¦.%reset%
 pause
 goto :update_manager_image_generation
 
@@ -906,7 +906,7 @@ goto :update_manager_image_generation
 :update_fooocus
 REM Check if the folder exists
 if not exist "%fooocus_install_path%" (
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] Fooocus directory not found. Skipping update.%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] Fooocus Ä¿Â¼Ã»ÓĞ·¢ÏÖ£¬Ìø¹ı¸üĞÂ.%reset%
     pause
     goto :update_manager_image_generation
 )
@@ -916,42 +916,42 @@ set max_retries=3
 set retry_count=0
 
 :retry_update_fooocus
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Updating Fooocus...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚ¸üĞÂ Fooocus...
 cd /d "%fooocus_install_path%"
 call git pull
 if %errorlevel% neq 0 (
     set /A retry_count+=1
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] Retry %retry_count% of %max_retries%%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] Retry %retry_count% of %max_retries%%reset%
     if %retry_count% lss %max_retries% goto :retry_update_fooocus
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Failed to update Fooocus repository after %max_retries% retries.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ¸üĞÂÊ§°Ü Fooocus repository after %max_retries% retries.%reset%
     pause
     goto :update_manager_image_generation
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Fooocus updated successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%Fooocus ¸üĞÂ³É¹¦.%reset%
 pause
 goto :update_manager_image_generation
 
 
 REM ############################################################
-REM ######## UPDATE MANAGER CORE UTILITIES - FRONTEND #########
+REM ######## ¸üĞÂ¹ÜÀíÑ¡Ïî CORE UTILITIES - FRONTEND #########
 REM ############################################################
 :update_manager_core_utilities
-title STL [UPDATE MANAGER CORE UTILITIES]
+title STL [¸üĞÂ¹ÜÀí ºËĞÄAPP]
 cls
-echo %blue_fg_strong%/ Home / Update Manager / Core Utilities%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¸üĞÂ¹ÜÀí / ºËĞÄapp%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
-echo 1. Update SillyTavern
-echo 2. Update Extras
-echo 3. Update 7-Zip
-echo 4. Update FFmpeg
-echo 5. Update Node.js
-echo 6. Update yq
-echo 0. Back
+echo ÄãÏëÅªÉ¶àÏ?
+echo 1. ¸üĞÂ SillyTavern
+echo 2. ¸üĞÂ Extras
+echo 3. ¸üĞÂ 7-Zip
+echo 4. ¸üĞÂ FFmpeg
+echo 5. ¸üĞÂ Node.js
+echo 6. ¸üĞÂ yq
+echo 0. ·µ»Ø
 
 set /p update_manager_core_util_choice=Choose Your Destiny: 
 
-REM ######## UPDATE MANAGER CORE UTILITIES - BACKEND #########
+REM ######## ¸üĞÂ¹ÜÀíÑ¡Ïî CORE UTILITIES - BACKEND #########
 if "%update_manager_core_util_choice%"=="1" (
     call :update_st
 ) else if "%update_manager_core_util_choice%"=="2" (
@@ -976,7 +976,7 @@ if "%update_manager_core_util_choice%"=="1" (
 :update_st
 REM Check if SillyTavern directory exists
 if not exist "%st_install_path%" (
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] SillyTavern directory not found. Skipping update.%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] SillyTavern Ä¿Â¼Ã»ÓĞ·¢ÏÖ£¬Ìø¹ı¸üĞÂ.%reset%
     pause
     goto :update_manager_core_utilities
 )
@@ -986,18 +986,18 @@ set max_retries=3
 set retry_count=0
 
 :retry_update_st
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Updating SillyTavern...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚ¸üĞÂ SillyTavern...
 cd /d "%st_install_path%"
 call git pull
 if %errorlevel% neq 0 (
     set /A retry_count+=1
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] Retry %retry_count% of %max_retries%%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] Retry %retry_count% of %max_retries%%reset%
     if %retry_count% lss %max_retries% goto :retry_update_st
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Failed to update SillyTavern repository after %max_retries% retries.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ¸üĞÂÊ§°Ü SillyTavern repository after %max_retries% retries.%reset%
     pause
     goto :update_manager_core_utilities
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%SillyTavern updated successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%SillyTavern ¸üĞÂ³É¹¦.%reset%
 pause
 goto :update_manager_core_utilities
 
@@ -1005,7 +1005,7 @@ goto :update_manager_core_utilities
 :update_extras
 REM Check if SillyTavern-extras directory exists
 if not exist "%extras_install_path%" (
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] SillyTavern-extras directory not found. Skipping update.%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] SillyTavern-extras Ä¿Â¼Ã»ÓĞ·¢ÏÖ£¬Ìø¹ı¸üĞÂ.%reset%
     pause
     goto :update_manager_core_utilities
 )
@@ -1015,18 +1015,18 @@ set max_retries=3
 set retry_count=0
 
 :retry_update_extras
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Updating SillyTavern-extras...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚ¸üĞÂ SillyTavern-extras...
 cd /d "%extras_install_path%"
 call git pull
 if %errorlevel% neq 0 (
     set /A retry_count+=1
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] Retry %retry_count% of %max_retries%%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] Retry %retry_count% of %max_retries%%reset%
     if %retry_count% lss %max_retries% goto :retry_update_extras
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Failed to update SillyTavern-extras repository after %max_retries% retries.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ¸üĞÂÊ§°Ü SillyTavern-extras repository after %max_retries% retries.%reset%
     pause
     goto :update_manager_core_utilities
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%SillyTavern-extras updated successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%SillyTavern-extras ¸üĞÂ³É¹¦.%reset%
 pause
 goto :update_manager_core_utilities
 
@@ -1041,9 +1041,9 @@ goto :update_manager_core_utilities
 REM Check if 7-Zip is installed
 7z > nul 2>&1
 if %errorlevel% neq 0 (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] 7z command not found in PATH.%reset%
-    echo %red_fg_strong%7-Zip is not installed or not found in the system PATH.%reset%
-    echo %red_fg_strong%To install 7-Zip go to:%reset% %blue_bg%/ Toolbox / App Installer / Core Utilities / Install 7-Zip%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] 7z command Ã»ÕÒµ½ in PATH.%reset%
+    echo %red_fg_strong%7-Zip Î´°²×°»òÃ»ÕÒµ½ in the system PATH.%reset%
+    echo %red_fg_strong%To install 7-Zip go to:%reset% %blue_bg%/ ¹¤¾ßÏä / APP°²×° / ºËĞÄapp / °²×° 7-Zip%reset%
     pause
     goto :app_installer_core_utilities
 )
@@ -1051,24 +1051,24 @@ if %errorlevel% neq 0 (
 REM Check if the folder exists
 if exist "%ffmpeg_install_path%" (
     REM Remove ffmpeg folder if it already exist
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Removing existing ffmpeg installation...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% É¾³ıÏÖÓĞ ffmpeg °²×°ĞÅÏ¢...
     rmdir /s /q "%ffmpeg_install_path%
 )
 
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Downloading FFmpeg archive...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÏÂÔØ FFmpeg ´æµµÎÄ¼ş...
 curl -L -o "%ffmpeg_download_path%" "%ffmpeg_download_url%"
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Creating ffmpeg directory if it doesn't exist...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ´´½¨ ffmpeg Ä¿Â¼...
 if not exist "%ffmpeg_install_path%" (
     mkdir "%ffmpeg_install_path%"
 )
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Extracting FFmpeg archive...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÌáÈ¡ FFmpeg ´æµµÎÄ¼ş...
 7z x "%ffmpeg_download_path%" -o"%ffmpeg_install_path%"
 
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Moving FFmpeg contents to C:\ffmpeg...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÒÆ¶¯ FFmpeg ÄÚÈİµ½ C:\ffmpeg...
 for /d %%i in ("%ffmpeg_install_path%\ffmpeg-*-full_build") do (
     xcopy "%%i\bin" "%ffmpeg_install_path%\bin" /E /I /Y
     xcopy "%%i\doc" "%ffmpeg_install_path%\doc" /E /I /Y
@@ -1077,7 +1077,7 @@ for /d %%i in ("%ffmpeg_install_path%\ffmpeg-*-full_build") do (
 )
 
 del "%ffmpeg_download_path%"
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%ffmpeg updated successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%ffmpeg ¸üĞÂ³É¹¦.%reset%
 pause
 goto :update_manager_core_utilities
 
@@ -1099,21 +1099,21 @@ REM ############################################################
 REM ################# TOOLBOX - FRONTEND #######################
 REM ############################################################
 :toolbox
-title STL [TOOLBOX]
+title STL [¹¤¾ßÏä]
 cls
-echo %blue_fg_strong%/ Home / Toolbox%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 REM color 7
-echo 1. App Launcher
-echo 2. App Installer
-echo 3. App Uninstaller
-echo 4. Editor
-echo 5. Backup
-echo 6. Switch Branch
-echo 7. Troubleshooting
-echo 8. Reset Custom Shortcut
-echo 0. Back
+echo 1. APPÆô¶¯Ñ¡Ïî
+echo 2. APP°²×°Ñ¡Ïî
+echo 3. APPĞ¶ÔØÑ¡Ïî
+echo 4. ±à¼­Ñ¡Ïî
+echo 5. ±¸·İ
+echo 6. ÇĞ»»·ÖÖ§
+echo 7. ¹ÊÕÏÅÅ³ı
+echo 8. ÖØÖÃ¿ì½İ·½Ê½
+echo 0. ·µ»Ø
 
 set /p toolbox_choice=Choose Your Destiny: 
 
@@ -1148,21 +1148,21 @@ REM ############################################################
 REM ############## APP LAUNCHER - FRONTEND #####################
 REM ############################################################
 :app_launcher
-title STL [APP LAUNCHER]
+title STL [APPÆô¶¯Ñ¡Ïî]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Launcher%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APPÆô¶¯Ñ¡Ïî%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Text Completion
-echo 2. Voice Generation
-echo 3. Image Generation
-echo 4. Core Utilities
-echo 0. Back
+echo 1. ÎÄ±¾Éú³É
+echo 2. ÓïÒôÉú³É
+echo 3. Í¼Æ¬Éú³É
+echo 4. ºËĞÄapp
+echo 0. ·µ»Ø
 
 set /p app_launcher_choice=Choose Your Destiny: 
 
-REM ############## APP INSTALLER - BACKEND ####################
+REM ############## °²×°Ñ¡Ïî - BACKEND ####################
 if "%app_launcher_choice%"=="1" (
     call :app_launcher_text_completion
 ) else if "%app_launcher_choice%"=="2" (
@@ -1182,23 +1182,23 @@ if "%app_launcher_choice%"=="1" (
 
 
 REM ############################################################
-REM ########## APP LAUNCHER TEXT COMPLETION - FRONTEND #########
+REM ########## APP LAUNCHER ÎÄ±¾Éú³É - FRONTEND #########
 REM ############################################################
 :app_launcher_text_completion
-title STL [APP LAUNCHER TEXT COMPLETION]
+title STL [ÎÄ±¾Éú³ÉAPPÆô¶¯Ñ¡Ïî]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Launcher / Text Completion%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APPÆô¶¯Ñ¡Ïî / ÎÄ±¾Éú³É%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Start Text generation web UI (oobabooga)
-echo 2. Start koboldcpp
-echo 3. Start TabbyAPI
-echo 0. Back
+echo 1. Æô¶¯ Text generation web UI (oobabooga)
+echo 2. Æô¶¯ koboldcpp
+echo 3. Æô¶¯ TabbyAPI
+echo 0. ·µ»Ø
 
 set /p app_launcher_txt_comp_choice=Choose Your Destiny: 
 
-REM ########## APP LAUNCHER TEXT COMPLETION - BACKEND #########
+REM ########## APP LAUNCHER ÎÄ±¾Éú³É - BACKEND #########
 if "%app_launcher_txt_comp_choice%"=="1" (
     call :start_ooba
 ) else if "%app_launcher_txt_comp_choice%"=="2" (
@@ -1223,19 +1223,19 @@ for /F "tokens=*" %%a in ('findstr /I "ooba_start_command=" "%ooba_modules_path%
 )
 
 if not defined ooba_start_command (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] No modules enabled.%reset%
-    echo %red_bg%Please make sure you enabled at least one of the modules from Edit OOBA Modules.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] Î´ÆôÓÃÄ£¿é.%reset%
+    echo %red_bg%ÇëÈ·±£ÄúÆôÓÃÁËÖÁÉÙÒ»¸ö¡°±à¼­OOBAÄ£¿é¡±ÖĞµÄÄ£¿é.%reset%
     echo.
-    echo %blue_bg%We will redirect you to the Edit OOBA Modules menu.%reset%
+    echo %blue_bg%ÎÒÃÇ½«°ÑÄúÖØ¶¨Ïòµ½±à¼­OOBAÄ£¿é²Ëµ¥.%reset%
     pause
     set "caller=editor_text_completion"
     if exist "%editor_text_completion_dir%\edit_ooba_modules.bat" (
         call %editor_text_completion_dir%\edit_ooba_modules.bat
         goto :app_launcher_text_completion
     ) else (
-        echo [%DATE% %TIME%] ERROR: edit_ooba_modules.bat not found in: %editor_text_completion_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] edit_ooba_modules.bat not found in: %editor_text_completion_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: edit_ooba_modules.bat Ã»ÕÒµ½ in: %editor_text_completion_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] edit_ooba_modules.bat Ã»ÕÒµ½ in: %editor_text_completion_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_launcher_text_completion
@@ -1245,14 +1245,14 @@ if not defined ooba_start_command (
 set "ooba_start_command=%ooba_start_command:ooba_start_command=%"
 
 REM Start Text generation web UI oobabooga with desired configurations
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Text generation web UI oobabooga launched in a new window.
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÎÄ±¾Éú³Éweb UI oobaboogaÔÚĞÂ´°¿ÚÖĞÆô¶¯¡£
 cd /d "%ooba_install_path%" && %ooba_start_command%
 goto :home
 
 
 :start_koboldcpp
 REM Start koboldcpp with desired configurations
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% koboldcpp launched in a new window.
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% koboldcppÔÚÒ»¸öĞÂ´°¿ÚÖĞÆô¶¯¡£
 
 cd /d "%koboldcpp_install_path%"
 start "" "koboldcpp.exe"
@@ -1267,30 +1267,30 @@ REM Activate the extras environment
 call conda activate tabbyapi
 
 REM Start TabbyAPI with desired configurations
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% TabbyAPI launched in a new window.
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% TabbyAPIÔÚĞÂ´°¿ÚÖĞÆô¶¯¡£
 
 start cmd /k "title TabbyAPI && cd /d %tabbyapi_install_path% && python start.py"
 goto :home
 
 
 REM ############################################################
-REM ########## APP LAUNCHER VOICE GENERATION - FRONTEND ########
+REM ########## APP LAUNCHER ÓïÒôÉú³É - FRONTEND ########
 REM ############################################################
 :app_launcher_voice_generation
-title STL [APP LAUNCHER VOICE GENERATION]
+title STL [ÓïÒôÉú³ÉAPPÆô¶¯Ñ¡Ïî]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Launcher / Voice Generation%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APPÆô¶¯Ñ¡Ïî / ÓïÒôÉú³É%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Start AllTalk
-echo 2. Start XTTS
-echo 3. Start RVC
-echo 0. Back
+echo 1. Æô¶¯ AllTalk
+echo 2. Æô¶¯ XTTS
+echo 3. Æô¶¯ RVC
+echo 0. ·µ»Ø
 
 set /p app_launcher_voice_gen_choice=Choose Your Destiny: 
 
-REM ########## APP LAUNCHER TEXT COMPLETION - BACKEND #########
+REM ########## APP LAUNCHER ÎÄ±¾Éú³É - BACKEND #########
 if "%app_launcher_voice_gen_choice%"=="1" (
     call :start_alltalk
 ) else if "%app_launcher_voice_gen_choice%"=="2" (
@@ -1312,7 +1312,7 @@ REM Activate the alltalk environment
 call conda activate alltalk
 
 REM Start AllTalk
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% AllTalk launched in a new window.
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% AllTalk ÔÚĞÂ´°¿ÚÖĞÆô¶¯¡£
 start cmd /k "title AllTalk && cd /d %alltalk_install_path% && python script.py"
 goto :home
 
@@ -1322,7 +1322,7 @@ REM Activate the xtts environment
 call conda activate xtts
 
 REM Start XTTS
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% XTTS launched in a new window.
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% XTTS ÔÚĞÂ´°¿ÚÖĞÆô¶¯¡£
 
 REM Read modules-xtts and find the xtts_start_command line
 set "xtts_start_command="
@@ -1332,10 +1332,10 @@ for /F "tokens=*" %%a in ('findstr /I "xtts_start_command=" "%xtts_modules_path%
 )
 
 if not defined xtts_start_command (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] No modules enabled!%reset%
-    echo %red_bg%Please make sure you enabled at least one of the modules from Edit XTTS Modules.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] Î´ÆôÓÃÄ£¿é!%reset%
+    echo %red_bg%ÇëÈ·±£ÄúÆôÓÃÁËÖÁÉÙÒ»¸öÄ£¿é from Edit XTTS Modules.%reset%
     echo.
-    echo %blue_bg%We will redirect you to the Edit XTTS Modules menu.%reset%
+    echo %blue_bg%ÎÒÃÇ½«°ÑÄúÖØ¶¨Ïòµ½ Edit XTTS Modules menu.%reset%
     pause
     goto :edit_xtts_modules
 )
@@ -1350,30 +1350,30 @@ REM Activate the alltalk environment
 call conda activate rvc
 
 REM Start RVC with desired configurations
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% RVC launched in a new window.
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% RVC ÔÚĞÂ´°¿ÚÖĞÆô¶¯¡£
 start cmd /k "title RVC && cd /d %rvc_install_path% && python infer-web.py --port 7897"
 goto :home
 
 
 REM ############################################################
-REM ######## APP LAUNCHER IMAGE GENERATION - FRONTEND ##########
+REM ######## APP LAUNCHER Í¼ÏñÉú³É - FRONTEND ##########
 REM ############################################################
 :app_launcher_image_generation
-title STL [APP LAUNCHER IMAGE GENERATION]
+title STL [Í¼Æ¬Éú³ÉAPPÆô¶¯Ñ¡Ïî]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Launcher / Image Generation%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APPÆô¶¯Ñ¡Ïî / Í¼Æ¬Éú³É%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Start Stable Diffusion web UI
-echo 2. Start Stable Diffusion web UI Forge
-echo 3. Start ComfyUI
-echo 4. Start Fooocus
-echo 0. Back
+echo 1. Æô¶¯ Stable Diffusion web UI
+echo 2. Æô¶¯ Stable Diffusion web UI Forge
+echo 3. Æô¶¯ ComfyUI
+echo 4. Æô¶¯ Fooocus
+echo 0. ·µ»Ø
 
 set /p app_launcher_img_gen_choice=Choose Your Destiny: 
 
-REM ######## APP LAUNCHER IMAGE GENERATION - BACKEND #########
+REM ######## APP LAUNCHER Í¼ÏñÉú³É - BACKEND #########
 if "%app_launcher_img_gen_choice%"=="1" (
     call :start_sdwebui
 ) else if "%app_launcher_img_gen_choice%"=="2" (
@@ -1396,11 +1396,11 @@ if "%app_launcher_img_gen_choice%"=="1" (
 cd /d "%sdwebui_install_path%"
 
 REM Run conda activate from the Miniconda installation
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Activating Miniconda environment...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ¼¤»îMiniconda»·¾³...
 call "%miniconda_path%\Scripts\activate.bat"
 
 REM Activate the sdwebui environment
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Activating Conda environment: %cyan_fg_strong%sdwebui%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ¼¤»îConda»·¾³: %cyan_fg_strong%sdwebui%reset%
 call conda activate sdwebui
 
 
@@ -1412,10 +1412,10 @@ for /F "tokens=*" %%a in ('findstr /I "sdwebui_start_command=" "%sdwebui_modules
 )
 
 if not defined sdwebui_start_command (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] No modules enabled.%reset%
-    echo %red_bg%Please make sure you enabled at least one of the modules from Edit SDWEBUI Modules.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] Î´ÆôÓÃÄ£¿é.%reset%
+    echo %red_bg%ÇëÈ·±£ÄúÆôÓÃÁËÖÁÉÙÒ»¸öÄ£¿é from Edit SDWEBUI Modules.%reset%
     echo.
-    echo %blue_bg%We will redirect you to the Edit SDWEBUI Modules menu.%reset%
+    echo %blue_bg%ÎÒÃÇ½«°ÑÄúÖØ¶¨Ïòµ½ Edit SDWEBUI Modules menu.%reset%
     pause
     goto :edit_sdwebui_modules
 )
@@ -1423,7 +1423,7 @@ if not defined sdwebui_start_command (
 set "sdwebui_start_command=%sdwebui_start_command:sdwebui_start_command=%"
 
 REM Start Stable Diffusion WebUI with desired configurations
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Stable Diffusion WebUI launched in a new window.
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% Stable Diffusion WebUI ÔÚĞÂ´°¿ÚÖĞÆô¶¯¡£
 start cmd /k "title SDWEBUI && cd /d %sdwebui_install_path% && %sdwebui_start_command%"
 goto :home
 
@@ -1431,65 +1431,65 @@ goto :home
 cd /d "%sdwebuiforge_install_path%"
 
 REM Run conda activate from the Miniconda installation
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Activating Miniconda environment...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ¼¤»îMiniconda»·¾³...
 call "%miniconda_path%\Scripts\activate.bat"
 
 REM Activate the sdwebui environment
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Activating Conda environment: %cyan_fg_strong%sdwebuiforge%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ¼¤»îConda»·¾³: %cyan_fg_strong%sdwebuiforge%reset%
 call conda activate sdwebuiforge
 
 REM Start Stable Diffusion WebUI Forge with desired configurations
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Stable Diffusion WebUI Forge launched in a new window.
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% Stable Diffusion WebUI Forge ÔÚĞÂ´°¿ÚÖĞÆô¶¯¡£
 REM start cmd /k "title SDWEBUIFORGE && cd /d %sdwebuiforge_install_path% && %sdwebuiforge_start_command%"
 start cmd /k "title SDWEBUIFORGE && cd /d %sdwebuiforge_install_path% && python launch.py"
 goto :home
 
 :start_comfyui
 REM Run conda activate from the Miniconda installation
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Activating Miniconda environment...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ¼¤»îMiniconda»·¾³...
 call "%miniconda_path%\Scripts\activate.bat"
 
 REM Activate the comfyui environment
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Activating Conda environment: %cyan_fg_strong%comfyui%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ¼¤»îConda»·¾³: %cyan_fg_strong%comfyui%reset%
 call conda activate comfyui
 
 REM Start ComfyUI with desired configurations
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% ComfyUI launched in a new window.
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ComfyUI ÔÚĞÂ´°¿ÚÖĞÆô¶¯¡£
 start cmd /k "title ComfyUI && cd /d %comfyui_install_path% && python main.py --auto-launch --listen --port 7901"
 goto :home
 
 
 :start_fooocus
 REM Run conda activate from the Miniconda installation
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Activating Miniconda environment...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ¼¤»îMiniconda»·¾³...
 call "%miniconda_path%\Scripts\activate.bat"
 
 REM Activate the fooocus environment
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Activating Conda environment: %cyan_fg_strong%fooocus%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ¼¤»îConda»·¾³: %cyan_fg_strong%fooocus%reset%
 call conda activate fooocus
 
 REM Start Fooocus with desired configurations
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Fooocus launched in a new window.
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% Fooocus ÔÚĞÂ´°¿ÚÖĞÆô¶¯¡£
 start cmd /k "title Fooocus && cd /d %fooocus_install_path% && python entry_with_update.py"
 goto :home
 
 
 REM ############################################################
-REM ######## APP LAUNCHER IMAGE GENERATION - FRONTEND ##########
+REM ######## APP LAUNCHER Í¼ÏñÉú³É - FRONTEND ##########
 REM ############################################################
 :app_launcher_core_utilities
-title STL [APP LAUNCHER IMAGE GENERATION]
+title STL [Í¼Æ¬Éú³ÉAPPÆô¶¯Ñ¡Ïî]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Launcher / Core Utilities%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APPÆô¶¯Ñ¡Ïî / ºËĞÄapp%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Start Extras
-echo 0. Back
+echo 1. Æô¶¯ Extras
+echo 0. ·µ»Ø
 
 set /p app_launcher_core_util_choice=Choose Your Destiny: 
 
-REM ######## APP LAUNCHER IMAGE GENERATION - BACKEND #########
+REM ######## APP LAUNCHER Í¼ÏñÉú³É - BACKEND #########
 if "%app_launcher_core_util_choice%"=="1" (
     call :start_extras
 ) else if "%app_launcher_core_util_choice%"=="0" (
@@ -1510,7 +1510,7 @@ REM Activate the extras environment
 call conda activate extras
 
 REM Start SillyTavern Extras with desired configurations
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Extras launched in a new window.
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% Extras ÔÚĞÂ´°¿ÚÖĞÆô¶¯¡£
 
 REM Read modules-extras and find the extras_start_command line
 set "extras_start_command="
@@ -1520,10 +1520,10 @@ for /F "tokens=*" %%a in ('findstr /I "extras_start_command=" "%extras_modules_p
 )
 
 if not defined extras_start_command (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] No modules enabled!%reset%
-    echo %red_bg%Please make sure at least one of the modules are enabled from Edit Extras Modules.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] Î´ÆôÓÃÄ£¿é!%reset%
+    echo %red_bg%ÇëÈ·±£ÖÁÉÙÆôÓÃÁËÒ»¸öÄ£¿é from Edit Extras Modules.%reset%
     echo.
-    echo %blue_bg%We will redirect you to the Edit Extras Modules menu.%reset%
+    echo %blue_bg%ÎÒÃÇ½«°ÑÄúÖØ¶¨Ïòµ½ Edit Extras Modules menu.%reset%
     pause
     goto :edit_extras_modules
 )
@@ -1534,24 +1534,24 @@ goto :home
 
 
 REM ############################################################
-REM ############## APP INSTALLER - FRONTEND ####################
+REM ############## °²×°Ñ¡Ïî - FRONTEND ####################
 REM ############################################################
 :app_installer
-title STL [APP INSTALLER]
+title STL [APP°²×°Ñ¡Ïî]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Installer%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APP°²×°%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Text Completion
-echo 2. Voice Generation
-echo 3. Image Generation
-echo 4. Core Utilities
-echo 0. Back
+echo 1. ÎÄ±¾Éú³É
+echo 2. ÓïÒôÉú³É
+echo 3. Í¼Æ¬Éú³É
+echo 4. ºËĞÄapp
+echo 0. ·µ»Ø
 
 set /p app_installer_choice=Choose Your Destiny: 
 
-REM ############## APP INSTALLER - BACKEND ####################
+REM ############## °²×°Ñ¡Ïî - BACKEND ####################
 if "%app_installer_choice%"=="1" (
     call :app_installer_text_completion
 ) else if "%app_installer_choice%"=="2" (
@@ -1571,32 +1571,32 @@ if "%app_installer_choice%"=="1" (
 
 
 REM ############################################################
-REM ######## APP INSTALLER TEXT COMPLETION - FRONTEND ##########
+REM ######## °²×°Ñ¡Ïî ÎÄ±¾Éú³É - FRONTEND ##########
 REM ############################################################
 :app_installer_text_completion
-title STL [APP INSTALLER TEXT COMPLETION]
+title STL [°²×°Ñ¡Ïî ÎÄ±¾Éú³É]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Installer / Text Completion%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APP°²×° / ÎÄ±¾Éú³É%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Install Text generation web UI oobabooga
-echo 2. koboldcpp [Install options]
-echo 3. TabbyAPI [Install options]
-echo 4. Install llamacpp
-echo 0. Back
+echo 1. °²×° Text generation web UI oobabooga
+echo 2. koboldcpp [°²×°Ñ¡Ïî]
+echo 3. TabbyAPI [°²×°Ñ¡Ïî]
+echo 4. °²×° llamacpp
+echo 0. ·µ»Ø
 
 set /p app_installer_txt_comp_choice=Choose Your Destiny: 
 
-REM ######## APP INSTALLER TEXT COMPLETION - BACKEND ##########
+REM ######## °²×°Ñ¡Ïî ÎÄ±¾Éú³É - BACKEND ##########
 if "%app_installer_txt_comp_choice%"=="1" (
     set "caller=app_installer_text_completion"
     if exist "%app_installer_text_completion_dir%\install_ooba.bat" (
         call %app_installer_text_completion_dir%\install_ooba.bat
         goto :app_installer_text_completion
     ) else (
-        echo [%DATE% %TIME%] ERROR: install_ooba.bat not found in: %app_installer_text_completion_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] install_ooba.bat not found in: %app_installer_text_completion_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: install_ooba.bat Ã»ÕÒµ½ in: %app_installer_text_completion_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] install_ooba.bat Ã»ÕÒµ½ in: %app_installer_text_completion_dir%%reset%
         pause
         goto :app_installer_text_completion
     )
@@ -1610,8 +1610,8 @@ if "%app_installer_txt_comp_choice%"=="1" (
         call %app_installer_text_completion_dir%\install_llamacpp.bat
         goto :app_installer_text_completion
     ) else (
-        echo [%DATE% %TIME%] ERROR: install_llamacpp.bat not found in: %app_installer_text_completion_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] install_llamacpp.bat not found in: %app_installer_text_completion_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: install_llamacpp.bat Ã»ÕÒµ½ in: %app_installer_text_completion_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] install_llamacpp.bat Ã»ÕÒµ½ in: %app_installer_text_completion_dir%%reset%
         pause
         goto :app_installer_text_completion
     )
@@ -1626,30 +1626,30 @@ if "%app_installer_txt_comp_choice%"=="1" (
 
 
 REM ############################################################
-REM ######## APP INSTALLER KOBOLDCPP - FRONTEND ################
+REM ######## °²×°Ñ¡Ïî KOBOLDCPP - FRONTEND ################
 REM ############################################################
 :install_koboldcpp_menu
-title STL [APP INSTALLER KOBOLDCPP]
+title STL [°²×° KOBOLDCPP]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Installer / Text Completion / koboldcpp%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APP°²×° / ÎÄ±¾Éú³É / koboldcpp%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Install koboldcpp from prebuild .exe [Recommended]
-echo 2. Build dll files and compile the .exe installer [Advanced]
-echo 0. Back
+echo 1. °²×° koboldcpp from prebuild .exe [ÍÆ¼ö]
+echo 2. ¹¹½¨dllÎÄ¼ş²¢±àÒë.exe°²×°³ÌĞò [¸ß¼¶]
+echo 0. ·µ»Ø
 
 set /p app_installer_koboldcpp_choice=Choose Your Destiny: 
 
-REM ######## APP INSTALLER KOBOLDCPP - BACKEND ##########
+REM ######## °²×°Ñ¡Ïî KOBOLDCPP - BACKEND ##########
 if "%app_installer_koboldcpp_choice%"=="1" (
     set "caller=app_installer_text_completion_koboldcpp"
     if exist "%app_installer_text_completion_dir%\install_koboldcpp.bat" (
         call %app_installer_text_completion_dir%\install_koboldcpp.bat
         goto :app_installer_text_completion
     ) else (
-        echo [%DATE% %TIME%] ERROR: install_koboldcpp.bat not found in: %app_installer_text_completion_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] install_koboldcpp.bat not found in: %app_installer_text_completion_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: install_koboldcpp.bat Ã»ÕÒµ½ in: %app_installer_text_completion_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] install_koboldcpp.bat Ã»ÕÒµ½ in: %app_installer_text_completion_dir%%reset%
         pause
         goto :install_koboldcpp_menu
     )
@@ -1659,8 +1659,8 @@ if "%app_installer_koboldcpp_choice%"=="1" (
         call %app_installer_text_completion_dir%\install_koboldcpp_raw.bat
         goto :app_installer_text_completion
     ) else (
-        echo [%DATE% %TIME%] ERROR: install_koboldcpp_raw.bat not found in: %app_installer_text_completion_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] install_koboldcpp_raw.bat not found in: %app_installer_text_completion_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: install_koboldcpp_raw.bat Ã»ÕÒµ½ in: %app_installer_text_completion_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] install_koboldcpp_raw.bat Ã»ÕÒµ½ in: %app_installer_text_completion_dir%%reset%
         pause
         goto :install_koboldcpp_menu
     )
@@ -1675,38 +1675,38 @@ if "%app_installer_koboldcpp_choice%"=="1" (
 
 
 REM ############################################################
-REM ######## APP INSTALLER TABBYAPI - FRONTEND #################
+REM ######## °²×°Ñ¡Ïî TABBYAPI - FRONTEND #################
 REM ############################################################
 :install_tabbyapi_menu
-title STL [APP INSTALLER TABBYAPI]
+title STL [°²×°Ñ¡Ïî TABBYAPI]
 
 REM Check if the folder exists
 if exist "%tabbyapi_install_path%" (
     REM Activate the tabbyapi environment
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Deactivating Conda environment: %cyan_fg_strong%tabbyapi%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% Í£ÓÃConda»·¾³: %cyan_fg_strong%tabbyapi%reset%
     call conda deactivate
 )
 
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Installer / Text Completion / TabbyAPI %reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APP°²×° / ÎÄ±¾Éú³É / TabbyAPI %reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Install TabbyAPI
-echo 2. Models [Install Options]
-echo 0. Back
+echo 1. °²×° TabbyAPI
+echo 2. LLMÄ£ĞÍ [°²×°Ñ¡Ïî]
+echo 0. ·µ»Ø
 
 set /p app_installer_tabbyapi_choice=Choose Your Destiny: 
 
-REM ##### APP INSTALLER TABBYAPI - BACKEND ######
+REM ##### °²×°Ñ¡Ïî TABBYAPI - BACKEND ######
 if "%app_installer_tabbyapi_choice%"=="1" (
     set "caller=app_installer_text_completion_tabbyapi"
     if exist "%app_installer_text_completion_dir%\install_tabbyapi.bat" (
         call %app_installer_text_completion_dir%\install_tabbyapi.bat
         goto :install_tabbyapi_menu
     ) else (
-        echo [%DATE% %TIME%] ERROR: install_tabbyapi.bat not found in: %app_installer_text_completion_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] install_tabbyapi.bat not found in: %app_installer_text_completion_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: install_tabbyapi.bat Ã»ÕÒµ½ in: %app_installer_text_completion_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] install_tabbyapi.bat Ã»ÕÒµ½ in: %app_installer_text_completion_dir%%reset%
         pause
         goto :install_tabbyapi_menu
     )
@@ -1723,42 +1723,42 @@ if "%app_installer_tabbyapi_choice%"=="1" (
 
 
 REM ############################################################
-REM ##### APP INSTALLER TABBYAPI Models - FRONTEND #############
+REM ##### °²×°Ñ¡Ïî TABBYAPI Ä£ĞÍ - FRONTEND #############
 REM ############################################################
 :install_tabbyapi_model_menu
-title STL [APP INSTALLER TABBYAPI MODELS]
+title STL [°²×°Ñ¡ÏîTABBYAPI MODELS]
 
 REM Check if the folder exists
 if not exist "%tabbyapi_install_path%" (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] TabbyAPI is not installed. Please install it first.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] TabbyAPI Î´°²×°£¬ÇëÏÈ°²×°.%reset%
     pause
     goto :install_tabbyapi_menu
 )
 
 REM Run conda activate from the Miniconda installation
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Activating Miniconda environment...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ¼¤»îMiniconda»·¾³...
 call "%miniconda_path%\Scripts\activate.bat"
 
 REM Activate the tabbyapi environment
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Activating Conda environment: %cyan_fg_strong%tabbyapi%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ¼¤»îConda»·¾³: %cyan_fg_strong%tabbyapi%reset%
 call conda activate tabbyapi
 
 cd /d "%tabbyapi_install_path%"
 
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Installer / Text Completion / TabbyAPI / Models%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APP°²×° / ÎÄ±¾Éú³É / TabbyAPI / Ä£ĞÍ%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Install Hathor_Aleph-L3-8B-v0.72-exl2 [V0.72 RP, Cybersecurity, Programming, Biology/Anatomy UNCENSORED]
-echo 2. Install Hathor_Stable-L3-8B-v0.5-exl2 [V0.5 RP, Cybersecurity, Programming, Biology/Anatomy UNCENSORED]
-echo 3. Install Hathor-L3-8B-v.01-exl2 [V0.1 RP UNCENSORED]
-echo 4. Install a custom model
-echo 0. Back
+echo 1. °²×° Hathor_Aleph-L3-8B-v0.72-exl2 [V0.72 RP, Cybersecurity, Programming, Biology/Anatomy Î´¾­Éó²é]
+echo 2. °²×° Hathor_Stable-L3-8B-v0.5-exl2 [V0.5 RP, Cybersecurity, Programming, Biology/Anatomy Î´¾­Éó²é]
+echo 3. °²×° Hathor-L3-8B-v.01-exl2 [V0.1 RP Î´¾­Éó²é]
+echo 4. °²×° ×Ô¶¨ÒåLLMÄ£ĞÍ
+echo 0. ·µ»Ø
 
 set /p app_installer_tabbyapi_model_choice=Choose Your Destiny: 
 
-REM ######## APP INSTALLER TABBYAPI Models - BACKEND #########
+REM ######## °²×°Ñ¡Ïî TABBYAPI Ä£ĞÍ - BACKEND #########
 if "%app_installer_tabbyapi_model_choice%"=="1" (
     call :install_tabbyapi_model_hathorv07
 ) else if "%app_installer_tabbyapi_model_choice%"=="2" (
@@ -1781,56 +1781,56 @@ if "%app_installer_tabbyapi_model_choice%"=="1" (
 cd /d "%tabbyapi_install_path%\models"
 REM Install model Based on VRAM Size
 if %VRAM% lss 8 (
-echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Sorry... You need atleast 8GB VRAM or more to run a local LLM%reset%
+echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ¶Ô²»Æğ£¬ĞèÒªÖÁÉÙ8GB ÏÔ´æ»ò¸ü¶à²ÅÄÜÔËĞĞ±¾µØLLM%reset%
 pause
 goto :install_tabbyapi_model_menu
 ) else if %VRAM% lss 12 (
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Detected GPU VRAM: %cyan_fg_strong%%VRAM% GB%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ¼ì²âµ½GPUÏÔ´æ: %cyan_fg_strong%%VRAM% GB%reset%
 REM Check if model exists
 if exist "Hathor_Aleph-L3-8B-v0.72-exl2-5_0" (
     REM Remove model if it already exists
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Removing existing model...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% É¾³ıÏÖÓĞLLMÄ£ĞÍ...
     rmdir /s /q "Hathor_Aleph-L3-8B-v0.72-exl2-5_0"
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Downloading model size bits: 5.0
-echo %cyan_fg_strong%The download will take a while, approximately 5 minutes or more, depending on your internet speed.%reset%
-echo %cyan_fg_strong%When you see: Unpacking objects: 100, please wait until you see Successfully installed model in green text.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÏÂÔØLLMÄ£ĞÍ size bits: 5.0
+echo %cyan_fg_strong%ÏÂÔØĞèÒªÒ»¶ÎÊ±¼ä£¬´óÔ¼5·ÖÖÓ»ò¸ü³¤Ê±¼ä£¬¾ßÌåÈ¡¾öÓÚÄúµÄÍøËÙ.%reset%
+echo %cyan_fg_strong%µ±Äú¿´µ½£º½â°ü¶ÔÏó£º100Ê±£¬ÇëµÈ´ı£¬Ö±µ½Äú¿´µ½ÂÌÉ«ÎÄ±¾ÖĞµÄ³É¹¦°²×°LLMÄ£ĞÍ.%reset%
 git clone --single-branch --branch 5_0 https://huggingface.co/bartowski/Hathor_Aleph-L3-8B-v0.72-exl2 Hathor_Aleph-L3-8B-v0.72-exl2-5_0
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Successfully installed model: Hathor_Stable-L3-8B-v0.5-exl2%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%ÒÑ³É¹¦°²×°LLMÄ£ĞÍ: Hathor_Stable-L3-8B-v0.5-exl2%reset%
 pause
 goto :install_tabbyapi_model_menu
 ) else if %VRAM% equ 12 (
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Detected GPU VRAM: %cyan_fg_strong%%VRAM% GB%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ¼ì²âµ½GPUÏÔ´æ: %cyan_fg_strong%%VRAM% GB%reset%
 REM Check if model exists
 if exist "Hathor_Aleph-L3-8B-v0.72-exl2-6_5" (
     REM Remove model if it already exists
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Removing existing model...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% É¾³ıÏÖÓĞLLMÄ£ĞÍ...
     rmdir /s /q "Hathor_Aleph-L3-8B-v0.72-exl2-6_5"
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Downloading model size bits: 6.0
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÏÂÔØLLMÄ£ĞÍ size bits: 6.0
 echo %cyan_fg_strong%The download will take a while, approximately 5 minutes or more, depending on your internet speed.%reset%
-echo %cyan_fg_strong%When you see: Unpacking objects: 100, please wait until you see Successfully installed model in green text.%reset%
+echo %cyan_fg_strong%µ±Äú¿´µ½£º½â°ü¶ÔÏó£º100Ê±£¬ÇëµÈ´ı£¬Ö±µ½Äú¿´µ½ÂÌÉ«ÎÄ±¾ÖĞµÄ³É¹¦°²×°LLMÄ£ĞÍ.%reset%
 git clone --single-branch --branch 6_5 https://huggingface.co/bartowski/Hathor_Aleph-L3-8B-v0.72-exl2 Hathor_Aleph-L3-8B-v0.72-exl2-6_5
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Successfully installed model: Hathor_Aleph-L3-8B-v0.72-exl2-6_5%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%ÒÑ³É¹¦°²×°LLMÄ£ĞÍ: Hathor_Aleph-L3-8B-v0.72-exl2-6_5%reset%
 pause
 goto :install_tabbyapi_model_menu
 ) else if %VRAM% gtr 12 (
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Detected GPU VRAM: %cyan_fg_strong%%VRAM% GB%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ¼ì²âµ½GPUÏÔ´æ: %cyan_fg_strong%%VRAM% GB%reset%
 REM Check if model exists
 if exist "Hathor_Aleph-L3-8B-v0.72-exl2-6_5" (
     REM Remove model if it already exists
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Removing existing model...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% É¾³ıÏÖÓĞLLMÄ£ĞÍ...
     rmdir /s /q "Hathor_Aleph-L3-8B-v0.72-exl2-6_5"
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Downloading model size bits: 6.0
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÏÂÔØLLMÄ£ĞÍ size bits: 6.0
 echo %cyan_fg_strong%The download will take a while, approximately 5 minutes or more, depending on your internet speed.%reset%
-echo %cyan_fg_strong%When you see: Unpacking objects: 100, please wait until you see Successfully installed model in green text.%reset%
+echo %cyan_fg_strong%µ±Äú¿´µ½£º½â°ü¶ÔÏó£º100Ê±£¬ÇëµÈ´ı£¬Ö±µ½Äú¿´µ½ÂÌÉ«ÎÄ±¾ÖĞµÄ³É¹¦°²×°LLMÄ£ĞÍ.%reset%
 git clone --single-branch --branch 6_5 https://huggingface.co/bartowski/Hathor_Aleph-L3-8B-v0.72-exl2 Hathor_Aleph-L3-8B-v0.72-exl2-6_5
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Successfully installed model: Hathor_Aleph-L3-8B-v0.72-exl2-6_5%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%ÒÑ³É¹¦°²×°LLMÄ£ĞÍ: Hathor_Aleph-L3-8B-v0.72-exl2-6_5%reset%
 pause
 goto :install_tabbyapi_model_menu
 ) else (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] An unexpected amount of VRAM detected or unable to detect VRAM. Check your system specifications.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ¼ì²âµ½ÒâÍâÊıÁ¿µÄÏÔ´æ»òÎŞ·¨¼ì²âÏÔ´æ¡£Çë¼ì²éÄúµÄÏµÍ³¹æ¸ñ.%reset%
     pause
     goto :install_tabbyapi_model_menu
 )
@@ -1839,60 +1839,60 @@ goto :install_tabbyapi_model_menu
 cd /d "%tabbyapi_install_path%\models"
 REM Install model Based on VRAM Size
 if %VRAM% lss 8 (
-echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Sorry... You need atleast 8GB VRAM or more to run a local LLM%reset%
+echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ¶Ô²»Æğ£¬ĞèÒªÖÁÉÙ8GBÏÔ´æ»ò¸ü¶à²ÅÄÜÔËĞĞ±¾µØLLM%reset%
 pause
 goto :install_tabbyapi_model_menu
 ) else if %VRAM% lss 12 (
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Detected GPU VRAM: %cyan_fg_strong%%VRAM% GB%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ¼ì²âµ½GPUÏÔ´æ: %cyan_fg_strong%%VRAM% GB%reset%
 REM Check if model exists
 if exist "Hathor_Stable-L3-8B-v0.5-exl2-5_0" (
     REM Remove model if it already exists
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Removing existing model...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% É¾³ıÏÖÓĞLLMÄ£ĞÍ...
     rmdir /s /q "Hathor_Stable-L3-8B-v0.5-exl2-5_0"
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Downloading model size bits: 5.0
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÏÂÔØLLMÄ£ĞÍ size bits: 5.0
 echo %cyan_fg_strong%The download will take a while, approximately 5 minutes or more, depending on your internet speed.%reset%
-echo %cyan_fg_strong%When you see: Unpacking objects: 100, please wait until you see Successfully installed model in green text.%reset%
+echo %cyan_fg_strong%µ±Äú¿´µ½£º½â°ü¶ÔÏó£º100Ê±£¬ÇëµÈ´ı£¬Ö±µ½Äú¿´µ½ÂÌÉ«ÎÄ±¾ÖĞµÄ³É¹¦°²×°LLMÄ£ĞÍ.%reset%
 git clone --single-branch --branch 5_0 https://huggingface.co/bartowski/Hathor_Stable-L3-8B-v0.5-exl2 Hathor_Stable-L3-8B-v0.5-exl2-5_0
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Successfully installed model: Hathor_Stable-L3-8B-v0.5-exl2%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%ÒÑ³É¹¦°²×°LLMÄ£ĞÍ: Hathor_Stable-L3-8B-v0.5-exl2%reset%
 pause
 goto :install_tabbyapi_model_menu
 ) else if %VRAM% equ 12 (
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Detected GPU VRAM: %cyan_fg_strong%%VRAM% GB%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ¼ì²âµ½GPUÏÔ´æ: %cyan_fg_strong%%VRAM% GB%reset%
 REM Check if model exists
 if exist "Hathor_Stable-L3-8B-v0.5-exl2-6_5" (
     REM Remove model if it already exists
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Removing existing model...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% É¾³ıÏÖÓĞLLMÄ£ĞÍ...
     rmdir /s /q "Hathor_Stable-L3-8B-v0.5-exl2-6_5"
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Downloading model size bits: 6.0
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÏÂÔØLLMÄ£ĞÍ size bits: 6.0
 REM set GIT_CURL_VERBOSE=1
 REM set GIT_TRACE=1
 echo %cyan_fg_strong%The download will take a while, approximately 5 minutes or more, depending on your internet speed.%reset%
-echo %cyan_fg_strong%When you see: Unpacking objects: 100, please wait until you see Successfully installed model in green text.%reset%
+echo %cyan_fg_strong%µ±Äú¿´µ½£º½â°ü¶ÔÏó£º100Ê±£¬ÇëµÈ´ı£¬Ö±µ½Äú¿´µ½ÂÌÉ«ÎÄ±¾ÖĞµÄ³É¹¦°²×°LLMÄ£ĞÍ.%reset%
 git clone --single-branch --branch 6_5 https://huggingface.co/bartowski/Hathor_Stable-L3-8B-v0.5-exl2 Hathor_Stable-L3-8B-v0.5-exl2-6_5
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Successfully installed model: Hathor_Stable-L3-8B-v0.5-exl2%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%ÒÑ³É¹¦°²×°LLMÄ£ĞÍ: Hathor_Stable-L3-8B-v0.5-exl2%reset%
 pause
 goto :install_tabbyapi_model_menu
 ) else if %VRAM% gtr 12 (
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Detected GPU VRAM: %cyan_fg_strong%%VRAM% GB%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ¼ì²âµ½GPUÏÔ´æ: %cyan_fg_strong%%VRAM% GB%reset%
 REM Check if model exists
 if exist "Hathor_Stable-L3-8B-v0.5-exl2-6_5" (
     REM Remove model if it already exists
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Removing existing model...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% É¾³ıÏÖÓĞLLMÄ£ĞÍ...
     rmdir /s /q "Hathor_Stable-L3-8B-v0.5-exl2-6_5"
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Downloading model size bits: 6.0
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÏÂÔØLLMÄ£ĞÍ size bits: 6.0
 REM set GIT_CURL_VERBOSE=1
 REM set GIT_TRACE=1
 echo %cyan_fg_strong%The download will take a while, approximately 5 minutes or more, depending on your internet speed.%reset%
-echo %cyan_fg_strong%When you see: Unpacking objects: 100, please wait until you see Successfully installed model in green text.%reset%
+echo %cyan_fg_strong%µ±Äú¿´µ½£º½â°ü¶ÔÏó£º100Ê±£¬ÇëµÈ´ı£¬Ö±µ½Äú¿´µ½ÂÌÉ«ÎÄ±¾ÖĞµÄ³É¹¦°²×°LLMÄ£ĞÍ.%reset%
 git clone --single-branch --branch 6_5 https://huggingface.co/bartowski/Hathor_Stable-L3-8B-v0.5-exl2 Hathor_Stable-L3-8B-v0.5-exl2-6_5
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Successfully installed model: Hathor_Stable-L3-8B-v0.5-exl2%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%ÒÑ³É¹¦°²×°LLMÄ£ĞÍ: Hathor_Stable-L3-8B-v0.5-exl2%reset%
 pause
 goto :install_tabbyapi_model_menu
 ) else (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] An unexpected amount of VRAM detected or unable to detect VRAM. Check your system specifications.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ¼ì²âµ½ÒâÍâÊıÁ¿µÄÏÔ´æ»òÎŞ·¨¼ì²âÏÔ´æ¡£Çë¼ì²éÄúµÄÏµÍ³¹æ¸ñ.%reset%
     pause
     goto :install_tabbyapi_model_menu
 )
@@ -1902,50 +1902,50 @@ goto :install_tabbyapi_model_menu
 cd /d "%tabbyapi_install_path%\models"
 REM Install model Based on VRAM Size
 if %VRAM% lss 8 (
-echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Sorry... You need atleast 8GB VRAM or more to run a local LLM%reset%
+echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ¶Ô²»Æğ£¬ĞèÒªÖÁÉÙ8GBÏÔ´æ»ò¸ü¶à²ÅÄÜÔËĞĞ±¾µØLLM%reset%
 pause
 goto :install_tabbyapi_model_menu
 ) else if %VRAM% lss 12 (
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset%Detected GPU VRAM: %cyan_fg_strong%%VRAM% GB%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset%¼ì²âµ½GPUÏÔ´æ: %cyan_fg_strong%%VRAM% GB%reset%
 REM Check if model exists
 if exist "Hathor-L3-8B-v.01-exl2-5_0" (
     REM Remove model if it already exists
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Removing existing model...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% É¾³ıÏÖÓĞLLMÄ£ĞÍ...
     rmdir /s /q "Hathor-L3-8B-v.01-exl2-5_0"
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset%Downloading model size bits: 5.0
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset%ÕıÔÚÏÂÔØLLMÄ£ĞÍ size bits: 5.0
 git clone --single-branch --branch 5_0 https://huggingface.co/bartowski/Hathor-L3-8B-v.01-exl2 Hathor-L3-8B-v.01-exl2-5_0
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Successfully installed model: Hathor-L3-8B-v.01-exl2%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%ÒÑ³É¹¦°²×°LLMÄ£ĞÍ: Hathor-L3-8B-v.01-exl2%reset%
 pause
 goto :install_tabbyapi_model_menu
 ) else if %VRAM% equ 12 (
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset%Detected GPU VRAM: %cyan_fg_strong%%VRAM% GB%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset%¼ì²âµ½GPUÏÔ´æ: %cyan_fg_strong%%VRAM% GB%reset%
 REM Check if model exists
 if exist "Hathor-L3-8B-v.01-exl2-6_5" (
     REM Remove model if it already exists
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Removing existing model...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% É¾³ıÏÖÓĞLLMÄ£ĞÍ...
     rmdir /s /q "Hathor-L3-8B-v.01-exl2-6_5"
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset%Downloading model size bits: 6.0
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset%ÕıÔÚÏÂÔØLLMÄ£ĞÍ size bits: 6.0
 git clone --single-branch --branch 6_5 https://huggingface.co/bartowski/Hathor-L3-8B-v.01-exl2 Hathor-L3-8B-v.01-exl2-6_5
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Successfully installed model: Hathor-L3-8B-v.01-exl2%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%ÒÑ³É¹¦°²×°LLMÄ£ĞÍ: Hathor-L3-8B-v.01-exl2%reset%
 pause
 goto :install_tabbyapi_model_menu
 ) else if %VRAM% gtr 12 (
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset%Detected GPU VRAM: %cyan_fg_strong%%VRAM% GB%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset%¼ì²âµ½GPUÏÔ´æ: %cyan_fg_strong%%VRAM% GB%reset%
 REM Check if model exists
 if exist "Hathor-L3-8B-v.01-exl2-6_5" (
     REM Remove model if it already exists
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Removing existing model...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% É¾³ıÏÖÓĞLLMÄ£ĞÍ...
     rmdir /s /q "Hathor-L3-8B-v.01-exl2-6_5"
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset%Downloading model size bits: 6.0
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset%ÕıÔÚÏÂÔØLLMÄ£ĞÍ size bits: 6.0
 git clone --single-branch --branch 6_5 https://huggingface.co/bartowski/Hathor-L3-8B-v.01-exl2 Hathor-L3-8B-v.01-exl2-6_5
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Successfully installed model: Hathor-L3-8B-v.01-exl2%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%ÒÑ³É¹¦°²×°LLMÄ£ĞÍ: Hathor-L3-8B-v.01-exl2%reset%
 pause
 goto :install_tabbyapi_model_menu
 ) else (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] An unexpected amount of VRAM detected or unable to detect VRAM. Check your system specifications.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ¼ì²âµ½ÒâÍâÊıÁ¿µÄÏÔ´æ»òÎŞ·¨¼ì²âÏÔ´æ¡£Çë¼ì²éÄúµÄÏµÍ³¹æ¸ñ.%reset%
     pause
     goto :install_tabbyapi_model_menu
 )
@@ -1956,7 +1956,7 @@ set /p tabbyapimodelurl="(0 to cancel)Insert Model URL: "
 if "%tabbyapimodelurl%"=="0" goto :install_tabbyapi_model_menu
 
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Downloading...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÏÂÔØ...
 cd /d "%tabbyapi_install_path%\models"
 git clone %tabbyapimodelurl%
 pause
@@ -1964,31 +1964,31 @@ goto :install_tabbyapi_model_menu
 
 
 REM ############################################################
-REM ######## APP INSTALLER VOICE GENERATION - FRONTEND #########
+REM ######## °²×°Ñ¡Ïî ÓïÒôÉú³É - FRONTEND #########
 REM ############################################################
 :app_installer_voice_generation
-title STL [APP INSTALLER VOICE GENERATION]
+title STL [ÓïÒôÉú³É °²×°Ñ¡Ïî]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Installer / Voice Generation%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APP°²×° / ÓïÒôÉú³É%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Install AllTalk
-echo 2. Install XTTS
-echo 3. Install RVC
-echo 0. Back
+echo 1. °²×° AllTalk
+echo 2. °²×° XTTS
+echo 3. °²×° RVC
+echo 0. ·µ»Ø
 
 set /p app_installer_voice_gen_choice=Choose Your Destiny: 
 
-REM ######## APP INSTALLER VOICE GENERATION - BACKEND #########
+REM ######## °²×°Ñ¡Ïî ÓïÒôÉú³É - BACKEND #########
 if "%app_installer_voice_gen_choice%"=="1" (
     set "caller=app_installer_voice_generation"
     if exist "%app_installer_voice_generation_dir%\install_alltalk.bat" (
         call %app_installer_voice_generation_dir%\install_alltalk.bat
         goto :app_installer_voice_generation
     ) else (
-        echo [%DATE% %TIME%] ERROR: install_alltalk.bat not found in: %app_installer_voice_generation_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] install_alltalk.bat not found in: %app_installer_voice_generation_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: install_alltalk.bat Ã»ÕÒµ½ in: %app_installer_voice_generation_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] install_alltalk.bat Ã»ÕÒµ½ in: %app_installer_voice_generation_dir%%reset%
         pause
         goto :app_installer_voice_generation
     )
@@ -1998,8 +1998,8 @@ if "%app_installer_voice_gen_choice%"=="1" (
         call %app_installer_voice_generation_dir%\install_xtts.bat
         goto :app_installer_voice_generation
     ) else (
-        echo [%DATE% %TIME%] ERROR: install_xtts.bat not found in: %app_installer_voice_generation_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] install_xtts.bat not found in: %app_installer_voice_generation_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: install_xtts.bat Ã»ÕÒµ½ in: %app_installer_voice_generation_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] install_xtts.bat Ã»ÕÒµ½ in: %app_installer_voice_generation_dir%%reset%
         pause
         goto :app_installer_voice_generation
     )
@@ -2009,8 +2009,8 @@ if "%app_installer_voice_gen_choice%"=="1" (
         call %app_installer_voice_generation_dir%\install_rvc.bat
         goto :app_installer_voice_generation
     ) else (
-        echo [%DATE% %TIME%] ERROR: install_rvc.bat not found in: %app_installer_voice_generation_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] install_rvc.bat not found in: %app_installer_voice_generation_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: install_rvc.bat Ã»ÕÒµ½ in: %app_installer_voice_generation_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] install_rvc.bat Ã»ÕÒµ½ in: %app_installer_voice_generation_dir%%reset%
         pause
         goto :app_installer_voice_generation
     )
@@ -2026,24 +2026,24 @@ if "%app_installer_voice_gen_choice%"=="1" (
 
 
 REM ############################################################
-REM ######## APP INSTALLER IMAGE GENERATION - FRONTEND #########
+REM ######## °²×°Ñ¡Ïî Í¼ÏñÉú³É - FRONTEND #########
 REM ############################################################
 :app_installer_image_generation
-title STL [APP INSTALLER IMAGE GENERATION]
+title STL [Í¼Æ¬Éú³ÉAPP°²×°Ñ¡Ïî]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Installer / Image Generation%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APP°²×° / Í¼Æ¬Éú³É%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Stable Diffusion web UI [Install options]
-echo 2. Stable Diffusion web UI Forge [Install options]
-echo 3. Install ComfyUI
-echo 4. Install Fooocus
-echo 0. Back
+echo 1. Stable Diffusion web UI [°²×°Ñ¡Ïî]
+echo 2. Stable Diffusion web UI Forge [°²×°Ñ¡Ïî]
+echo 3. °²×° ComfyUI
+echo 4. °²×° Fooocus
+echo 0. ·µ»Ø
 
 set /p app_installer_img_gen_choice=Choose Your Destiny: 
 
-REM ######## APP INSTALLER IMAGE GENERATION - BACKEND #########
+REM ######## °²×°Ñ¡Ïî Í¼ÏñÉú³É - BACKEND #########
 if "%app_installer_img_gen_choice%"=="1" (
     call :install_sdwebui_menu
 ) else if "%app_installer_img_gen_choice%"=="2" (
@@ -2054,8 +2054,8 @@ if "%app_installer_img_gen_choice%"=="1" (
         call %app_installer_image_generation_dir%\install_comfyui.bat
         goto :app_installer_image_generation
     ) else (
-        echo [%DATE% %TIME%] ERROR: install_comfyui.bat not found in: %app_installer_image_generation_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] install_comfyui.bat not found in: %app_installer_image_generation_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: install_comfyui.bat Ã»ÕÒµ½ in: %app_installer_image_generation_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] install_comfyui.bat Ã»ÕÒµ½ in: %app_installer_image_generation_dir%%reset%
         pause
         goto :app_installer_image_generation
     )
@@ -2065,8 +2065,8 @@ if "%app_installer_img_gen_choice%"=="1" (
         call %app_installer_image_generation_dir%\install_fooocus.bat
         goto :app_installer_image_generation
     ) else (
-        echo [%DATE% %TIME%] ERROR: install_fooocus.bat not found in: %app_installer_image_generation_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] install_fooocus.bat not found in: %app_installer_image_generation_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: install_fooocus.bat Ã»ÕÒµ½ in: %app_installer_image_generation_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] install_fooocus.bat Ã»ÕÒµ½ in: %app_installer_image_generation_dir%%reset%
         pause
         goto :app_installer_image_generation
     )
@@ -2081,39 +2081,39 @@ if "%app_installer_img_gen_choice%"=="1" (
 
 
 REM ############################################################
-REM ##### APP INSTALLER STABLE DIFUSSION WEBUI - FRONTEND ######
+REM ##### °²×°Ñ¡Ïî STABLE DIFUSSION WEBUI - FRONTEND ######
 REM ############################################################
 :install_sdwebui_menu
-title STL [APP INSTALLER STABLE DIFUSSION WEBUI]
+title STL [SDWEBUI°²×°]
 
 REM Check if the folder exists
 if exist "%sdwebui_install_path%" (
     REM Activate the sdwebui environment
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Deactivating Conda environment: %cyan_fg_strong%sdwebui%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% Í£ÓÃConda»·¾³: %cyan_fg_strong%sdwebui%reset%
     call conda deactivate
 )
 
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Installer / Image Generation / Stable Diffusion web UI %reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APP°²×° / Í¼Æ¬Éú³É / Stable Diffusion web UI %reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Install Stable Diffusion web UI
-echo 2. Install Extensions
-echo 3. Models [Install Options]
-echo 0. Back
+echo 1. °²×° Stable Diffusion web UI
+echo 2. °²×° À©Õ¹
+echo 3. Ä£ĞÍ [°²×°Ñ¡Ïî]
+echo 0. ·µ»Ø
 
 set /p app_installer_sdwebui_choice=Choose Your Destiny: 
 
-REM ##### APP INSTALLER STABLE DIFUSSION WEBUI - BACKEND ######
+REM ##### °²×°Ñ¡Ïî STABLE DIFUSSION WEBUI - BACKEND ######
 if "%app_installer_sdwebui_choice%"=="1" (
     set "caller=app_installer_image_generation_sdwebui"
     if exist "%app_installer_image_generation_dir%\install_sdwebui.bat" (
         call %app_installer_image_generation_dir%\install_sdwebui.bat
         goto :install_sdwebui_menu
     ) else (
-        echo [%DATE% %TIME%] ERROR: install_sdwebui.bat not found in: %app_installer_image_generation_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] install_sdwebui.bat not found in: %app_installer_image_generation_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: install_sdwebui.bat Ã»ÕÒµ½ in: %app_installer_image_generation_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] install_sdwebui.bat Ã»ÕÒµ½ in: %app_installer_image_generation_dir%%reset%
         pause
         goto :install_sdwebui_menu
     )
@@ -2134,13 +2134,13 @@ if "%app_installer_sdwebui_choice%"=="1" (
 :install_sdwebui_extensions
 REM Check if the folder exists
 if not exist "%sdwebui_install_path%" (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Stable Diffusion Webui is not installed. Please install it first.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] Stable Diffusion Webui Î´°²×°£¬ÇëÏÈ°²×°.%reset%
     pause
     goto :install_sdwebui_menu
 )
 
 REM Clone extensions for stable-diffusion-webui
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Cloning extensions for stable-diffusion-webui...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚ¿ËÂ¡À©Õ¹ for stable-diffusion-webui...
 cd /d "%sdwebui_install_path%\extensions"
 git clone https://github.com/alemelis/sd-webui-ar.git
 git clone https://github.com/butaixianran/Stable-Diffusion-Webui-Civitai-Helper.git
@@ -2158,54 +2158,54 @@ git clone https://github.com/Gourieff/sd-webui-reactor.git
 git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui-rembg.git
 
 REM Installs better upscaler models
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing Better Upscaler models...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚ°²×° Better Upscaler models...
 cd /d "%sdwebui_install_path%\models"
 mkdir ESRGAN && cd ESRGAN
 curl -o 4x-AnimeSharp.pth https://huggingface.co/Kim2091/AnimeSharp/resolve/main/4x-AnimeSharp.pth
 curl -o 4x-UltraSharp.pth https://huggingface.co/lokCX/4x-Ultrasharp/resolve/main/4x-UltraSharp.pth
 pause
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Extensions for Stable Diffusion web UI installed Successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%À©Õ¹ for Stable Diffusion web UI ³É¹¦°²×°.%reset%
 goto :install_sdwebui_menu
 
 
 REM ############################################################
-REM ##### APP INSTALLER SDWEBUI Models - FRONTEND ##############
+REM ##### °²×°Ñ¡Ïî SDWEBUI Ä£ĞÍ - FRONTEND ##############
 REM ############################################################
 :install_sdwebui_model_menu
-title STL [APP INSTALLER SDWEBUI MODELS]
+title STL [°²×°SDWEBUILLMÄ£ĞÍÑ¡Ïî]
 
 REM Check if the folder exists
 if not exist "%sdwebui_install_path%" (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Stable Diffusion Webui is not installed. Please install it first.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] Stable Diffusion Webui Î´°²×°£¬ÇëÏÈ°²×°.%reset%
     pause
     goto :install_sdwebui_menu
 )
 
 REM Run conda activate from the Miniconda installation
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Activating Miniconda environment...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ¼¤»îMiniconda»·¾³...
 call "%miniconda_path%\Scripts\activate.bat"
 
 REM Activate the sdwebui environment
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Activating Conda environment: %cyan_fg_strong%sdwebui%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ¼¤»îConda»·¾³: %cyan_fg_strong%sdwebui%reset%
 call conda activate sdwebui
 
 cd /d "%sdwebui_install_path%"
 
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Installer / Image Generation / Stable Diffusion web UI / Models%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APP°²×° / Í¼Æ¬Éú³É / Stable Diffusion web UI / Ä£ĞÍ%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Install Hassaku [ANIME MODEL]
-echo 2. Install YiffyMix [FURRY MODEL]
-echo 3. Install Perfect World [REALISM MODEL]
-echo 4. Install a custom model
+echo 1. °²×° Hassaku [ANIME MODEL]
+echo 2. °²×° YiffyMix [FURRY MODEL]
+echo 3. °²×° Perfect World [REALISM MODEL]
+echo 4. °²×° ×Ô¶¨ÒåLLMÄ£ĞÍ
 echo 5. Add API Key from civitai
-echo 0. Back
+echo 0. ·µ»Ø
 
 set /p app_installer_sdwebui_model_choice=Choose Your Destiny: 
 
-REM ######## APP INSTALLER IMAGE GENERATION - BACKEND #########
+REM ######## °²×°Ñ¡Ïî Í¼ÏñÉú³É - BACKEND #########
 if "%app_installer_sdwebui_model_choice%"=="1" (
     call :install_sdwebui_model_hassaku
 ) else if "%app_installer_sdwebui_model_choice%"=="2" (
@@ -2226,33 +2226,33 @@ if "%app_installer_sdwebui_model_choice%"=="1" (
 )
 
 :install_sdwebui_model_hassaku
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Downloading Hassaku Model...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÏÂÔØ Hassaku Model...
 civitdl 2583 -s basic "models\Stable-diffusion"
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Successfully installed Hassaku Model in: "%sdwebui_install_path%\models\Stable-diffusion"%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%¸ü¸Ä°²×° Hassaku Model in: "%sdwebui_install_path%\models\Stable-diffusion"%reset%
 pause
 goto :install_sdwebui_model_menu
 
 
 :install_sdwebui_model_yiffymix
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Downloading YiffyMix Model...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÏÂÔØ YiffyMix Model...
 civitdl 3671 -s basic "models\Stable-diffusion"
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Successfully installed YiffyMix Model in: "%sdwebui_install_path%\models\Stable-diffusion"%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%¸ü¸Ä°²×° YiffyMix Model in: "%sdwebui_install_path%\models\Stable-diffusion"%reset%
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Downloading YiffyMix Config...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÏÂÔØ YiffyMix Config...
 civitdl 3671 -s basic "models\Stable-diffusion"
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Successfully installed YiffyMix Config in: "%sdwebui_install_path%\models\Stable-diffusion"%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%¸ü¸Ä°²×° YiffyMix Config in: "%sdwebui_install_path%\models\Stable-diffusion"%reset%
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Downloading YiffyMix VAE...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÏÂÔØ YiffyMix VAE...
 civitdl 3671 -s basic "models\VAE"
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Successfully installed YiffyMix VAE in: "%sdwebui_install_path%\models\VAE"%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%¸ü¸Ä°²×° YiffyMix VAE in: "%sdwebui_install_path%\models\VAE"%reset%
 pause
 goto :install_sdwebui_model_menu
 
 
 :install_sdwebui_model_perfectworld
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Downloading Perfect World Model...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÏÂÔØ Perfect World Model...
 civitdl 8281 -s basic "models\Stable-diffusion"
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Successfully installed Perfect World Model in: "%sdwebui_install_path%\models\Stable-diffusion"%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%¸ü¸Ä°²×° Perfect World Model in: "%sdwebui_install_path%\models\Stable-diffusion"%reset%
 pause
 goto :install_sdwebui_model_menu
 
@@ -2272,7 +2272,7 @@ if errorlevel 1 (
     goto :install_sdwebui_model_custom
 )
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Downloading...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÏÂÔØ...
 civitdl %civitaimodelid% -s basic "models\Stable-diffusion"
 pause
 goto :install_sdwebui_model_menu
@@ -2284,45 +2284,45 @@ set /p civitaiapikey="(0 to cancel)Insert API key: "
 
 if "%civitaiapikey%"=="0" goto :install_sdwebui_model_menu
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Adding API key...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%Adding API key...
 civitconfig default --api-key %civitaiapikey%
 pause
 goto :install_sdwebui_model_menu
 
 REM ############################################################
-REM ## APP INSTALLER STABLE DIFUSSION WEBUI FORGE - FRONTEND ###
+REM ## °²×°Ñ¡Ïî STABLE DIFUSSION WEBUI FORGE - FRONTEND ###
 REM ############################################################
 :install_sdwebuiforge_menu
-title STL [APP INSTALLER STABLE DIFUSSION WEBUI FORGE]
+title STL [°²×°Ñ¡Ïî STABLE DIFUSSION WEBUI FORGE]
 
 REM Check if the folder exists
 if exist "%sdwebuiforge_install_path%" (
     REM Activate the sdwebuiforge environment
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Deactivating Conda environment: %cyan_fg_strong%sdwebui%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% Í£ÓÃConda»·¾³: %cyan_fg_strong%sdwebui%reset%
     call conda deactivate
 )
 
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Installer / Stable Diffusion web UI Forge %reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APP°²×° / Stable Diffusion web UI Forge %reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Install Stable Diffusion web UI Forge
-echo 2. Install Extensions
-echo 3. Models [Install Options]
-echo 0. Back
+echo 1. °²×° Stable Diffusion web UI Forge
+echo 2. °²×° À©Õ¹
+echo 3. LLMÄ£ĞÍ [°²×°Ñ¡Ïî]
+echo 0. ·µ»Ø
 
 set /p app_installer_sdwebuiforge_choice=Choose Your Destiny: 
 
-REM ## APP INSTALLER STABLE DIFUSSION WEBUI FORGE - BACKEND ###
+REM ## °²×°Ñ¡Ïî STABLE DIFUSSION WEBUI FORGE - BACKEND ###
 if "%app_installer_sdwebuiforge_choice%"=="1" (
     set "caller=app_installer_image_generation_sdwebuiforge"
     if exist "%app_installer_image_generation_dir%\install_sdwebuiforge.bat" (
         call %app_installer_image_generation_dir%\install_sdwebuiforge.bat
         goto :install_sdwebuiforge_menu
     ) else (
-        echo [%DATE% %TIME%] ERROR: install_sdwebuiforge.bat not found in: %app_installer_image_generation_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] install_sdwebuiforge.bat not found in: %app_installer_image_generation_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: install_sdwebuiforge.bat Ã»ÕÒµ½ in: %app_installer_image_generation_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] install_sdwebuiforge.bat Ã»ÕÒµ½ in: %app_installer_image_generation_dir%%reset%
         pause
         goto :install_sdwebuiforge_menu
     )
@@ -2343,13 +2343,13 @@ if "%app_installer_sdwebuiforge_choice%"=="1" (
 :install_sdwebuiforge_extensions
 REM Check if the folder exists
 if not exist "%sdwebuiforge_install_path%" (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Stable Diffusion WebUI Forge is not installed. Please install it first.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] Stable Diffusion WebUI Forge Î´°²×°£¬ÇëÏÈ°²×°.%reset%
     pause
     goto :install_sdwebuiforge_menu
 )
 
 REM Clone extensions for stable-diffusion-webui-forge
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Cloning extensions for stable-diffusion-webui-forge...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% Cloning extensions for stable-diffusion-webui-forge...
 cd /d "%sdwebuiforge_install_path%\extensions"
 git clone https://github.com/alemelis/sd-webui-ar.git
 git clone https://github.com/butaixianran/Stable-Diffusion-Webui-Civitai-Helper.git
@@ -2367,53 +2367,53 @@ git clone https://github.com/Gourieff/sd-webui-reactor.git
 git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui-rembg.git
 
 REM Installs better upscaler models
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Installing Better Upscaler models...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚ°²×° Better Upscaler models...
 cd /d "%sdwebuiforge_install_path%\models"
 mkdir ESRGAN && cd ESRGAN
 curl -o 4x-AnimeSharp.pth https://huggingface.co/Kim2091/AnimeSharp/resolve/main/4x-AnimeSharp.pth
 curl -o 4x-UltraSharp.pth https://huggingface.co/lokCX/4x-Ultrasharp/resolve/main/4x-UltraSharp.pth
 pause
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Extensions for Stable Diffusion WebUI Forge installed Successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%À©Õ¹ for Stable Diffusion WebUI Forge ³É¹¦°²×°.%reset%
 goto :install_sdwebuiforge_menu
 
 
 REM ############################################################
-REM ##### APP INSTALLER SDWEBUI Models - FRONTEND ##############
+REM ##### °²×°Ñ¡Ïî SDWEBUI Ä£ĞÍ - FRONTEND ##############
 REM ############################################################
 :install_sdwebuiforge_model_menu
-title STL [APP INSTALLER SDWEBUIFORGE MODELS]
+title STL [°²×°Ñ¡ÏîSDWEBUIFORGELLMÄ£ĞÍ]
 
 REM Check if the folder exists
 if not exist "%sdwebuiforge_install_path%" (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Stable Diffusion WebUI Forge is not installed. Please install it first.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] Stable Diffusion WebUI Forge Î´°²×°£¬ÇëÏÈ°²×°.%reset%
     pause
     goto :install_sdwebuiforge_menu
 )
 
 REM Run conda activate from the Miniconda installation
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Activating Miniconda environment...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ¼¤»îMiniconda»·¾³...
 call "%miniconda_path%\Scripts\activate.bat"
 
 REM Activate the sdwebuiforge environment
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Activating Conda environment: %cyan_fg_strong%sdwebuiforge%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ¼¤»îConda»·¾³: %cyan_fg_strong%sdwebuiforge%reset%
 call conda activate sdwebuiforge
 
 cd /d "%sdwebuiforge_install_path%"
 
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Installer / SDWEBUIFORGE Models%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APP°²×° / SDWEBUIFORGE Ä£ĞÍ%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
 echo 1. Install Hassaku [ANIME MODEL]
 echo 2. Install YiffyMix [FURRY MODEL]
 echo 3. Install Perfect World [REALISM MODEL]
 echo 4. Install a custom model
-echo 0. Back
+echo 0. ·µ»Ø
 
 set /p app_installer_sdwebuiforge_model_choice=Choose Your Destiny: 
 
-REM ######## APP INSTALLER IMAGE GENERATION - BACKEND #########
+REM ######## °²×°Ñ¡Ïî Í¼ÏñÉú³É - BACKEND #########
 if "%app_installer_sdwebuiforge_model_choice%"=="1" (
     call :install_sdwebuiforge_model_hassaku
 ) else if "%app_installer_sdwebuiforge_model_choice%"=="2" (
@@ -2432,33 +2432,33 @@ if "%app_installer_sdwebuiforge_model_choice%"=="1" (
 )
 
 :install_sdwebuiforge_model_hassaku
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Downloading Hassaku Model...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÏÂÔØ Hassaku Model...
 civitdl 2583 -s basic "models\Stable-diffusion"
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Successfully installed Hassaku Model in: "%sdwebui_install_path%\models\Stable-diffusion"%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%¸ü¸Ä°²×° Hassaku Model in: "%sdwebui_install_path%\models\Stable-diffusion"%reset%
 pause
 goto :install_sdwebuiforge_model_menu
 
 
 :install_sdwebuiforge_model_yiffymix
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Downloading YiffyMix Model...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÏÂÔØ YiffyMix Model...
 civitdl 3671 -s basic "models\Stable-diffusion"
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Successfully installed YiffyMix Model in: "%sdwebui_install_path%\models\Stable-diffusion"%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%¸ü¸Ä°²×° YiffyMix Model in: "%sdwebui_install_path%\models\Stable-diffusion"%reset%
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Downloading YiffyMix Config...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÏÂÔØ YiffyMix Config...
 civitdl 3671 -s basic "models\Stable-diffusion"
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Successfully installed YiffyMix Config in: "%sdwebui_install_path%\models\Stable-diffusion"%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%¸ü¸Ä°²×° YiffyMix Config in: "%sdwebui_install_path%\models\Stable-diffusion"%reset%
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Downloading YiffyMix VAE...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÏÂÔØ YiffyMix VAE...
 civitdl 3671 -s basic "models\VAE"
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Successfully installed YiffyMix VAE in: "%sdwebui_install_path%\models\VAE"%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%¸ü¸Ä°²×° YiffyMix VAE in: "%sdwebui_install_path%\models\VAE"%reset%
 pause
 goto :install_sdwebuiforge_model_menu
 
 
 :install_sdwebuiforge_model_perfectworld
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Downloading Perfect World Model...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÕıÔÚÏÂÔØ Perfect World Model...
 civitdl 8281 -s basic "models\Stable-diffusion"
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Successfully installed Perfect World Model in: "%sdwebui_install_path%\models\Stable-diffusion"%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%¸ü¸Ä°²×° Perfect World Model in: "%sdwebui_install_path%\models\Stable-diffusion"%reset%
 pause
 goto :install_sdwebuiforge_model_menu
 
@@ -2478,7 +2478,7 @@ if errorlevel 1 (
     goto :install_sdwebuiforge_model_custom
 )
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Downloading...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%ÕıÔÚÏÂÔØ...
 civitdl %civitaimodelid% -s basic "models\Stable-diffusion"
 
 pause
@@ -2487,35 +2487,35 @@ goto :install_sdwebuiforge_model_menu
 
 
 REM ############################################################
-REM ######## APP INSTALLER CORE UTILITIES - FRONTEND ###########
+REM ######## °²×°Ñ¡Ïî CORE UTILITIES - FRONTEND ###########
 REM ############################################################
 :app_installer_core_utilities
-title STL [APP INSTALLER CORE UTILITIES]
+title STL [ºËĞÄAPP°²×°Ñ¡Ïî]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Installer / Core Utilities%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APP°²×° / ºËĞÄapp%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Install 7-Zip
-echo 2. Install FFmpeg
-echo 3. Install Node.js
-echo 4. Install yq
-echo 5. Install Visual Studio BuildTools
-echo 6. Install CUDA Toolkit
-echo 7. Install w64devkit
-echo 0. Back
+echo 1. °²×° 7-Zip
+echo 2. °²×° FFmpeg
+echo 3. °²×° Node.js
+echo 4. °²×° yq
+echo 5. °²×° Visual Studio BuildTools
+echo 6. °²×° CUDA Toolkit
+echo 7. °²×° w64devkit
+echo 0. ·µ»Ø
 
 set /p app_installer_core_util_choice=Choose Your Destiny: 
 
-REM ######## APP INSTALLER CORE UTILITIES - BACKEND ###########
+REM ######## °²×°Ñ¡Ïî CORE UTILITIES - BACKEND ###########
 if "%app_installer_core_util_choice%"=="1" (
     set "caller=app_installer_core_utilities"
     if exist "%app_installer_core_utilities_dir%\install_7zip.bat" (
         call %app_installer_core_utilities_dir%\install_7zip.bat
     ) else (
-        echo [%DATE% %TIME%] ERROR: install_7zip.bat not found in: %app_installer_core_utilities_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] install_7zip.bat not found in: %app_installer_core_utilities_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: install_7zip.bat Ã»ÕÒµ½ in: %app_installer_core_utilities_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] install_7zip.bat Ã»ÕÒµ½ in: %app_installer_core_utilities_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_installer_core_utilities
@@ -2525,9 +2525,9 @@ if "%app_installer_core_util_choice%"=="1" (
     if exist "%app_installer_core_utilities_dir%\install_ffmpeg.bat" (
         call %app_installer_core_utilities_dir%\install_ffmpeg.bat
     ) else (
-        echo [%DATE% %TIME%] ERROR: install_ffmpeg.bat not found in: %app_installer_core_utilities_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] install_ffmpeg.bat not found in: %app_installer_core_utilities_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: install_ffmpeg.bat Ã»ÕÒµ½ in: %app_installer_core_utilities_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] install_ffmpeg.bat Ã»ÕÒµ½ in: %app_installer_core_utilities_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_installer_core_utilities
@@ -2537,9 +2537,9 @@ if "%app_installer_core_util_choice%"=="1" (
     if exist "%app_installer_core_utilities_dir%\install_nodejs.bat" (
         call %app_installer_core_utilities_dir%\install_nodejs.bat
     ) else (
-        echo [%DATE% %TIME%] ERROR: install_nodejs.bat not found in: %app_installer_core_utilities_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] install_nodejs.bat not found in: %app_installer_core_utilities_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: install_nodejs.bat Ã»ÕÒµ½ in: %app_installer_core_utilities_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] install_nodejs.bat Ã»ÕÒµ½ in: %app_installer_core_utilities_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_installer_core_utilities
@@ -2549,9 +2549,9 @@ if "%app_installer_core_util_choice%"=="1" (
     if exist "%app_installer_core_utilities_dir%\install_yq.bat" (
         call %app_installer_core_utilities_dir%\install_yq.bat
     ) else (
-        echo [%DATE% %TIME%] ERROR: install_yq.bat not found in: %app_installer_core_utilities_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] install_yq.bat not found in: %app_installer_core_utilities_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: install_yq.bat Ã»ÕÒµ½ in: %app_installer_core_utilities_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] install_yq.bat Ã»ÕÒµ½ in: %app_installer_core_utilities_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_installer_core_utilities
@@ -2561,9 +2561,9 @@ if "%app_installer_core_util_choice%"=="1" (
     if exist "%app_installer_core_utilities_dir%\install_vsbuildtools.bat" (
         call %app_installer_core_utilities_dir%\install_vsbuildtools.bat
     ) else (
-        echo [%DATE% %TIME%] ERROR: install_vsbuildtools.bat not found in: %app_installer_core_utilities_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] install_vsbuildtools.bat not found in: %app_installer_core_utilities_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: install_vsbuildtools.bat Ã»ÕÒµ½ in: %app_installer_core_utilities_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] install_vsbuildtools.bat Ã»ÕÒµ½ in: %app_installer_core_utilities_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_installer_core_utilities
@@ -2573,9 +2573,9 @@ if "%app_installer_core_util_choice%"=="1" (
     if exist "%app_installer_core_utilities_dir%\install_cudatoolkit.bat" (
         call %app_installer_core_utilities_dir%\install_cudatoolkit.bat
     ) else (
-        echo [%DATE% %TIME%] ERROR: install_cudatoolkit.bat not found in: %app_installer_core_utilities_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] install_cudatoolkit.bat not found in: %app_installer_core_utilities_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: install_cudatoolkit.bat Ã»ÕÒµ½ in: %app_installer_core_utilities_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] install_cudatoolkit.bat Ã»ÕÒµ½ in: %app_installer_core_utilities_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_installer_core_utilities
@@ -2585,9 +2585,9 @@ if "%app_installer_core_util_choice%"=="1" (
     if exist "%app_installer_core_utilities_dir%\install_w64devkit.bat" (
         call %app_installer_core_utilities_dir%\install_w64devkit.bat
     ) else (
-        echo [%DATE% %TIME%] ERROR: install_w64devkit.bat not found in: %app_installer_core_utilities_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] install_w64devkit.bat not found in: %app_installer_core_utilities_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: install_w64devkit.bat Ã»ÕÒµ½ in: %app_installer_core_utilities_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] install_w64devkit.bat Ã»ÕÒµ½ in: %app_installer_core_utilities_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_installer_core_utilities
@@ -2604,24 +2604,24 @@ if "%app_installer_core_util_choice%"=="1" (
 
 
 REM ############################################################
-REM ############## APP UNINSTALLER - FRONTEND ##################
+REM ############## Ğ¶ÔØÑ¡Ïî - FRONTEND ##################
 REM ############################################################
 :app_uninstaller
-title STL [APP UNINSTALLER]
+title STL [APPĞ¶ÔØÑ¡Ïî]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Uninstaller%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APPĞ¶ÔØ%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Text Completion
-echo 2. Voice Generation
-echo 3. Image Generation 
-echo 4. Core Utilities
-echo 0. Back
+echo 1. ÎÄ±¾Éú³É
+echo 2. ÓïÒôÉú³É
+echo 3. Í¼Æ¬Éú³É 
+echo 4. ºËĞÄapp
+echo 0. ·µ»Ø
 
 set /p app_uninstaller_choice=Choose Your Destiny: 
 
-REM ############## APP UNINSTALLER - BACKEND ####################
+REM ############## Ğ¶ÔØÑ¡Ïî - BACKEND ####################
 if "%app_uninstaller_choice%"=="1" (
     call :app_uninstaller_text_completion
 ) else if "%app_uninstaller_choice%"=="2" (
@@ -2642,33 +2642,33 @@ if "%app_uninstaller_choice%"=="1" (
 
 
 REM ############################################################
-REM ######## APP UNINSTALLER TEXT COMPLETION - FRONTEND ########
+REM ######## Ğ¶ÔØÑ¡Ïî ÎÄ±¾Éú³É - FRONTEND ########
 REM ############################################################
 :app_uninstaller_text_completion
-title STL [APP UNINSTALLER TEXT COMPLETION]
+title STL [Ğ¶ÔØÑ¡Ïî ÎÄ±¾Éú³É]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Uninstaller / Text Completion%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APPĞ¶ÔØ / ÎÄ±¾Éú³É%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. UNINSTALL Text generation web UI oobabooga
-echo 2. UNINSTALL koboldcpp
-echo 3. UNINSTALL TabbyAPI
-echo 4. UNINSTALL llamacpp
-echo 0. Back
+echo 1. Ğ¶ÔØ Text generation web UI oobabooga
+echo 2. Ğ¶ÔØ koboldcpp
+echo 3. Ğ¶ÔØ TabbyAPI
+echo 4. Ğ¶ÔØ llamacpp
+echo 0. ·µ»Ø
 
 set /p app_uninstaller_text_completion_choice=Choose Your Destiny: 
 
-REM ####### APP UNINSTALLER TEXT COMPLETION - BACKEND ##########
+REM ####### Ğ¶ÔØÑ¡Ïî ÎÄ±¾Éú³É - BACKEND ##########
 if "%app_uninstaller_text_completion_choice%"=="1" (
     set "caller=app_uninstaller_text_completion"
     if exist "%app_uninstaller_text_completion_dir%\uninstall_ooba.bat" (
         call %app_uninstaller_text_completion_dir%\uninstall_ooba.bat
         goto :app_uninstaller_text_completion
     ) else (
-        echo [%DATE% %TIME%] ERROR: uninstall_ooba.bat not found in: %app_uninstaller_text_completion_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] uninstall_ooba.bat not found in: %app_uninstaller_text_completion_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: uninstall_ooba.bat Ã»ÕÒµ½ in: %app_uninstaller_text_completion_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] uninstall_ooba.bat Ã»ÕÒµ½ in: %app_uninstaller_text_completion_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_uninstaller_text_completion
@@ -2679,9 +2679,9 @@ if "%app_uninstaller_text_completion_choice%"=="1" (
         call %app_uninstaller_text_completion_dir%\uninstall_koboldcpp.bat
         goto :app_uninstaller_text_completion
     ) else (
-        echo [%DATE% %TIME%] ERROR: uninstall_koboldcpp.bat not found in: %app_uninstaller_text_completion_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] uninstall_koboldcpp.bat not found in: %app_uninstaller_text_completion_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: uninstall_koboldcpp.bat Ã»ÕÒµ½ in: %app_uninstaller_text_completion_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] uninstall_koboldcpp.bat Ã»ÕÒµ½ in: %app_uninstaller_text_completion_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_uninstaller_text_completion
@@ -2692,9 +2692,9 @@ if "%app_uninstaller_text_completion_choice%"=="1" (
         call %app_uninstaller_text_completion_dir%\uninstall_tabbyapi.bat
         goto :app_uninstaller_text_completion
     ) else (
-        echo [%DATE% %TIME%] ERROR: uninstall_tabbyapi.bat not found in: %app_uninstaller_text_completion_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] uninstall_tabbyapi.bat not found in: %app_uninstaller_text_completion_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: uninstall_tabbyapi.bat Ã»ÕÒµ½ in: %app_uninstaller_text_completion_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] uninstall_tabbyapi.bat Ã»ÕÒµ½ in: %app_uninstaller_text_completion_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_uninstaller_text_completion
@@ -2705,9 +2705,9 @@ if "%app_uninstaller_text_completion_choice%"=="1" (
         call %app_uninstaller_text_completion_dir%\uninstall_llamacpp.bat
         goto :app_uninstaller_text_completion
     ) else (
-        echo [%DATE% %TIME%] ERROR: uninstall_llamacpp.bat not found in: %app_uninstaller_text_completion_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] uninstall_llamacpp.bat not found in: %app_uninstaller_text_completion_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: uninstall_llamacpp.bat Ã»ÕÒµ½ in: %app_uninstaller_text_completion_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] uninstall_llamacpp.bat Ã»ÕÒµ½ in: %app_uninstaller_text_completion_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_uninstaller_text_completion
@@ -2724,32 +2724,32 @@ if "%app_uninstaller_text_completion_choice%"=="1" (
 
 
 REM ############################################################
-REM ######## APP UNINSTALLER VOICE GENERATION - FRONTEND #######
+REM ######## Ğ¶ÔØÑ¡Ïî ÓïÒôÉú³É - FRONTEND #######
 REM ############################################################
 :app_uninstaller_voice_generation
-title STL [APP UNINSTALLER VOICE GENERATION]
+title STL [Ğ¶ÔØÑ¡Ïî ÓïÒôÉú³É]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Uninstaller / Voice Generation%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APPĞ¶ÔØ / ÓïÒôÉú³É%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. UNINSTALL AllTalk
-echo 2. UNINSTALL XTTS
-echo 3. UNINSTALL rvc
-echo 0. Back
+echo 1. Ğ¶ÔØ AllTalk
+echo 2. Ğ¶ÔØ XTTS
+echo 3. Ğ¶ÔØ rvc
+echo 0. ·µ»Ø
 
 set /p app_uninstaller_voice_gen_choice=Choose Your Destiny: 
 
-REM ######## APP UNINSTALLER VOICE GENERATION - BACKEND #########
+REM ######## Ğ¶ÔØÑ¡Ïî ÓïÒôÉú³É - BACKEND #########
 if "%app_uninstaller_voice_gen_choice%"=="1" (
     set "caller=app_uninstaller_voice_generation"
     if exist "%app_uninstaller_voice_generation_dir%\uninstall_alltalk.bat" (
         call %app_uninstaller_voice_generation_dir%\uninstall_alltalk.bat
         goto :app_uninstaller_voice_generation
     ) else (
-        echo [%DATE% %TIME%] ERROR: uninstall_alltalk.bat not found in: %app_uninstaller_voice_generation_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] uninstall_alltalk.bat not found in: %app_uninstaller_voice_generation_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: uninstall_alltalk.bat Ã»ÕÒµ½ in: %app_uninstaller_voice_generation_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] uninstall_alltalk.bat Ã»ÕÒµ½ in: %app_uninstaller_voice_generation_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_uninstaller_voice_generation
@@ -2760,9 +2760,9 @@ if "%app_uninstaller_voice_gen_choice%"=="1" (
         call %app_uninstaller_voice_generation_dir%\uninstall_xtts.bat
         goto :app_uninstaller_voice_generation
     ) else (
-        echo [%DATE% %TIME%] ERROR: uninstall_xtts.bat not found in: %app_uninstaller_voice_generation_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] uninstall_xtts.bat not found in: %app_uninstaller_voice_generation_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: uninstall_xtts.bat Ã»ÕÒµ½ in: %app_uninstaller_voice_generation_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] uninstall_xtts.bat Ã»ÕÒµ½ in: %app_uninstaller_voice_generation_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_uninstaller_voice_generation
@@ -2773,9 +2773,9 @@ if "%app_uninstaller_voice_gen_choice%"=="1" (
         call %app_uninstaller_voice_generation_dir%\uninstall_rvc.bat
         goto :app_uninstaller_voice_generation
     ) else (
-        echo [%DATE% %TIME%] ERROR: uninstall_rvc.bat not found in: %app_uninstaller_voice_generation_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] uninstall_rvc.bat not found in: %app_uninstaller_voice_generation_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: uninstall_rvc.bat Ã»ÕÒµ½ in: %app_uninstaller_voice_generation_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] uninstall_rvc.bat Ã»ÕÒµ½ in: %app_uninstaller_voice_generation_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_uninstaller_voice_generation
@@ -2792,33 +2792,33 @@ if "%app_uninstaller_voice_gen_choice%"=="1" (
 
 
 REM ############################################################
-REM ######## APP UNINSTALLER IMAGE GENERATION - FRONTEND #######
+REM ######## Ğ¶ÔØÑ¡Ïî Í¼ÏñÉú³É - FRONTEND #######
 REM ############################################################
 :app_uninstaller_image_generation
-title STL [APP UNINSTALLER IMAGE GENERATION]
+title STL [Ğ¶ÔØÑ¡Ïî Í¼ÏñÉú³É]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Uninstaller / Image Generation%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APPĞ¶ÔØ / Í¼Æ¬Éú³É%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. UNINSTALL Stable Diffusion web UI
-echo 2. UNINSTALL Stable Diffusion web UI Forge
-echo 3. UNINSTALL ComfyUI
-echo 4. UNINSTALL Fooocus
-echo 0. Back
+echo 1. Ğ¶ÔØ Stable Diffusion web UI
+echo 2. Ğ¶ÔØ Stable Diffusion web UI Forge
+echo 3. Ğ¶ÔØ ComfyUI
+echo 4. Ğ¶ÔØ Fooocus
+echo 0. ·µ»Ø
 
 set /p app_uninstaller_img_gen_choice=Choose Your Destiny: 
 
-REM ######## APP UNINSTALLER IMAGE GENERATION - BACKEND #########
+REM ######## Ğ¶ÔØÑ¡Ïî Í¼ÏñÉú³É - BACKEND #########
 if "%app_uninstaller_img_gen_choice%"=="1" (
     set "caller=app_uninstaller_image_generation"
     if exist "%app_uninstaller_image_generation_dir%\uninstall_sdwebui.bat" (
         call %app_uninstaller_image_generation_dir%\uninstall_sdwebui.bat
         goto :app_uninstaller_image_generation
     ) else (
-        echo [%DATE% %TIME%] ERROR: uninstall_sdwebui.bat not found in: %app_uninstaller_image_generation_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] uninstall_sdwebui.bat not found in: %app_uninstaller_image_generation_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: uninstall_sdwebui.bat Ã»ÕÒµ½ in: %app_uninstaller_image_generation_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] uninstall_sdwebui.bat Ã»ÕÒµ½ in: %app_uninstaller_image_generation_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_uninstaller_image_generation
@@ -2829,9 +2829,9 @@ if "%app_uninstaller_img_gen_choice%"=="1" (
         call %app_uninstaller_image_generation_dir%\uninstall_sdwebuiforge.bat
         goto :app_uninstaller_image_generation
     ) else (
-        echo [%DATE% %TIME%] ERROR: uninstall_sdwebuiforge.bat not found in: %app_uninstaller_image_generation_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] uninstall_sdwebuiforge.bat not found in: %app_uninstaller_image_generation_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: uninstall_sdwebuiforge.bat Ã»ÕÒµ½ in: %app_uninstaller_image_generation_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] uninstall_sdwebuiforge.bat Ã»ÕÒµ½ in: %app_uninstaller_image_generation_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_uninstaller_image_generation
@@ -2842,9 +2842,9 @@ if "%app_uninstaller_img_gen_choice%"=="1" (
         call %app_uninstaller_image_generation_dir%\uninstall_comfyui.bat
         goto :app_uninstaller_image_generation
     ) else (
-        echo [%DATE% %TIME%] ERROR: uninstall_comfyui.bat not found in: %app_uninstaller_image_generation_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] uninstall_comfyui.bat not found in: %app_uninstaller_image_generation_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: uninstall_comfyui.bat Ã»ÕÒµ½ in: %app_uninstaller_image_generation_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] uninstall_comfyui.bat Ã»ÕÒµ½ in: %app_uninstaller_image_generation_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_uninstaller_image_generation
@@ -2855,9 +2855,9 @@ if "%app_uninstaller_img_gen_choice%"=="1" (
         call %app_uninstaller_image_generation_dir%\uninstall_fooocus.bat
         goto :app_uninstaller_image_generation
     ) else (
-        echo [%DATE% %TIME%] ERROR: uninstall_fooocus.bat not found in: %app_uninstaller_image_generation_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] uninstall_fooocus.bat not found in: %app_uninstaller_image_generation_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: uninstall_fooocus.bat Ã»ÕÒµ½ in: %app_uninstaller_image_generation_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] uninstall_fooocus.bat Ã»ÕÒµ½ in: %app_uninstaller_image_generation_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_uninstaller_image_generation
@@ -2873,37 +2873,37 @@ if "%app_uninstaller_img_gen_choice%"=="1" (
 
 
 REM ############################################################
-REM ######## APP UNINSTALLER CORE UTILITIES - FRONTEND #########
+REM ######## Ğ¶ÔØÑ¡Ïî CORE UTILITIES - FRONTEND #########
 REM ############################################################
 :app_uninstaller_core_utilities
-title STL [APP UNINSTALLER CORE UTILITIES]
+title STL [Ğ¶ÔØÑ¡Ïî ºËĞÄAPP]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / App Uninstaller / Core Utilities%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / APPĞ¶ÔØ / ºËĞÄapp%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
-echo 1. UNINSTALL Extras
-echo 2. UNINSTALL SillyTavern
-echo 3. UNINSTALL 7-Zip
-echo 4. UNINSTALL FFmpeg
-echo 5. UNINSTALL Node.js
-echo 6. UNINSTALL yq
-echo 7. UNINSTALL CUDA Toolkit
-echo 8. UNINSTALL Visual Studio BuildTools
-echo 9. UNINSTALL w64devkit
-echo 0. Back
+echo ÄãÏëÅªÉ¶àÏ?
+echo 1. Ğ¶ÔØ Extras
+echo 2. Ğ¶ÔØ SillyTavern
+echo 3. Ğ¶ÔØ 7-Zip
+echo 4. Ğ¶ÔØ FFmpeg
+echo 5. Ğ¶ÔØ Node.js
+echo 6. Ğ¶ÔØ yq
+echo 7. Ğ¶ÔØ CUDA Toolkit
+echo 8. Ğ¶ÔØ Visual Studio BuildTools
+echo 9. Ğ¶ÔØ w64devkit
+echo 0. ·µ»Ø
 
 set /p app_uninstaller_core_utilities_choice=Choose Your Destiny: 
 
-REM ######## APP UNINSTALLER CORE UTILITIES - BACKEND #########
+REM ######## Ğ¶ÔØÑ¡Ïî CORE UTILITIES - BACKEND #########
 if "%app_uninstaller_core_utilities_choice%"=="1" (
     set "caller=app_uninstaller_core_utilities"
     if exist "%app_uninstaller_core_utilities_dir%\uninstall_extras.bat" (
         call %app_uninstaller_core_utilities_dir%\uninstall_extras.bat
         goto :app_uninstaller_core_utilities
     ) else (
-        echo [%DATE% %TIME%] ERROR: uninstall_extras.bat not found in: %app_uninstaller_core_utilities_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] uninstall_extras.bat not found in: %app_uninstaller_core_utilities_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: uninstall_extras.bat Ã»ÕÒµ½ in: %app_uninstaller_core_utilities_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] uninstall_extras.bat Ã»ÕÒµ½ in: %app_uninstaller_core_utilities_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_uninstaller_core_utilities
@@ -2914,9 +2914,9 @@ if "%app_uninstaller_core_utilities_choice%"=="1" (
         call %app_uninstaller_core_utilities_dir%\uninstall_st.bat
         goto :app_uninstaller_core_utilities
     ) else (
-        echo [%DATE% %TIME%] ERROR: uninstall_st.bat not found in: %app_uninstaller_core_utilities_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] uninstall_st.bat not found in: %app_uninstaller_core_utilities_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: uninstall_st.bat Ã»ÕÒµ½ in: %app_uninstaller_core_utilities_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] uninstall_st.bat Ã»ÕÒµ½ in: %app_uninstaller_core_utilities_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_uninstaller_core_utilities
@@ -2927,9 +2927,9 @@ if "%app_uninstaller_core_utilities_choice%"=="1" (
         call %app_uninstaller_core_utilities_dir%\uninstall_7zip.bat
         goto :app_uninstaller_core_utilities
     ) else (
-        echo [%DATE% %TIME%] ERROR: uninstall_7zip.bat not found in: %app_uninstaller_core_utilities_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] uninstall_7zip.bat not found in: %app_uninstaller_core_utilities_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: uninstall_7zip.bat Ã»ÕÒµ½ in: %app_uninstaller_core_utilities_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] uninstall_7zip.bat Ã»ÕÒµ½ in: %app_uninstaller_core_utilities_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_uninstaller_core_utilities
@@ -2940,9 +2940,9 @@ if "%app_uninstaller_core_utilities_choice%"=="1" (
         call %app_uninstaller_core_utilities_dir%\uninstall_ffmpeg.bat
         goto :app_uninstaller_core_utilities
     ) else (
-        echo [%DATE% %TIME%] ERROR: uninstall_ffmpeg.bat not found in: %app_uninstaller_core_utilities_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] uninstall_ffmpeg.bat not found in: %app_uninstaller_core_utilities_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: uninstall_ffmpeg.bat Ã»ÕÒµ½ in: %app_uninstaller_core_utilities_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] uninstall_ffmpeg.bat Ã»ÕÒµ½ in: %app_uninstaller_core_utilities_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_uninstaller_core_utilities
@@ -2953,9 +2953,9 @@ if "%app_uninstaller_core_utilities_choice%"=="1" (
         call %app_uninstaller_core_utilities_dir%\uninstall_nodejs.bat
         goto :app_uninstaller_core_utilities
     ) else (
-        echo [%DATE% %TIME%] ERROR: uninstall_nodejs.bat not found in: %app_uninstaller_core_utilities_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] uninstall_nodejs.bat not found in: %app_uninstaller_core_utilities_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: uninstall_nodejs.bat Ã»ÕÒµ½ in: %app_uninstaller_core_utilities_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] uninstall_nodejs.bat Ã»ÕÒµ½ in: %app_uninstaller_core_utilities_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_uninstaller_core_utilities
@@ -2966,9 +2966,9 @@ if "%app_uninstaller_core_utilities_choice%"=="1" (
         call %app_uninstaller_core_utilities_dir%\uninstall_yq.bat
         goto :app_uninstaller_core_utilities
     ) else (
-        echo [%DATE% %TIME%] ERROR: uninstall_yq.bat not found in: %app_uninstaller_core_utilities_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] uninstall_yq.bat not found in: %app_uninstaller_core_utilities_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: uninstall_yq.bat Ã»ÕÒµ½ in: %app_uninstaller_core_utilities_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] uninstall_yq.bat Ã»ÕÒµ½ in: %app_uninstaller_core_utilities_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_uninstaller_core_utilities
@@ -2979,9 +2979,9 @@ if "%app_uninstaller_core_utilities_choice%"=="1" (
         call %app_uninstaller_core_utilities_dir%\uninstall_cudatoolkit.bat
         goto :app_uninstaller_core_utilities
     ) else (
-        echo [%DATE% %TIME%] ERROR: uninstall_cudatoolkit.bat not found in: %app_uninstaller_core_utilities_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] uninstall_cudatoolkit.bat not found in: %app_uninstaller_core_utilities_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: uninstall_cudatoolkit.bat Ã»ÕÒµ½ in: %app_uninstaller_core_utilities_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] uninstall_cudatoolkit.bat Ã»ÕÒµ½ in: %app_uninstaller_core_utilities_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_uninstaller_core_utilities
@@ -2992,9 +2992,9 @@ if "%app_uninstaller_core_utilities_choice%"=="1" (
         call %app_uninstaller_core_utilities_dir%\uninstall_vsbuildtools.bat
         goto :app_uninstaller_core_utilities
     ) else (
-        echo [%DATE% %TIME%] ERROR: uninstall_vsbuildtools.bat not found in: %app_uninstaller_core_utilities_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] uninstall_vsbuildtools.bat not found in: %app_uninstaller_core_utilities_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: uninstall_vsbuildtools.bat Ã»ÕÒµ½ in: %app_uninstaller_core_utilities_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] uninstall_vsbuildtools.bat Ã»ÕÒµ½ in: %app_uninstaller_core_utilities_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_uninstaller_core_utilities
@@ -3005,9 +3005,9 @@ if "%app_uninstaller_core_utilities_choice%"=="1" (
         call %app_uninstaller_core_utilities_dir%\uninstall_w64devkit.bat
         goto :app_uninstaller_core_utilities
     ) else (
-        echo [%DATE% %TIME%] ERROR: uninstall_w64devkit.bat not found in: %app_uninstaller_core_utilities_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] uninstall_w64devkit.bat not found in: %app_uninstaller_core_utilities_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: uninstall_w64devkit.bat Ã»ÕÒµ½ in: %app_uninstaller_core_utilities_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] uninstall_w64devkit.bat Ã»ÕÒµ½ in: %app_uninstaller_core_utilities_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :app_uninstaller_core_utilities
@@ -3023,24 +3023,24 @@ if "%app_uninstaller_core_utilities_choice%"=="1" (
 
 
 REM ############################################################
-REM ################# EDITOR - FRONTEND ########################
+REM ################# ±à¼­Ñ¡Ïî - FRONTEND ########################
 REM ############################################################
 :editor
-title STL [EDITOR]
+title STL [±à¼­Ñ¡Ïî]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / Editor%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / ±à¼­Ñ¡Ïî%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Text Completion
-echo 2. Voice Generation 
-echo 3. Image Generation 
-echo 4. Core Utilities
-echo 0. Back
+echo 1. ÎÄ±¾Éú³É
+echo 2. ÓïÒôÉú³É 
+echo 3. Í¼Æ¬Éú³É 
+echo 4. ºËĞÄapp
+echo 0. ·µ»Ø
 
 set /p editor_choice=Choose Your Destiny: 
 
-REM ################# EDITOR - BACKEND ########################
+REM ################# ±à¼­Ñ¡Ïî - BACKEND ########################
 if "%editor_choice%"=="1" (
     call :editor_text_completion
 ) else if "%editor_choice%"=="2" (
@@ -3060,32 +3060,32 @@ if "%editor_choice%"=="1" (
 
 
 REM ############################################################
-REM ######## EDITOR TEXT COMPLETION - FRONTEND #################
+REM ######## ±à¼­Ñ¡Ïî ÎÄ±¾Éú³É - FRONTEND #################
 REM ############################################################
 :editor_text_completion
-title STL [EDITOR TEXT COMPLETION]
+title STL [±à¼­Ñ¡Ïî ÎÄ±¾Éú³É]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / Editor / Text Completion%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / ±à¼­Ñ¡Ïî / ÎÄ±¾Éú³É%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Edit Text generation web UI oobabooga
-echo 2. Edit koboldcpp
-echo 3. Edit TabbyAPI
-echo 0. Back
+echo 1. ±à¼­ Text generation web UI oobabooga
+echo 2. ±à¼­ koboldcpp
+echo 3. ±à¼­ TabbyAPI
+echo 0. ·µ»Ø
 
 set /p editor_text_completion_choice=Choose Your Destiny: 
 
-REM ####### EDITOR TEXT COMPLETION - BACKEND ##########
+REM ####### ±à¼­Ñ¡Ïî ÎÄ±¾Éú³É - BACKEND ##########
 if "%editor_text_completion_choice%"=="1" (
     set "caller=editor_text_completion"
     if exist "%editor_text_completion_dir%\edit_ooba_modules.bat" (
         call %editor_text_completion_dir%\edit_ooba_modules.bat
         goto :editor_text_completion
     ) else (
-        echo [%DATE% %TIME%] ERROR: edit_ooba_modules.bat not found in: %editor_text_completion_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] edit_ooba_modules.bat not found in: %editor_text_completion_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: edit_ooba_modules.bat Ã»ÕÒµ½ in: %editor_text_completion_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] edit_ooba_modules.bat Ã»ÕÒµ½ in: %editor_text_completion_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :editor_text_completion
@@ -3096,9 +3096,9 @@ if "%editor_text_completion_choice%"=="1" (
         call %editor_text_completion_dir%\edit_koboldcpp_modules.bat
         goto :editor_text_completion
     ) else (
-        echo [%DATE% %TIME%] ERROR: edit_koboldcpp_modules.bat not found in: %editor_text_completion_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] edit_koboldcpp_modules.bat not found in: %editor_text_completion_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: edit_koboldcpp_modules.bat Ã»ÕÒµ½ in: %editor_text_completion_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] edit_koboldcpp_modules.bat Ã»ÕÒµ½ in: %editor_text_completion_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :editor_text_completion
@@ -3109,9 +3109,9 @@ if "%editor_text_completion_choice%"=="1" (
         call %editor_text_completion_dir%\edit_tabbyapi_modules.bat
         goto :editor_text_completion
     ) else (
-        echo [%DATE% %TIME%] ERROR: edit_tabbyapi_modules.bat.bat not found in: %editor_text_completion_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] edit_tabbyapi_modules.bat not found in: %editor_text_completion_dir%%reset%
-        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Running Automatic Repair...
+        echo [%DATE% %TIME%] ´íÎó: edit_tabbyapi_modules.bat.bat Ã»ÕÒµ½ in: %editor_text_completion_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] edit_tabbyapi_modules.bat Ã»ÕÒµ½ in: %editor_text_completion_dir%%reset%
+        echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% ÔËĞĞ×Ô¶¯ĞŞ¸´...
         git pull
         pause
         goto :editor_text_completion
@@ -3126,29 +3126,29 @@ if "%editor_text_completion_choice%"=="1" (
 )
 
 REM ############################################################
-REM ######## EDITOR VOICE GENERATION - FRONTEND ################
+REM ######## ±à¼­Ñ¡Ïî ÓïÒôÉú³É - FRONTEND ################
 REM ############################################################
 :editor_voice_generation
-title STL [EDITOR VOICE GENERATION]
+title STL [±à¼­Ñ¡Ïî ÓïÒôÉú³É]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / Editor / Voice Generation%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / ±à¼­Ñ¡Ïî / ÓïÒôÉú³É%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Edit XTTS Modules
-echo 0. Back
+echo 1. ±à¼­ XTTS Modules
+echo 0. ·µ»Ø
 
 set /p editor_voice_generation_choice=Choose Your Destiny: 
 
-REM ######## EDITOR VOICE GENERATION - BACKEND #########
+REM ######## ±à¼­Ñ¡Ïî ÓïÒôÉú³É - BACKEND #########
 if "%editor_voice_generation_choice%"=="1" (
     set "caller=editor_voice_generation"
     if exist "%editor_voice_generation_dir%\edit_xtts_modules.bat" (
         call %editor_voice_generation_dir%\edit_xtts_modules.bat
         goto :editor_voice_generation
     ) else (
-        echo [%DATE% %TIME%] ERROR: edit_xtts_modules.bat not found in: %editor_voice_generation_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] edit_xtts_modules.bat not found in: %editor_voice_generation_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: edit_xtts_modules.bat Ã»ÕÒµ½ in: %editor_voice_generation_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] edit_xtts_modules.bat Ã»ÕÒµ½ in: %editor_voice_generation_dir%%reset%
         pause
         goto :editor_voice_generation
     )
@@ -3163,32 +3163,32 @@ if "%editor_voice_generation_choice%"=="1" (
 
 
 REM ############################################################
-REM ######## EDITOR IMAGE GENERATION - FRONTEND ################
+REM ######## ±à¼­Ñ¡Ïî Í¼ÏñÉú³É - FRONTEND ################
 REM ############################################################
 :editor_image_generation
-title STL [EDITOR IMAGE GENERATION]
+title STL [±à¼­Ñ¡Ïî Í¼ÏñÉú³É]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / Editor / Image Generation%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / ±à¼­Ñ¡Ïî / Í¼Æ¬Éú³É%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
+echo ÄãÏëÅªÉ¶àÏ?
 
-echo 1. Edit Stable Diffusion web UI
-echo 2. Edit Stable Diffusion web UI Forge
-echo 3. Edit ComfyUI
-echo 4. Edit Fooocus
-echo 0. Back
+echo 1. ±à¼­ Stable Diffusion web UI
+echo 2. ±à¼­ Stable Diffusion web UI Forge
+echo 3. ±à¼­ ComfyUI
+echo 4. ±à¼­ Fooocus
+echo 0. ·µ»Ø
 
 set /p editor_image_generation_choice=Choose Your Destiny: 
 
-REM ######## EDITOR IMAGE GENERATION - BACKEND #########
+REM ######## ±à¼­Ñ¡Ïî Í¼ÏñÉú³É - BACKEND #########
 if "%editor_image_generation_choice%"=="1" (
     set "caller=editor_image_generation"
     if exist "%editor_image_generation_dir%\edit_sdwebui_modules.bat" (
         call %editor_image_generation_dir%\edit_sdwebui_modules.bat
         goto :editor_image_generation
     ) else (
-        echo [%DATE% %TIME%] ERROR: edit_sdwebui_modules.bat not found in: %editor_image_generation_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] edit_sdwebui_modules.bat not found in: %editor_image_generation_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: edit_sdwebui_modules.bat Ã»ÕÒµ½ in: %editor_image_generation_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] edit_sdwebui_modules.bat Ã»ÕÒµ½ in: %editor_image_generation_dir%%reset%
         pause
         goto :editor_image_generation
     )
@@ -3198,8 +3198,8 @@ if "%editor_image_generation_choice%"=="1" (
         call %editor_image_generation_dir%\edit_sdwebuiforge_modules.bat
         goto :editor_image_generation
     ) else (
-        echo [%DATE% %TIME%] ERROR: edit_sdwebuiforge_modules.bat not found in: %editor_image_generation_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] edit_sdwebuiforge_modules.bat not found in: %editor_image_generation_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: edit_sdwebuiforge_modules.bat Ã»ÕÒµ½ in: %editor_image_generation_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] edit_sdwebuiforge_modules.bat Ã»ÕÒµ½ in: %editor_image_generation_dir%%reset%
         pause
         goto :editor_image_generation
     )
@@ -3209,8 +3209,8 @@ if "%editor_image_generation_choice%"=="1" (
         call %editor_image_generation_dir%\edit_comfyui_modules.bat
         goto :editor_image_generation
     ) else (
-        echo [%DATE% %TIME%] ERROR: edit_comfyui_modules.bat not found in: %editor_image_generation_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] edit_comfyui_modules.bat not found in: %editor_image_generation_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: edit_comfyui_modules.bat Ã»ÕÒµ½ in: %editor_image_generation_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] edit_comfyui_modules.bat Ã»ÕÒµ½ in: %editor_image_generation_dir%%reset%
         pause
         goto :editor_image_generation
     )
@@ -3220,8 +3220,8 @@ if "%editor_image_generation_choice%"=="1" (
         call %editor_image_generation_dir%\edit_fooocus_modules.bat
         goto :editor_image_generation
     ) else (
-        echo [%DATE% %TIME%] ERROR: edit_fooocus_modules.bat not found in: %editor_image_generation_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] edit_fooocus_modules.bat not found in: %editor_image_generation_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: edit_fooocus_modules.bat Ã»ÕÒµ½ in: %editor_image_generation_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] edit_fooocus_modules.bat Ã»ÕÒµ½ in: %editor_image_generation_dir%%reset%
         pause
         goto :editor_image_generation
     )
@@ -3236,10 +3236,10 @@ if "%editor_image_generation_choice%"=="1" (
 
 
 REM ############################################################
-REM ######## EDITOR CORE UTILITIES - FRONTEND ##################
+REM ######## ±à¼­Ñ¡Ïî CORE UTILITIES - FRONTEND ##################
 REM ############################################################
 :editor_core_utilities
-title STL [EDITOR CORE UTILITIES]
+title STL [±à¼­Ñ¡Ïî ºËĞÄAPP]
 cls
 set "SSL_INFO_FILE=%~dp0SillyTavern\certs\SillyTavernSSLInfo.txt"
 set "sslOption=2. Create and Use Self-Signed SSL Certificate with SillyTavern to encrypt your connection &echo       %blue_fg_strong%Read More: https://sillytavernai.com/launcher-ssl (press 9 to open)%reset%"
@@ -3255,26 +3255,26 @@ if exist "%SSL_INFO_FILE%" (
 
 )
 
-echo %blue_fg_strong%/ Home / Toolbox / Editor / Core Utilities%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / ±à¼­Ñ¡Ïî / ºËĞÄapp%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
-echo 1. Edit SillyTavern config.yaml
+echo ÄãÏëÅªÉ¶àÏ?
+echo 1. ±à¼­ SillyTavern config.yaml
 echo %sslOption%
-echo 3. Edit Extras
-echo 4. Edit Environment Variables
-echo 0. Back
+echo 3. ±à¼­ Extras
+echo 4. ±à¼­ Environment Variables
+echo 0. ·µ»Ø
 
 set /p editor_core_utilities_choice=Choose Your Destiny: 
 
-REM ######## EDITOR CORE UTILITIES - FRONTEND ##################
+REM ######## ±à¼­Ñ¡Ïî CORE UTILITIES - FRONTEND ##################
 if "%editor_core_utilities_choice%"=="1" (
     set "caller=editor_core_utilities"
     if exist "%editor_core_utilities_dir%\edit_st_config.bat" (
         call %editor_core_utilities_dir%\edit_st_config.bat
         goto :editor_core_utilities
     ) else (
-        echo [%DATE% %TIME%] ERROR: edit_st_config.bat not found in: %editor_core_utilities_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] edit_st_config.bat not found in: %editor_core_utilities_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: edit_st_config.bat Ã»ÕÒµ½ in: %editor_core_utilities_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] edit_st_config.bat Ã»ÕÒµ½ in: %editor_core_utilities_dir%%reset%
         pause
         goto :editor_core_utilities
     )
@@ -3286,8 +3286,8 @@ if "%editor_core_utilities_choice%"=="1" (
         call %editor_core_utilities_dir%\edit_extras_modules.bat
         goto :editor_core_utilities
     ) else (
-        echo [%DATE% %TIME%] ERROR: edit_extras_modules.bat not found in: %editor_core_utilities_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] edit_extras_modules.bat not found in: %editor_core_utilities_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: edit_extras_modules.bat Ã»ÕÒµ½ in: %editor_core_utilities_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] edit_extras_modules.bat Ã»ÕÒµ½ in: %editor_core_utilities_dir%%reset%
         pause
         goto :editor_core_utilities
     )
@@ -3297,8 +3297,8 @@ if "%editor_core_utilities_choice%"=="1" (
         call %editor_core_utilities_dir%\edit_env_var.bat
         goto :editor_core_utilities
     ) else (
-        echo [%DATE% %TIME%] ERROR: edit_env_var.bat not found in: %editor_core_utilities_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] edit_env_var.bat not found in: %editor_core_utilities_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: edit_env_var.bat Ã»ÕÒµ½ in: %editor_core_utilities_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] edit_env_var.bat Ã»ÕÒµ½ in: %editor_core_utilities_dir%%reset%
         pause
         goto :editor_core_utilities
     )
@@ -3351,18 +3351,18 @@ REM ############################################################
 REM ############## TROUBLESHOOTING - FRONTEND ##################
 REM ############################################################
 :troubleshooting
-title STL [TROUBLESHOOTING]
+title STL [¹ÊÕÏÅÅ³ı]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / Troubleshooting%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / ¹ÊÕÏÅÅ³ı%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
-echo 1. Remove node_modules folder
-echo 2. Clear pip cache
-echo 3. Fix unresolved conflicts or unmerged files [SillyTavern]
-echo 4. Export dxdiag info
-echo 5. Find what app is using port
-echo 6. Set Onboarding Flow
-echo 0. Back
+echo ÄãÏëÅªÉ¶àÏ?
+echo 1. RÒÆ³ı node_modules ÎÄ¼ş¼Ğ
+echo 2. Çå³ı pip »º´æ
+echo 3. ĞŞ¸´Î´½â¾öµÄ³åÍ»»òÎ´ºÏ²¢µÄÎÄ¼ş[SillyTavern]
+echo 4. µ¼³ödxdiagĞÅÏ¢
+echo 5. ²éÕÒÕıÔÚÊ¹ÓÃ¶Ë¿ÚµÄÓ¦ÓÃ³ÌĞò
+echo 6. Éè¶¨Êı¾İÁ÷[Set Onboarding Flow]
+echo 0. ·µ»Ø
 
 REM Retrieve the PID of the current script using PowerShell TEMPORARY DISABLED UNTIL A BETTER WAY IS FOUND
 
@@ -3383,8 +3383,8 @@ if "%troubleshooting_choice%"=="1" (
     if exist "%troubleshooting_dir%\remove_node_modules.bat" (
         call %troubleshooting_dir%\remove_node_modules.bat
     ) else (
-        echo [%DATE% %TIME%] ERROR: remove_node_modules.bat not found in: %troubleshooting_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] remove_node_modules.bat not found in: %troubleshooting_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: remove_node_modules.bat Ã»ÕÒµ½ in: %troubleshooting_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] remove_node_modules.bat Ã»ÕÒµ½ in: %troubleshooting_dir%%reset%
         pause
         goto :troubleshooting
     )
@@ -3394,8 +3394,8 @@ if "%troubleshooting_choice%"=="1" (
     if exist "%troubleshooting_dir%\remove_pip_cache.bat" (
         call %troubleshooting_dir%\remove_pip_cache.bat
     ) else (
-        echo [%DATE% %TIME%] ERROR: remove_pip_cache.bat not found in: %troubleshooting_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] remove_pip_cache.bat not found in: %troubleshooting_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: remove_pip_cache.bat Ã»ÕÒµ½ in: %troubleshooting_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] remove_pip_cache.bat Ã»ÕÒµ½ in: %troubleshooting_dir%%reset%
         pause
         goto :troubleshooting
     )
@@ -3405,8 +3405,8 @@ if "%troubleshooting_choice%"=="1" (
     if exist "%troubleshooting_dir%\fix_github_conflicts.bat" (
         call %troubleshooting_dir%\fix_github_conflicts.bat
     ) else (
-        echo [%DATE% %TIME%] ERROR: fix_github_conflicts.bat not found in: %troubleshooting_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] fix_github_conflicts.bat not found in: %troubleshooting_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: fix_github_conflicts.bat Ã»ÕÒµ½ in: %troubleshooting_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] fix_github_conflicts.bat Ã»ÕÒµ½ in: %troubleshooting_dir%%reset%
         pause
         goto :troubleshooting
     )
@@ -3416,8 +3416,8 @@ if "%troubleshooting_choice%"=="1" (
     if exist "%troubleshooting_dir%\export_dxdiag.bat" (
         call %troubleshooting_dir%\export_dxdiag.bat
     ) else (
-        echo [%DATE% %TIME%] ERROR: export_dxdiag.bat not found in: %troubleshooting_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] export_dxdiag.bat not found in: %troubleshooting_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: export_dxdiag.bat Ã»ÕÒµ½ in: %troubleshooting_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] export_dxdiag.bat Ã»ÕÒµ½ in: %troubleshooting_dir%%reset%
         pause
         goto :troubleshooting
     )
@@ -3427,8 +3427,8 @@ if "%troubleshooting_choice%"=="1" (
     if exist "%troubleshooting_dir%\find_app_port.bat" (
         call %troubleshooting_dir%\find_app_port.bat
     ) else (
-        echo [%DATE% %TIME%] ERROR: find_app_port.bat not found in: %troubleshooting_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] find_app_port.bat not found in: %troubleshooting_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: find_app_port.bat Ã»ÕÒµ½ in: %troubleshooting_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] find_app_port.bat Ã»ÕÒµ½ in: %troubleshooting_dir%%reset%
         pause
         goto :troubleshooting
     )
@@ -3438,8 +3438,8 @@ if "%troubleshooting_choice%"=="1" (
     if exist "%troubleshooting_dir%\onboarding_flow.bat" (
         call %troubleshooting_dir%\onboarding_flow.bat
     ) else (
-        echo [%DATE% %TIME%] ERROR: onboarding_flow.bat not found in: %troubleshooting_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] onboarding_flow.bat not found in: %troubleshooting_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: onboarding_flow.bat Ã»ÕÒµ½ in: %troubleshooting_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] onboarding_flow.bat Ã»ÕÒµ½ in: %troubleshooting_dir%%reset%
         pause
         goto :troubleshooting
     )
@@ -3460,16 +3460,16 @@ REM ############################################################
 :switch_branch
 title STL [SWITCH-BRANCH]
 cls
-echo %blue_fg_strong%/ Home / Toolbox / Switch Branch%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / ÇĞ»»·ÖÖ§%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
-echo 1. Switch to Release - SillyTavern
-echo 2. Switch to Staging - SillyTavern
-echo 0. Back
+echo ÄãÏëÅªÉ¶àÏ?
+echo 1. ÇĞ»»µ½ Release - SillyTavern
+echo 2. ÇĞ»»µ½ Staging - SillyTavern
+echo 0. ·µ»Ø
 
 REM Get the current Git branch
 for /f %%i in ('git branch --show-current') do set current_branch=%%i
-echo ======== VERSION STATUS =========
+echo ======== °æ±¾ĞÅÏ¢ =========
 echo SillyTavern branch: %cyan_fg_strong%%current_branch%%reset%
 echo =================================
 set /p branch_choice=Choose Your Destiny: 
@@ -3490,7 +3490,7 @@ if "%branch_choice%"=="1" (
 
 
 :switch_branch_release_st
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Switching to release branch...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% Switching to release branch...
 cd /d "%st_install_path%"
 git switch release
 pause
@@ -3498,7 +3498,7 @@ goto :switch_branch
 
 
 :switch_branch_staging_st
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Switching to staging branch...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% Switching to staging branch...
 cd /d "%st_install_path%"
 git switch staging
 pause
@@ -3509,7 +3509,7 @@ REM ############################################################
 REM ################# BACKUP - FRONTEND ########################
 REM ############################################################
 :backup
-title STL [BACKUP]
+title STL [±¸·İ]
 cls
 
 REM Check if 7-Zip is installed
@@ -3521,11 +3521,11 @@ if %errorlevel% neq 0 (
 )
 
 :7zip_prompt
-echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] 7z command not found in PATH.%reset%
-echo %red_fg_strong%7-Zip is not installed or not found in the system PATH. 7-Zip is required for making backups%reset%
+echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] 7z command Ã»ÕÒµ½ in PATH.%reset%
+echo %red_fg_strong%7-Zip Î´°²×°»òÃ»ÕÒµ½ in the system PATH. 7-Zip ½øĞĞ±¸·İÊ±ĞèÒª%reset%
 REM Prompt user to install 7-Zip
-echo 1. Install 7-Zip
-echo 2. Cancel
+echo 1. °²×° 7-Zip
+echo 2. È¡Ïû
 set /p zip_choice="Would you like to install 7-Zip Now? (this will require a launcher restart after install): "
 REM Check if the user wants to install 7-Zip
 if "%zip_choice%"=="1" (
@@ -3533,25 +3533,25 @@ if "%zip_choice%"=="1" (
     if exist "%app_installer_core_utilities_dir%\install_7zip.bat" (
         call %app_installer_core_utilities_dir%\install_7zip.bat
     ) else (
-        echo [%DATE% %TIME%] ERROR: install_7zip.bat not found in: %app_installer_core_utilities_dir% >> %logs_stl_console_path%
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] install_7zip.bat not found in: %app_installer_core_utilities_dir%%reset%
+        echo [%DATE% %TIME%] ´íÎó: install_7zip.bat Ã»ÕÒµ½ in: %app_installer_core_utilities_dir% >> %logs_stl_console_path%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] install_7zip.bat Ã»ÕÒµ½ in: %app_installer_core_utilities_dir%%reset%
         pause
         goto :toolbox
     )
 ) else (
-    echo 7-Zip not installed, cannot create backups...
+    echo 7-Zip Î´°²×°, ²»ÄÜ´´½¨±¸·İ...
     pause
     goto :toolbox
 )
 cls
 
 :backup_options
-echo %blue_fg_strong%/ Home / Toolbox / Backup%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ¹¤¾ßÏä / ±¸·İ%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
-echo 1. Create Backup
-echo 2. Restore Backup
-echo 0. Back
+echo ÄãÏëÅªÉ¶àÏ?
+echo 1. ´´½¨ ±¸·İ
+echo 2. »¹Ô­ ±¸·İ
+echo 0. ·µ»Ø
 
 set /p backup_choice=Choose Your Destiny: 
 
@@ -3586,15 +3586,15 @@ REM ############################################################
 REM ############## SUPPORT - FRONTEND ##########################
 REM ############################################################
 :support
-title STL [SUPPORT]
+title STL [Ö§³Ö]
 cls
-echo %blue_fg_strong%/ Home / Support%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / Ö§³Ö%reset%
 echo -------------------------------------------------------------
-echo What would you like to do?
-echo 1. I want to report a issue
-echo 2. Documentation
+echo ÄãÏëÅªÉ¶àÏ?
+echo 1. ÎÒÏëÌáissue[²»Äã²»Ïë]
+echo 2. ÎÄµµ
 echo 3. Discord
-echo 0. Back
+echo 0. ·µ»Ø
 
 set /p support_choice=Choose Your Destiny: 
 
@@ -3637,12 +3637,12 @@ REM Allows users to create a home menu shortcut to launch any app from the toolb
 
 REM This function sets up the shortcut on the homepage with the users selected option, it saves the users choice in a text file called "custom-shortcut.txt" in "\bin\settings"
 :create_custom_shortcut
-title STL [CUSTOM SHORTCUT]
+title STL [×Ô¶¨Òå¿ì½İ·½Ê½]
 cls
-echo %blue_fg_strong%/ Home / Create Custom Shortcut%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ´´½¨×Ô¶¨Òå¿ì½İ·½Ê½%reset%
 echo -------------------------------------------------------------
-echo Create a custom shortcut to launch any app with SillyTavern. 
-echo To reset the shortcut go to: %blue_bg%/ Home / Toolbox%reset%
+echo ´´½¨×Ô¶¨Òå¿ì½İ·½Ê½£¬Ê¹ÓÃSillyAvernÆô¶¯ÈÎºÎÓ¦ÓÃ³ÌĞò¡£ 
+echo ÒªÖØÖÃ¿ì½İ·½Ê½£¬Çë×ªµ½: %blue_bg%/ Ö÷Ò³ / ¹¤¾ßÏä%reset%
 echo ---------------------------------------------------------
 
 REM Define options and corresponding commands in a structured format
@@ -3662,7 +3662,7 @@ for /L %%i in (1,1,10) do (
     call echo %%i. %%option%%i%%
 )
 
-echo Type 0 to cancel
+echo °´ 0 È¡Ïû
 set /p user_apps="Enter your choice: "
 if "%user_apps%"=="0" goto :home
 
@@ -3686,7 +3686,7 @@ REM Write the custom name and command to the settings file
 echo %shortcut_name% > "%~dp0bin\settings\custom-shortcut.txt"
 echo %command% >> "%~dp0bin\settings\custom-shortcut.txt"
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Shortcut "%shortcut_name%" created successfully.%reset%
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%Shortcut "%shortcut_name%" created successfully.%reset%
 pause
 goto :home
 
@@ -3697,12 +3697,12 @@ echo Launching SillyTavern...
 REM Check if Node.js is installed
 node --version > nul 2>&1
 if %errorlevel% neq 0 (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Node.js is not installed or not found in the PATH.%reset%
-    echo %red_fg_strong%To install Node.js, go to:%reset% %blue_bg%/ Toolbox / App Installer / Core Utilities / Install Node.js%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] Node.js Î´°²×°»òÃ»ÕÒµ½ in the PATH.%reset%
+    echo %red_fg_strong%È¥°²×° Node.js, ÔÚ:%reset% %blue_bg%/ ¹¤¾ßÏä / APP°²×° / ºËĞÄapp / °²×° Node.js%reset%
     pause
     goto :home
 )
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% SillyTavern launched in a new window.
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% SillyTavern ÔÚĞÂ´°¿ÚÖĞÆô¶¯¡£
 start cmd /k "title SillyTavern && cd /d %st_install_path% && call npm install --no-audit && node server.js && pause && popd"
 
 if exist "%~dp0bin\settings\custom-shortcut.txt" (
@@ -3722,9 +3722,9 @@ if exist "%~dp0bin\settings\custom-shortcut.txt" (
         )
     )
     endlocal
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Custom shortcut executed.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%ÒÑ´´½¨¿ì½İ·½Ê½.%reset%
 ) else (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Shortcut file not found. Please create it first.%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] Î´ÕÒµ½¿ì½İ·½Ê½¡£ÇëÏÈ´´½¨.%reset%
 )
 pause
 goto :home
@@ -3733,11 +3733,11 @@ REM This command is called from the toolbox, it deletes the txt file that saves 
 :reset_custom_shortcut
 if exist "%~dp0bin\settings\custom-shortcut.txt" (
     del "%~dp0bin\settings\custom-shortcut.txt"
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%Custom shortcut has been reset.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%×Ô¶¨Òå¿ì½İ·½Ê½ÒÑÖØÖÃ.%reset%
     pause
     goto :home
 ) else (
-    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[WARN] No custom shortcut found to reset.%reset%
+    echo %yellow_bg%[%time%]%reset% %yellow_fg_strong%[¾¯¸æ] Î´ÕÒµ½ÒªÖØÖÃµÄ×Ô¶¨Òå¿ì½İ·½Ê½.%reset%
     pause
     goto :toolbox
 )
