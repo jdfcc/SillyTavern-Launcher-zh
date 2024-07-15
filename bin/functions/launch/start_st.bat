@@ -2,8 +2,8 @@
 
 REM Check if the folder exists
 if not exist "%st_install_path%" (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Directory:%reset% %red_bg%SillyTavern%reset% %red_fg_strong%not found.%reset%
-    echo %red_fg_strong%Please make sure SillyTavern is located in: %~dp0%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[错误] 目录:%reset% %red_bg%SillyTavern%reset% %red_fg_strong%未找到.%reset%
+    echo %red_fg_strong%请确保SillyAvern位于: %~dp0%reset%
     pause
     exit /b 1
 )
@@ -11,9 +11,9 @@ if not exist "%st_install_path%" (
 REM Check if Node.js is installed
 node --version > nul 2>&1
 if %errorlevel% neq 0 (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] node command not found in PATH.%reset%
-    echo %red_fg_strong%Node.js is not installed or not found in the system PATH.%reset%
-    echo %red_fg_strong%To install Node.js go to:%reset% %blue_bg%/ Toolbox / App Installer / Core Utilities / Install Node.js%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[错误] 在系统环境变量PATH中找不到node命令。%reset%
+    echo %red_fg_strong%Node.js未安装或在系统变量PATH中找不到。%reset%
+    echo %red_fg_strong%安装Node.js，请转到:%reset% %blue_bg%/ 工具箱 /安装选项 / 核心APP / 安装 Node.js%reset%
     pause
     exit /b 1
 )
@@ -23,7 +23,7 @@ set "command=%~1"
 start /B cmd /C "%command%"
 for /f "tokens=2 delims=," %%a in ('tasklist /FI "IMAGENAME eq cmd.exe" /FO CSV /NH') do (
     set "pid=%%a"
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Started process with PID: %cyan_fg_strong%!pid!%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% 使用PID启动进程: %cyan_fg_strong%!pid!%reset%
     echo !pid!>>"%log_dir%\pids.txt"
     goto :st_found_pid
 )
@@ -41,10 +41,10 @@ if exist "%SSL_INFO_FILE%" (
 
 :ST_SSL_Start
 if "%sslPathsFound%"=="true" (
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% SillyTavern opened with SSL in a new window.
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% SillyTavern在新窗口中使用SSL打开。
     start cmd /k "title SillyTavern && cd /d %st_install_path% && call npm install --no-audit && call %functions_dir%\launch\log_wrapper.bat ssl"
 ) else (
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% SillyTavern opened in a new window.
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% SillyTavern在新窗口中打开。
     start cmd /k "title SillyTavern && cd /d %st_install_path% && call npm install --no-audit && call %functions_dir%\launch\log_wrapper.bat"
 )
 
@@ -53,7 +53,7 @@ if exist "%logs_st_console_path%" (
     del "%logs_st_console_path%"
 )
 REM Wait for log file to be created, timeout after 60 seconds (20 iterations of 3 seconds)
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Waiting for SillyTavern to fully launch...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% 等待Sillytavern完全启动...
 set "counter=0"
 :wait_for_log
 timeout /t 3 > nul
@@ -62,7 +62,7 @@ if not exist "%logs_st_console_path%" (
     if %counter% lss 20 (
         goto :wait_for_log
     ) else (
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR]%reset% Log file not found, something went wrong. Close all SillyTavern command windows and try again.
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[错误]%reset% 找不到日志文件，出现问题。请关闭所有SillyAvon命令窗口，然后重试。
         pause
         goto :home
     )
@@ -72,7 +72,7 @@ if not exist "%logs_st_console_path%" (
 goto :scan_log
 
 :scan_log
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Log file found, scanning log for errors...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% 找到日志文件，正在扫描日志以查找错误...
 
 :loop
 REM Use PowerShell to search for the error message
@@ -80,11 +80,11 @@ powershell -Command "try { $content = Get-Content '%logs_st_console_path%' -Raw;
 set "ps_errorlevel=%errorlevel%"
 
 if %ps_errorlevel% equ 0 (
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%SillyTavern Launched Successfully. Returning home...%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[信息]%reset% %green_fg_strong%SillyTavern 启动成功. 正在返回...%reset%
     timeout /t 10
     exit /b 0
 ) else if %ps_errorlevel% equ 1 (
-    echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Node.js Code: MODULE_NOT_FOUND%reset%
+    echo %red_bg%[%time%]%reset% %red_fg_strong%[错误] Node.js 代码: 依赖未找到%reset%
     goto :attemptnodefix
 ) else (
     timeout /t 3 > nul
@@ -92,7 +92,7 @@ if %ps_errorlevel% equ 0 (
 )
 
 :attemptnodefix
-set /p "choice=Run troubleshooter to fix this error? (If yes, close any open SillyTavern Command Windows first)  [Y/n]: "
+set /p "choice=运行故障排除以修复此错误吗? (如果是，请先关闭任何打开的SillyTavern命令窗口)  [Y/n]: "
 if /i "%choice%"=="" set choice=Y
 if /i "%choice%"=="Y" (
     set "caller=home"

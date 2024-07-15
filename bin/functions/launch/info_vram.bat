@@ -4,51 +4,51 @@
 title STL [VRAM INFO]
 chcp 65001 > nul
 cls
-echo %blue_fg_strong%/ Home / VRAM Info%reset%
+echo %blue_fg_strong%/ Ö÷Ò³ / ÏÔ´æĞÅÏ¢%reset%
 echo -------------------------------------------------------------
 REM Recommendations Based on VRAM Size
 if %VRAM% lss 8 (
-    echo %cyan_fg_strong%GPU VRAM: %VRAM% GB%reset% - It's recommended to stick with APIs like OpenAI, Claude or OpenRouter for LLM usage, 
-    echo Local models will result in memory error or perform a REAL SLOW output
+    echo %cyan_fg_strong%GPU ÏÔ´æ: %VRAM% GB%reset% - ½¨ÒéÊ¹ÓÃOpenAI¡¢Claude»òGeminiµÈµÄAPI½øĞĞLLMÊ¹ÓÃ, 
+    echo ±¾µØÄ£ĞÍ½«µ¼ÖÂÄÚ´æ´íÎó»òÊä³öÖ´ĞĞ¾Ş¹´°ËÂı
 ) else if %VRAM% lss 12 (
     echo %cyan_fg_strong%GPU VRAM: %VRAM% GB%reset% - Can run 7B and 8B models. Check info below for BPW
-    echo %blue_bg%â•”â•â•â•â• BPW - Bits Per Weight â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—%reset%
-    echo %blue_bg%â•‘                                                            â•‘%reset%
-    echo %blue_bg%â•‘* EXL2: 5_0                                                 â•‘%reset%
-    echo %blue_bg%â•‘* GGUF: Q5_K_M                                              â•‘%reset%
-    echo %blue_bg%â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•%reset%
+    echo %blue_bg%¨X¨T¨T¨T¨T BPW - Bits Per Weight ¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨[%reset%
+    echo %blue_bg%¨U                                                            ¨U%reset%
+    echo %blue_bg%¨U* EXL2: 5_0                                                 ¨U%reset%
+    echo %blue_bg%¨U* GGUF: Q5_K_M                                              ¨U%reset%
+    echo %blue_bg%¨^¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨a%reset%
     echo.
 ) else if %VRAM% lss 22 (
-    echo %cyan_fg_strong%GPU VRAM: %VRAM% GB%reset% - Can run 7B, 8B and 13B models. Check info below for BPW
-    echo %blue_bg%â•”â•â•â•â• BPW - Bits Per Weight â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—%reset%
-    echo %blue_bg%â•‘                                                            â•‘%reset%
-    echo %blue_bg%â•‘* EXL2: 6_5                                                 â•‘%reset%
-    echo %blue_bg%â•‘* GGUF: Q5_K_M                                              â•‘%reset%
-    echo %blue_bg%â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•%reset%
+    echo %cyan_fg_strong%GPU ÏÔ´æ: %VRAM% GB%reset% - ¿ÉÒÔÔËĞĞ 7B, 8B and 13B²ÎÊıµÄÄ£ĞÍ. ²é¿´ÏÂÃæµÄBPWĞÅÏ¢
+    echo %blue_bg%¨X¨T¨T¨T¨T BPW - Bits Per Weight ¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨[%reset%
+    echo %blue_bg%¨U                                                            ¨U%reset%
+    echo %blue_bg%¨U* EXL2: 6_5                                                 ¨U%reset%
+    echo %blue_bg%¨U* GGUF: Q5_K_M                                              ¨U%reset%
+    echo %blue_bg%¨^¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨a%reset%
     echo.
 ) else if %VRAM% lss 25 (
-    echo %cyan_fg_strong%GPU VRAM: %VRAM% GB%reset% - Good for 7B, 8B, 13B, 30B, and some efficient 70B models. Powerful local models will run well 
+    echo %cyan_fg_strong%GPU ÏÔ´æ: %VRAM% GB%reset% - ÄÜºÜºÃµÄÔËĞĞ 7B, 8B, 13B, 30B, ºÍÒ»Ğ©¸ßĞ§µÄ 70B ²ÎÊıÄ£ĞÍ. ´ó²ÎÊı±¾µØÄ£ĞÍ½«ÔËĞĞÁ¼ºÃ
     echo.
-    echo â•”â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—
-    echo â•‘ Branch â•‘ Bits â•‘ lm_head bits â•‘ VRAM - 4k â•‘ VRAM - 8k â•‘ VRAM - 16k â•‘ VRAM - 32k â•‘ Description                                             â•‘
-    echo â•‘â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•‘
-    echo â•‘ 8.0    â•‘ 8.0  â•‘ 8.0          â•‘ 10.1 GB   â•‘ 10.5 GB   â•‘ 11.5 GB    â•‘ 13.6 GB    â•‘ Maximum quality that ExLlamaV2 can produce, near        â•‘
-    echo â•‘        â•‘      â•‘              â•‘           â•‘           â•‘            â•‘            â•‘ unquantized performance.                                â•‘
-    echo â•‘â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•‘
-    echo â•‘ 6.5    â•‘ 6.5  â•‘ 8.0          â•‘ 8.9 GB    â•‘ 9.3 GB    â•‘ 10.3 GB    â•‘ 12.4 GB    â•‘ Very similar to 8.0, good tradeoff of size vs           â•‘
-    echo â•‘        â•‘      â•‘              â•‘           â•‘           â•‘            â•‘            â•‘ performance, recommended.                               â•‘
-    echo â•‘â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•‘
-    echo â•‘ 5.0    â•‘ 5.0  â•‘ 6.0          â•‘ 7.7 GB    â•‘ 8.1 GB    â•‘ 9.1 GB     â•‘ 11.2 GB    â•‘ Slightly lower quality vs 6.5, but usable on 8GB cards. â•‘
-    echo â•‘â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•‘
-    echo â•‘ 4.25   â•‘ 4.25 â•‘ 6.0          â•‘ 7.0 GB    â•‘ 7.4 GB    â•‘ 8.4 GB     â•‘ 10.5 GB    â•‘ GPTQ equivalent bits per weight, slightly higher        â•‘
-    echo â•‘        â•‘      â•‘              â•‘           â•‘           â•‘            â•‘            â•‘ quality.                                                â•‘
-    echo â•‘â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•‘
-    echo â•‘ 3.5    â•‘ 3.5  â•‘ 6.0          â•‘ 6.4 GB    â•‘ 6.8 GB    â•‘ 7.8 GB     â•‘ 9.9 GB     â•‘ Lower quality, only use if you have to.                 â•‘
-    echo â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+    echo ¨X¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨[
+    echo ¨U Branch ¨U Bits ¨U lm_head bits ¨U VRAM - 4k ¨U VRAM - 8k ¨U VRAM - 16k ¨U VRAM - 32k ¨U Description                                             ¨U
+    echo ¨U¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨U
+    echo ¨U 8.0    ¨U 8.0  ¨U 8.0          ¨U 10.1 GB   ¨U 10.5 GB   ¨U 11.5 GB    ¨U 13.6 GB    ¨U Maximum quality that ExLlamaV2 can produce, near        ¨U
+    echo ¨U        ¨U      ¨U              ¨U           ¨U           ¨U            ¨U            ¨U unquantized performance.                                ¨U
+    echo ¨U¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨U
+    echo ¨U 6.5    ¨U 6.5  ¨U 8.0          ¨U 8.9 GB    ¨U 9.3 GB    ¨U 10.3 GB    ¨U 12.4 GB    ¨U Very similar to 8.0, good tradeoff of size vs           ¨U
+    echo ¨U        ¨U      ¨U              ¨U           ¨U           ¨U            ¨U            ¨U performance, recommended.                               ¨U
+    echo ¨U¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨U
+    echo ¨U 5.0    ¨U 5.0  ¨U 6.0          ¨U 7.7 GB    ¨U 8.1 GB    ¨U 9.1 GB     ¨U 11.2 GB    ¨U Slightly lower quality vs 6.5, but usable on 8GB cards. ¨U
+    echo ¨U¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨U
+    echo ¨U 4.25   ¨U 4.25 ¨U 6.0          ¨U 7.0 GB    ¨U 7.4 GB    ¨U 8.4 GB     ¨U 10.5 GB    ¨U GPTQ equivalent bits per weight, slightly higher        ¨U
+    echo ¨U        ¨U      ¨U              ¨U           ¨U           ¨U            ¨U            ¨U quality.                                                ¨U
+    echo ¨U¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨U
+    echo ¨U 3.5    ¨U 3.5  ¨U 6.0          ¨U 6.4 GB    ¨U 6.8 GB    ¨U 7.8 GB     ¨U 9.9 GB     ¨U Lower quality, only use if you have to.                 ¨U
+    echo ¨^¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨a
     echo.
 ) else if %VRAM% gtr 25 (
-    echo %cyan_fg_strong%GPU VRAM: %VRAM% GB%reset% - Suitable for most models, including larger LLMs. 
-    echo You likely have the necessary expertise to pick your own model if you possess more than 25GB of VRAM.
+    echo %cyan_fg_strong%GPU ÏÔ´æ: %VRAM% GB%reset% - Suitable for most models, including larger LLMs. 
+    echo Èç¹ûÄúÓµÓĞ³¬¹ı25GBµÄÏÔ´æ£¬Äú¿ÉÒÔÑ¡ÔñÓµÓĞ×Ô¼ºµÄ×¨ÒµÄ£ĞÍ
 ) else (
     echo An unexpected amount of VRAM detected or unable to detect VRAM. Check your system specifications.
 )
@@ -62,22 +62,22 @@ for /f "skip=1 delims=" %%i in ('wmic path win32_videocontroller get caption') d
 )
 
 echo.
-echo %blue_bg%â•”â•â•â•â• GPU INFO â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—%reset%
-echo %blue_bg%â•‘                                               â•‘%reset%
-echo %blue_bg%â•‘* %gpu_info:~1%                   â•‘%reset%
-echo %blue_bg%â•‘                                               â•‘%reset%
-echo %blue_bg%â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•%reset%
+echo %blue_bg%¨X¨T¨T¨T¨T GPU INFO ¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨[%reset%
+echo %blue_bg%¨U                                               ¨U%reset%
+echo %blue_bg%¨U* %gpu_info:~1%                   ¨U%reset%
+echo %blue_bg%¨U                                               ¨U%reset%
+echo %blue_bg%¨^¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨a%reset%
 echo.
 
 endlocal
 
-echo Would you like to open the VRAM calculator website to check compatible models?
-set /p uservram_choice=Check compatible models? [Y/N] 
+echo ÄúÏë´ò¿ªÏÔ´æ¼ÆËãÆ÷ÍøÕ¾¼ì²é¼æÈİĞÍºÅÂğ£¿
+set /p uservram_choice=¼ì²é¼æÈİĞÍºÅ? [Y/N] 
 
 REM Check if user input is not empty and is neither "Y" nor "N"
 if not "%uservram_choice%"=="" (
     if /i not "%uservram_choice%"=="Y" if /i not "%uservram_choice%"=="N" (
-        echo %red_bg%[%time%]%reset% %red_fg_strong%[ERROR] Invalid input. Please enter Y for yes or N for no%reset%
+        echo %red_bg%[%time%]%reset% %red_fg_strong%[´íÎó] ÊäÈëÎŞĞ§¡£ÇëÊäÈëY±íÊ¾ÊÇ£¬»òÊäÈëN±íÊ¾·ñ%reset%
         pause
         goto :info_vram
     )

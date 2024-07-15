@@ -12,9 +12,9 @@ if "%1"=="ssl" (
 )
 
 REM Start the Node.js server and log the output using PowerShell Tee-Object, suppressing specific warnings
-echo Starting Node.js server with command: %NODE_CMD%
+echo 使用命令启动Node.js服务器: %NODE_CMD%
 powershell -Command "& {%NODE_CMD% 2>&1 | Where-Object {$_ -notmatch 'Security has been overridden'} | Tee-Object -FilePath '%logs_st_console_path%'}"
-echo Node.js server started.
+echo Node.js服务器已启动。
 pause
 
 REM Pause to keep the window open
