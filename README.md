@@ -7,12 +7,12 @@
 <h1 align="center">SillyTavern Launcher - (STL)</h1>
 
 <p align="center">
-    【<a href="README.md">English</a> | 中文 | <a href="README-ja-jp.md">Japanese</a> | <a href="README-ko-kr.md">Korean</a> | <a href="README-nl-nl.md">Dutch</a> | <a href="README-fr-fr.md">French</a> | <a href="README-vi-vn.md">Vietnamese</a> | <a href="README-pt-pt.md">Portuguese</a> | <a href="README-es-es.md">Spanish</a>】
+
   
-[![GitHub Stars](https://img.shields.io/github/stars/SillyTavern/SillyTavern-Launcher.svg)](https://github.com/SillyTavern/SillyTavern-Launcher/stargazers)
-[![GitHub Forks](https://img.shields.io/github/forks/SillyTavern/SillyTavern-Launcher.svg)](https://github.com/SillyTavern/SillyTavern-Launcher/network)
-[![GitHub Issues](https://img.shields.io/github/issues/SillyTavern/SillyTavern-Launcher.svg)](https://github.com/SillyTavern/SillyTavern-Launcher/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/SillyTavern/SillyTavern-Launcher.svg)](https://github.com/SillyTavern/SillyTavern-Launcher/pulls)
+[![GitHub Stars](https://img.shields.io/github/stars/vircus/SillyTavern-Launcher-zh.svg)](https://github.com/vircus/SillyTavern-Launcher-zh/stargazers)
+[![GitHub Forks](https://img.shields.io/github/forks/vircus/SillyTavern-Launcher-zh.svg)](https://github.com/vircus/SillyTavern-Launcher-zh/network)
+[![GitHub Issues](https://img.shields.io/github/issues/vircus/SillyTavern-Launcher-zh.svg)](https://github.com/vircus/SillyTavern-Launcher-zh/issues)
+[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/vircus/SillyTavern-Launcher-zh.svg)](https://github.com/vircus/SillyTavern-Launcher-zh/pulls)
 </div>
 
 🔧 # 安装
