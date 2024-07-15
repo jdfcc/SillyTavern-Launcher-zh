@@ -18,6 +18,7 @@
 🔧 # 安装
 ## 🖥️ window
 方法一
+
 1.安装git（安装过git可以跳过），在键盘上：按“WINDOWS + R”打开“运行”对话框。然后，运行以下命令安装 git：
 ```shell
 cmd /c winget install -e --id Git.Git
@@ -26,8 +27,11 @@ cmd /c winget install -e --id Git.Git
 ```shell
 git clone https://github.com/SillyTavern/SillyTavern-Launcher.git && cd SillyTavern-Launcher && start installer.bat
 ```
-
-
+方法二：
+直接下载zip，复制以下链接在浏览器打开
+```shell
+https://github.com/vircus/SillyTavern-Launcher-zh/archive/refs/heads/main.zip
+```
 ## 🐧 Linux
 1. 打开你喜欢的终端并安装 git
 2. Git 克隆 Sillytavern-Launcher：
