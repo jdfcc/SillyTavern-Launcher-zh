@@ -69,7 +69,7 @@ for /f "tokens=*" %%i in ('node -e "const fs = require(`fs`); const path = requi
     set "current_onboarding_value=%%i"
 )
 
-echo %blue_fg_strong%[INFO]%reset% Current Onboarding Flow value is: %yellow_fg_strong% %current_onboarding_value% %reset%
+echo %blue_fg_strong%[信息]%reset% Current Onboarding Flow value is: %yellow_fg_strong% %current_onboarding_value% %reset%
 
 REM Toggle the value
 if /i "%current_onboarding_value%"=="true" (
@@ -78,16 +78,16 @@ if /i "%current_onboarding_value%"=="true" (
     set "new_onboarding_value=true"
 )
 
-echo %blue_fg_strong%[INFO]%reset% New Onboarding Flow value will be: %green_fg_strong% %new_onboarding_value% %reset%
+echo %blue_fg_strong%[信息]%reset% New Onboarding Flow value will be: %green_fg_strong% %new_onboarding_value% %reset%
 
 REM Prompt for confirmation to toggle the value
 set /p confirm="Do you want to toggle the Onboarding Flow value to %new_onboarding_value%? (Y/N): "
 if /i "%confirm%"=="Y" (
     REM Update settings.json in the selected user folder using Node.js
     node -e "const fs = require(`fs`); const path = require(`path`); const settingsPath = path.join(`%escaped_st_install_path%`, `data`, `%selected_user_folder%`, `settings.json`); const settings = JSON.parse(fs.readFileSync(settingsPath, `utf-8`)); settings.firstRun = %new_onboarding_value%; fs.writeFileSync(settingsPath, JSON.stringify(settings, null, 2)); console.log('Saving...');"
-    echo %green_fg_strong%[INFO]%reset% Onboarding flow updated for user: %selected_user_folder% to: %green_fg_strong%%new_onboarding_value%%reset%.
+    echo %green_fg_strong%[信息]%reset% Onboarding flow updated for user: %selected_user_folder% to: %green_fg_strong%%new_onboarding_value%%reset%.
 ) else (
-    echo %blue_fg_strong%[INFO]%reset% No changes made.
+    echo %blue_fg_strong%[信息]%reset% No changes made.
 )
 
 pause

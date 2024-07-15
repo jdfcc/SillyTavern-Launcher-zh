@@ -27,7 +27,7 @@ if !port_choice! gtr 65535 (
     goto :troubleshooting
 )
 
-echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Searching for application using port: !port_choice!...
+echo %blue_bg%[%time%]%reset% %blue_fg_strong%[пео╒]%reset% Searching for application using port: !port_choice!...
 for /f "tokens=5" %%a in ('netstat -aon ^| findstr /r "\<!port_choice!\>"') do (
     set pid=%%a
 )
