@@ -16,9 +16,9 @@
 </div>
 
 🔧 # 安装
-## 🖥️ window
+### 🖥️ window
 
-#方法一： 
+##方法一： 
 
 1.安装git（安装过git可以跳过），在键盘上：按“WINDOWS + R”打开“运行”对话框。然后，运行以下命令安装 git：
 ```shell
@@ -30,7 +30,7 @@ git clone https://github.com/SillyTavern/SillyTavern-Launcher.git && cd SillyTav
 ```
 以后点击laucher.bat运行，退出ST前最好按下ctrl+c。
 
-#方法二： 
+##方法二： 
 
 直接下载zip，复制以下链接在浏览器打开
 ```shell
@@ -38,7 +38,7 @@ https://github.com/vircus/SillyTavern-Launcher-zh/archive/refs/heads/main.zip
 ```
 解压后双击打开 install.bat安装，以后点击laucher.bat运行，退出ST前最好按下ctrl+c。
 
-## 🐧 Linux
+### 🐧 Linux
 1. 打开你喜欢的终端并安装 git
 2. Git 克隆 Sillytavern-Launcher：
 ```shell
@@ -55,7 +55,7 @@ chmod +x launcher.sh && ./launcher.sh
 ```
 
 
-## 🍎 Mac
+### 🍎 Mac
 1. 打开终端并安装 brew：
 ```shell
 /bin/bash -c “$（curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh）”
@@ -112,7 +112,7 @@ chmod +x launcher.sh && ./launcher.sh
 |[![][discord-shield-badge]][discord-link] |[加入我们的 Discord 社区！](https://discord.gg/sillytavern)获得支持，分享角色和提示。|
 |:---------------------------------------- |:------------------------------------------------------------------------------------------------------- |
 
-# Screenshots
+# 屏幕截图
 <img width="400" alt="image" src="https://github.com/SillyTavern/SillyTavern-Launcher/assets/61471128/96775287-df23-4976-980f-a0ce4dead9a5">
 <img width="400" alt="image" src="https://github.com/SillyTavern/SillyTavern-Launcher/assets/61471128/b080c199-4b26-4246-931e-92cc0c4b47eb">
 
