@@ -7,30 +7,30 @@ chcp 65001 > nul
 
 REM Confirm with the user before proceeding
 echo.
-echo %red_bg%â•”â•â•â•â• DANGER ZONE â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•—%reset%
-echo %red_bg%â•‘ WARNING: This will delete all data of ComfyUI                                                 â•‘%reset%
-echo %red_bg%â•‘ If you want to keep any data, make sure to create a backup before proceeding.                 â•‘%reset%
-echo %red_bg%â•šâ•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•%reset%
+echo %red_bg%¨X¨T¨T¨T¨T DANGER ZONE ¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨[%reset%
+echo %red_bg%¨U WARNING: This will delete all data of ComfyUI                                                 ¨U%reset%
+echo %red_bg%¨U If you want to keep any data, make sure to create a backup before proceeding.                 ¨U%reset%
+echo %red_bg%¨^¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨T¨a%reset%
 echo.
 set /p "confirmation=Are you sure you want to proceed? [Y/N]: "
 if /i "%confirmation%"=="Y" (
 
     REM Remove the Conda environment
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Removing the Conda enviroment: %cyan_fg_strong%comfyui%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% Removing the Conda enviroment: %cyan_fg_strong%comfyui%reset%
     call conda deactivate
     call conda remove --name comfyui --all -y
     call conda clean -a -y
 
     REM Remove the folder ComfyUI
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Removing the ComfyUI directory...
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% Removing the ComfyUI directory...
     cd /d "%~dp0"
     rmdir /s /q "%comfyui_install_path%"
 
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% %green_fg_strong%ComfyUI has been uninstalled successfully.%reset%
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% %green_fg_strong%ComfyUI has been uninstalled successfully.%reset%
     pause
     goto :app_uninstaller_image_generation
 ) else (
-    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[INFO]%reset% Uninstall canceled.
+    echo %blue_bg%[%time%]%reset% %blue_fg_strong%[ĞÅÏ¢]%reset% Uninstall canceled.
     pause
     goto :app_uninstaller_image_generation
 )
