@@ -18,7 +18,7 @@
 🔧 # 安装
 ## 🖥️ window
 
-方法一： 
+#方法一： 
 
 1.安装git（安装过git可以跳过），在键盘上：按“WINDOWS + R”打开“运行”对话框。然后，运行以下命令安装 git：
 ```shell
@@ -30,7 +30,7 @@ git clone https://github.com/SillyTavern/SillyTavern-Launcher.git && cd SillyTav
 ```
 以后点击laucher.bat运行，退出ST前最好按下ctrl+c。
 
-方法二： 
+#方法二： 
 
 直接下载zip，复制以下链接在浏览器打开
 ```shell
