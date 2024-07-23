@@ -113,8 +113,7 @@ chmod +x launcher.sh && ./launcher.sh
 |:---------------------------------------- |:------------------------------------------------------------------------------------------------------- |
 
 # 屏幕截图
-<img width="400" alt="image" src="https://github.com/SillyTavern/SillyTavern-Launcher/assets/61471128/96775287-df23-4976-980f-a0ce4dead9a5">
-<img width="400" alt="image" src="https://github.com/SillyTavern/SillyTavern-Launcher/assets/61471128/b080c199-4b26-4246-931e-92cc0c4b47eb">
+
 
 <div align="right">
 
