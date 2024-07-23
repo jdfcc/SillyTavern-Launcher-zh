@@ -4,7 +4,7 @@
 
 <img height="160" src="st-launcher.ico">
 
-<h1 align="center">SillyTavern Launcher - (STL)</h1>
+<h1 align="center">SillyTavern Launcher汉化版 - (STL)</h1>
 
 <p align="center">
 
