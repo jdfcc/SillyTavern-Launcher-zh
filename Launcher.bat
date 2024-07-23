@@ -8,8 +8,8 @@ REM
 REM ´Ë½Å±¾ÓÃÓÚwindowsÏµÍ³
 REM ·¢ÏÖÈÎºÎÎÊÌâ»òBUG¡£±¨¸æ ÒÔÏÂGitHub ²Ö¿â
 REM
-REM GitHub: https://github.com/SillyTavern/SillyTavern-Launcher
-REM Issues: https://github.com/SillyTavern/SillyTavern-Launcher/issues
+REM GitHub: https://github.com/vircus/SillyTavern-Launcher-zh
+REM Issues: https://github.com/vircus/SillyTavern-Launcher-zh/issues
 title STL [Æô¶¯¼ì²é]
 setlocal
 
@@ -207,7 +207,7 @@ goto :startupcheck_no_update
 
 :startupcheck_found_update
 cls
-echo %blue_fg_strong%[ÐÅÏ¢]%reset% %cyan_fg_strong%SillyTavern LauncherµÄÐÂ¸üÐÂ¿ÉÓÃ!%reset%
+echo %blue_fg_strong%[ÐÅÏ¢]%reset% %cyan_fg_strong%SillyTavern LauncherµÄÐÂ¸üÐÂ¿ÉÓÃ!(Ã»ÊÔ¹ý¸üÐÂ£¬¸üÐÂºó¿ÉÄÜÊ§È¥ºº»¯)%reset%
 set /p "update_choice=ÏÖÔÚ¸üÐÂ? [Y/n]: "
 if /i "%update_choice%"=="" set update_choice=Y
 if /i "%update_choice%"=="Y" (
@@ -452,7 +452,7 @@ echo GPU ÏÔ´æ: %cyan_fg_strong%%VRAM% GB%reset%
 echo =================================
 
 set "choice="
-set /p "choice=Choose Your Destiny (default is 1): "
+set /p "choice=Ñ¡Ôñ (Ä¬ÈÏ 1): "
 
 REM Default to choice 1 if no input is provided
 if not defined choice set "choice=1"
@@ -528,7 +528,7 @@ echo 3. Í¼Æ¬Éú³É
 echo 4. ºËÐÄapp
 echo 0. ·µ»Ø
 
-set /p update_manager_choice=Choose Your Destiny: 
+set /p update_manager_choice=Ñ¡Ôñ: 
 
 REM ############## ¸üÐÂ¹ÜÀíÑ¡Ïî - BACKEND ####################
 if "%update_manager_choice%"=="1" (
@@ -564,7 +564,7 @@ echo 2. ¸üÐÂ koboldcpp
 echo 3. ¸üÐÂ TabbyAPI
 echo 0. ·µ»Ø
 
-set /p update_manager_txt_comp_choice=Choose Your Destiny: 
+set /p update_manager_txt_comp_choice=Ñ¡Ôñ: 
 
 REM ########## ¸üÐÂ¹ÜÀíÑ¡Ïî ÎÄ±¾Éú³É - BACKEND #########
 if "%update_manager_txt_comp_choice%"=="1" (
@@ -688,7 +688,7 @@ echo 2. ¸üÐÂ XTTS
 echo 3. ¸üÐÂ RVC
 echo 0. ·µ»Ø
 
-set /p update_manager_voice_gen_choice=Choose Your Destiny: 
+set /p update_manager_voice_gen_choice=Ñ¡Ôñ: 
 
 REM ########## ¸üÐÂ¹ÜÀíÑ¡Ïî ÎÄ±¾Éú³É - BACKEND ########
 if "%update_manager_voice_gen_choice%"=="1" (
@@ -796,7 +796,7 @@ echo 3. ¸üÐÂ ComfyUI
 echo 4. ¸üÐÂ Fooocus
 echo 0. ·µ»Ø
 
-set /p update_manager_img_gen_choice=Choose Your Destiny: 
+set /p update_manager_img_gen_choice=Ñ¡Ôñ: 
 
 REM ######## ¸üÐÂ¹ÜÀíÑ¡Ïî Í¼ÏñÉú³É - BACKEND #########
 if "%update_manager_img_gen_choice%"=="1" (
@@ -949,7 +949,7 @@ echo 5. ¸üÐÂ Node.js
 echo 6. ¸üÐÂ yq
 echo 0. ·µ»Ø
 
-set /p update_manager_core_util_choice=Choose Your Destiny: 
+set /p update_manager_core_util_choice=Ñ¡Ôñ: 
 
 REM ######## ¸üÐÂ¹ÜÀíÑ¡Ïî CORE UTILITIES - BACKEND #########
 if "%update_manager_core_util_choice%"=="1" (
@@ -1115,7 +1115,7 @@ echo 7. ¹ÊÕÏÅÅ³ý
 echo 8. ÖØÖÃ¿ì½Ý·½Ê½
 echo 0. ·µ»Ø
 
-set /p toolbox_choice=Choose Your Destiny: 
+set /p toolbox_choice=Ñ¡Ôñ: 
 
 REM ################# TOOLBOX - BACKEND #######################
 if "%toolbox_choice%"=="1" (
@@ -1160,7 +1160,7 @@ echo 3. Í¼Æ¬Éú³É
 echo 4. ºËÐÄapp
 echo 0. ·µ»Ø
 
-set /p app_launcher_choice=Choose Your Destiny: 
+set /p app_launcher_choice=Ñ¡Ôñ: 
 
 REM ############## °²×°Ñ¡Ïî - BACKEND ####################
 if "%app_launcher_choice%"=="1" (
@@ -1196,7 +1196,7 @@ echo 2. Æô¶¯ koboldcpp
 echo 3. Æô¶¯ TabbyAPI
 echo 0. ·µ»Ø
 
-set /p app_launcher_txt_comp_choice=Choose Your Destiny: 
+set /p app_launcher_txt_comp_choice=Ñ¡Ôñ: 
 
 REM ########## APP LAUNCHER ÎÄ±¾Éú³É - BACKEND #########
 if "%app_launcher_txt_comp_choice%"=="1" (
@@ -1288,7 +1288,7 @@ echo 2. Æô¶¯ XTTS
 echo 3. Æô¶¯ RVC
 echo 0. ·µ»Ø
 
-set /p app_launcher_voice_gen_choice=Choose Your Destiny: 
+set /p app_launcher_voice_gen_choice=Ñ¡Ôñ: 
 
 REM ########## APP LAUNCHER ÎÄ±¾Éú³É - BACKEND #########
 if "%app_launcher_voice_gen_choice%"=="1" (
@@ -1371,7 +1371,7 @@ echo 3. Æô¶¯ ComfyUI
 echo 4. Æô¶¯ Fooocus
 echo 0. ·µ»Ø
 
-set /p app_launcher_img_gen_choice=Choose Your Destiny: 
+set /p app_launcher_img_gen_choice=Ñ¡Ôñ: 
 
 REM ######## APP LAUNCHER Í¼ÏñÉú³É - BACKEND #########
 if "%app_launcher_img_gen_choice%"=="1" (
@@ -1487,7 +1487,7 @@ echo ÄãÏëÅªÉ¶àÏ?
 echo 1. Æô¶¯ Extras
 echo 0. ·µ»Ø
 
-set /p app_launcher_core_util_choice=Choose Your Destiny: 
+set /p app_launcher_core_util_choice=Ñ¡Ôñ: 
 
 REM ######## APP LAUNCHER Í¼ÏñÉú³É - BACKEND #########
 if "%app_launcher_core_util_choice%"=="1" (
@@ -1549,7 +1549,7 @@ echo 3. Í¼Æ¬Éú³É
 echo 4. ºËÐÄapp
 echo 0. ·µ»Ø
 
-set /p app_installer_choice=Choose Your Destiny: 
+set /p app_installer_choice=Ñ¡Ôñ: 
 
 REM ############## °²×°Ñ¡Ïî - BACKEND ####################
 if "%app_installer_choice%"=="1" (
@@ -1586,7 +1586,7 @@ echo 3. TabbyAPI [°²×°Ñ¡Ïî]
 echo 4. °²×° llamacpp
 echo 0. ·µ»Ø
 
-set /p app_installer_txt_comp_choice=Choose Your Destiny: 
+set /p app_installer_txt_comp_choice=Ñ¡Ôñ: 
 
 REM ######## °²×°Ñ¡Ïî ÎÄ±¾Éú³É - BACKEND ##########
 if "%app_installer_txt_comp_choice%"=="1" (
@@ -1639,7 +1639,7 @@ echo 1. °²×° koboldcpp from prebuild .exe [ÍÆ¼ö]
 echo 2. ¹¹½¨dllÎÄ¼þ²¢±àÒë.exe°²×°³ÌÐò [¸ß¼¶]
 echo 0. ·µ»Ø
 
-set /p app_installer_koboldcpp_choice=Choose Your Destiny: 
+set /p app_installer_koboldcpp_choice=Ñ¡Ôñ: 
 
 REM ######## °²×°Ñ¡Ïî KOBOLDCPP - BACKEND ##########
 if "%app_installer_koboldcpp_choice%"=="1" (
@@ -1696,7 +1696,7 @@ echo 1. °²×° TabbyAPI
 echo 2. LLMÄ£ÐÍ [°²×°Ñ¡Ïî]
 echo 0. ·µ»Ø
 
-set /p app_installer_tabbyapi_choice=Choose Your Destiny: 
+set /p app_installer_tabbyapi_choice=Ñ¡Ôñ: 
 
 REM ##### °²×°Ñ¡Ïî TABBYAPI - BACKEND ######
 if "%app_installer_tabbyapi_choice%"=="1" (
@@ -1756,7 +1756,7 @@ echo 3. °²×° Hathor-L3-8B-v.01-exl2 [V0.1 RP Î´¾­Éó²é]
 echo 4. °²×° ×Ô¶¨ÒåLLMÄ£ÐÍ
 echo 0. ·µ»Ø
 
-set /p app_installer_tabbyapi_model_choice=Choose Your Destiny: 
+set /p app_installer_tabbyapi_model_choice=Ñ¡Ôñ: 
 
 REM ######## °²×°Ñ¡Ïî TABBYAPI Ä£ÐÍ - BACKEND #########
 if "%app_installer_tabbyapi_model_choice%"=="1" (
@@ -1952,7 +1952,7 @@ goto :install_tabbyapi_model_menu
 
 :install_tabbyapi_model_custom
 cls
-set /p tabbyapimodelurl="(0 to cancel)Insert Model URL: "
+set /p tabbyapimodelurl="(ÊäÈë0È¡Ïû )²åÈëÄ£ÐÍ URL: "
 if "%tabbyapimodelurl%"=="0" goto :install_tabbyapi_model_menu
 
 
@@ -1978,7 +1978,7 @@ echo 2. °²×° XTTS
 echo 3. °²×° RVC
 echo 0. ·µ»Ø
 
-set /p app_installer_voice_gen_choice=Choose Your Destiny: 
+set /p app_installer_voice_gen_choice=Ñ¡Ôñ: 
 
 REM ######## °²×°Ñ¡Ïî ÓïÒôÉú³É - BACKEND #########
 if "%app_installer_voice_gen_choice%"=="1" (
@@ -2041,7 +2041,7 @@ echo 3. °²×° ComfyUI
 echo 4. °²×° Fooocus
 echo 0. ·µ»Ø
 
-set /p app_installer_img_gen_choice=Choose Your Destiny: 
+set /p app_installer_img_gen_choice=Ñ¡Ôñ: 
 
 REM ######## °²×°Ñ¡Ïî Í¼ÏñÉú³É - BACKEND #########
 if "%app_installer_img_gen_choice%"=="1" (
@@ -2103,7 +2103,7 @@ echo 2. °²×° À©Õ¹
 echo 3. Ä£ÐÍ [°²×°Ñ¡Ïî]
 echo 0. ·µ»Ø
 
-set /p app_installer_sdwebui_choice=Choose Your Destiny: 
+set /p app_installer_sdwebui_choice=Ñ¡Ôñ: 
 
 REM ##### °²×°Ñ¡Ïî STABLE DIFUSSION WEBUI - BACKEND ######
 if "%app_installer_sdwebui_choice%"=="1" (
@@ -2203,7 +2203,7 @@ echo 4. °²×° ×Ô¶¨ÒåLLMÄ£ÐÍ
 echo 5. Add API Key from civitai
 echo 0. ·µ»Ø
 
-set /p app_installer_sdwebui_model_choice=Choose Your Destiny: 
+set /p app_installer_sdwebui_model_choice=Ñ¡Ôñ: 
 
 REM ######## °²×°Ñ¡Ïî Í¼ÏñÉú³É - BACKEND #########
 if "%app_installer_sdwebui_model_choice%"=="1" (
@@ -2259,7 +2259,7 @@ goto :install_sdwebui_model_menu
 
 :install_sdwebui_model_custom
 cls
-set /p civitaimodelid="(0 to cancel)Insert Model ID: "
+set /p civitaimodelid="ÊäÈë0È¡Ïû)²åÈëÄ£ÐÍID: "
 
 if "%civitaimodelid%"=="0" goto :install_sdwebui_model_menu
 
@@ -2280,7 +2280,7 @@ goto :install_sdwebui_model_menu
 
 :install_sdwebui_model_apikey
 cls
-set /p civitaiapikey="(0 to cancel)Insert API key: "
+set /p civitaiapikey="(ÊäÈë0È¡Ïû)²åÈëAPI KEY: "
 
 if "%civitaiapikey%"=="0" goto :install_sdwebui_model_menu
 
@@ -2312,7 +2312,7 @@ echo 2. °²×° À©Õ¹
 echo 3. LLMÄ£ÐÍ [°²×°Ñ¡Ïî]
 echo 0. ·µ»Ø
 
-set /p app_installer_sdwebuiforge_choice=Choose Your Destiny: 
+set /p app_installer_sdwebuiforge_choice=Ñ¡Ôñ: 
 
 REM ## °²×°Ñ¡Ïî STABLE DIFUSSION WEBUI FORGE - BACKEND ###
 if "%app_installer_sdwebuiforge_choice%"=="1" (
@@ -2411,7 +2411,7 @@ echo 3. Install Perfect World [REALISM MODEL]
 echo 4. Install a custom model
 echo 0. ·µ»Ø
 
-set /p app_installer_sdwebuiforge_model_choice=Choose Your Destiny: 
+set /p app_installer_sdwebuiforge_model_choice=Ñ¡Ôñ: 
 
 REM ######## °²×°Ñ¡Ïî Í¼ÏñÉú³É - BACKEND #########
 if "%app_installer_sdwebuiforge_model_choice%"=="1" (
@@ -2465,7 +2465,7 @@ goto :install_sdwebuiforge_model_menu
 
 :install_sdwebuiforge_model_custom
 cls
-set /p civitaimodelid="(0 to cancel)Insert Model ID: "
+set /p civitaimodelid="(ÊäÈë0È¡Ïû)²åÈëÄ£ÐÍID: "
 
 if "%civitaimodelid%"=="0" goto :install_sdwebuiforge_model_menu
 
@@ -2505,7 +2505,7 @@ echo 6. °²×° CUDA Toolkit
 echo 7. °²×° w64devkit
 echo 0. ·µ»Ø
 
-set /p app_installer_core_util_choice=Choose Your Destiny: 
+set /p app_installer_core_util_choice=Ñ¡Ôñ: 
 
 REM ######## °²×°Ñ¡Ïî CORE UTILITIES - BACKEND ###########
 if "%app_installer_core_util_choice%"=="1" (
@@ -2619,7 +2619,7 @@ echo 3. Í¼Æ¬Éú³É
 echo 4. ºËÐÄapp
 echo 0. ·µ»Ø
 
-set /p app_uninstaller_choice=Choose Your Destiny: 
+set /p app_uninstaller_choice=Ñ¡Ôñ: 
 
 REM ############## Ð¶ÔØÑ¡Ïî - BACKEND ####################
 if "%app_uninstaller_choice%"=="1" (
@@ -2657,7 +2657,7 @@ echo 3. Ð¶ÔØ TabbyAPI
 echo 4. Ð¶ÔØ llamacpp
 echo 0. ·µ»Ø
 
-set /p app_uninstaller_text_completion_choice=Choose Your Destiny: 
+set /p app_uninstaller_text_completion_choice=Ñ¡Ôñ: 
 
 REM ####### Ð¶ÔØÑ¡Ïî ÎÄ±¾Éú³É - BACKEND ##########
 if "%app_uninstaller_text_completion_choice%"=="1" (
@@ -2738,7 +2738,7 @@ echo 2. Ð¶ÔØ XTTS
 echo 3. Ð¶ÔØ rvc
 echo 0. ·µ»Ø
 
-set /p app_uninstaller_voice_gen_choice=Choose Your Destiny: 
+set /p app_uninstaller_voice_gen_choice=Ñ¡Ôñ: 
 
 REM ######## Ð¶ÔØÑ¡Ïî ÓïÒôÉú³É - BACKEND #########
 if "%app_uninstaller_voice_gen_choice%"=="1" (
@@ -2807,7 +2807,7 @@ echo 3. Ð¶ÔØ ComfyUI
 echo 4. Ð¶ÔØ Fooocus
 echo 0. ·µ»Ø
 
-set /p app_uninstaller_img_gen_choice=Choose Your Destiny: 
+set /p app_uninstaller_img_gen_choice=Ñ¡Ôñ: 
 
 REM ######## Ð¶ÔØÑ¡Ïî Í¼ÏñÉú³É - BACKEND #########
 if "%app_uninstaller_img_gen_choice%"=="1" (
@@ -2892,7 +2892,7 @@ echo 8. Ð¶ÔØ Visual Studio BuildTools
 echo 9. Ð¶ÔØ w64devkit
 echo 0. ·µ»Ø
 
-set /p app_uninstaller_core_utilities_choice=Choose Your Destiny: 
+set /p app_uninstaller_core_utilities_choice=Ñ¡Ôñ: 
 
 REM ######## Ð¶ÔØÑ¡Ïî CORE UTILITIES - BACKEND #########
 if "%app_uninstaller_core_utilities_choice%"=="1" (
@@ -3038,7 +3038,7 @@ echo 3. Í¼Æ¬Éú³É
 echo 4. ºËÐÄapp
 echo 0. ·µ»Ø
 
-set /p editor_choice=Choose Your Destiny: 
+set /p editor_choice=Ñ¡Ôñ: 
 
 REM ################# ±à¼­Ñ¡Ïî - BACKEND ########################
 if "%editor_choice%"=="1" (
@@ -3074,7 +3074,7 @@ echo 2. ±à¼­ koboldcpp
 echo 3. ±à¼­ TabbyAPI
 echo 0. ·µ»Ø
 
-set /p editor_text_completion_choice=Choose Your Destiny: 
+set /p editor_text_completion_choice=Ñ¡Ôñ: 
 
 REM ####### ±à¼­Ñ¡Ïî ÎÄ±¾Éú³É - BACKEND ##########
 if "%editor_text_completion_choice%"=="1" (
@@ -3138,7 +3138,7 @@ echo ÄãÏëÅªÉ¶àÏ?
 echo 1. ±à¼­ XTTS Modules
 echo 0. ·µ»Ø
 
-set /p editor_voice_generation_choice=Choose Your Destiny: 
+set /p editor_voice_generation_choice=Ñ¡Ôñ: 
 
 REM ######## ±à¼­Ñ¡Ïî ÓïÒôÉú³É - BACKEND #########
 if "%editor_voice_generation_choice%"=="1" (
@@ -3178,7 +3178,7 @@ echo 3. ±à¼­ ComfyUI
 echo 4. ±à¼­ Fooocus
 echo 0. ·µ»Ø
 
-set /p editor_image_generation_choice=Choose Your Destiny: 
+set /p editor_image_generation_choice=Ñ¡Ôñ: 
 
 REM ######## ±à¼­Ñ¡Ïî Í¼ÏñÉú³É - BACKEND #########
 if "%editor_image_generation_choice%"=="1" (
@@ -3264,7 +3264,7 @@ echo 3. ±à¼­ Extras
 echo 4. ±à¼­ Environment Variables
 echo 0. ·µ»Ø
 
-set /p editor_core_utilities_choice=Choose Your Destiny: 
+set /p editor_core_utilities_choice=Ñ¡Ôñ: 
 
 REM ######## ±à¼­Ñ¡Ïî CORE UTILITIES - FRONTEND ##################
 if "%editor_core_utilities_choice%"=="1" (
@@ -3373,7 +3373,7 @@ REM echo ======== INFO BOX ===============
 REM echo STL PID: %cyan_fg_strong%%stl_PID%%reset%
 REM echo =================================
 
-set /p troubleshooting_choice=Choose Your Destiny: 
+set /p troubleshooting_choice=Ñ¡Ôñ: 
 
 
 REM ############## TROUBLESHOOTING - BACKEND ##################
@@ -3472,7 +3472,7 @@ for /f %%i in ('git branch --show-current') do set current_branch=%%i
 echo ======== °æ±¾ÐÅÏ¢ =========
 echo SillyTavern branch: %cyan_fg_strong%%current_branch%%reset%
 echo =================================
-set /p branch_choice=Choose Your Destiny: 
+set /p branch_choice=Ñ¡Ôñ: 
 
 REM ################# SWITCH BRANCH - BACKEND ########################
 if "%branch_choice%"=="1" (
@@ -3526,7 +3526,7 @@ echo %red_fg_strong%7-Zip Î´°²×°»òÃ»ÕÒµ½ in the system PATH. 7-Zip ½øÐÐ±¸·ÝÊ±ÐèÒ
 REM Prompt user to install 7-Zip
 echo 1. °²×° 7-Zip
 echo 2. È¡Ïû
-set /p zip_choice="Would you like to install 7-Zip Now? (this will require a launcher restart after install): "
+set /p zip_choice="ÄãÏëÏÖÔÚ°²×°7-Zip Âð? (Õâ½«ÐèÒªÔÚ°²×°ºóÖØÐÂÆô¶¯Launcher): "
 REM Check if the user wants to install 7-Zip
 if "%zip_choice%"=="1" (
     set "caller=backup"
@@ -3553,7 +3553,7 @@ echo 1. ´´½¨ ±¸·Ý
 echo 2. »¹Ô­ ±¸·Ý
 echo 0. ·µ»Ø
 
-set /p backup_choice=Choose Your Destiny: 
+set /p backup_choice=Ñ¡Ôñ: 
 
 REM ################# BACKUP - BACKEND ########################
 if "%backup_choice%"=="1" (
@@ -3596,7 +3596,7 @@ echo 2. ÎÄµµ
 echo 3. Discord
 echo 0. ·µ»Ø
 
-set /p support_choice=Choose Your Destiny: 
+set /p support_choice=Ñ¡Ôñ: 
 
 REM ############## SUPPORT - BACKEND ##########################
 if "%support_choice%"=="1" (
@@ -3663,7 +3663,7 @@ for /L %%i in (1,1,10) do (
 )
 
 echo °´ 0 È¡Ïû
-set /p user_apps="Enter your choice: "
+set /p user_apps="ÊäÈëÄãµÄÑ¡Ôñ: "
 if "%user_apps%"=="0" goto :home
 
 REM Array-like structure for mapping names and commands
