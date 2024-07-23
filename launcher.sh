@@ -93,7 +93,7 @@ log_message() {
 #log_message "WARN" "${yellow_fg_strong}Something is not installed on this system.${reset}"
 #log_message "ERROR" "${red_fg_strong}An error occurred during the process.${reset}"
 #log_message "DEBUG" "This is a debug message."
-#read -p "Press Enter to continue..."
+#read -p "按Enter继续..."
 
 # Function to install Git
 install_git() {
@@ -156,24 +156,24 @@ home() {
     clear
     echo -e "${blue_fg_strong}/ Home${reset}"
     echo "------------------------------------------------"
-    echo "What would you like to do?"
-    echo "1. Start SillyTavern"
-    echo "2. Start Extras"
-    echo "3. Start XTTS"
-    echo "4. Update"
-    echo "5. Backup"
-    echo "6. Switch branch"
-    echo "7. Toolbox"
+    echo "你想干什么?"
+    echo "1. 启动 SillyTavern"
+    echo "2. 启动 Extras"
+    echo "3. 启动 XTTS"
+    echo "4. 更新"
+    echo "5. 备份"
+    echo "6. 切换分支"
+    echo "7. 工具箱"
     echo "8. Support"
-    echo "0. Exit"
+    echo "0. 离开"
 
     echo "======== VERSION STATUS ========"
-    echo -e "SillyTavern branch: ${cyan_fg_strong}$current_branch${reset}"
+    echo -e "SillyTavern branch分支: ${cyan_fg_strong}$current_branch${reset}"
     echo -e "Sillytavern: $update_status"
     echo -e "Launcher: V1.0.8"
     echo "================================"
 
-    read -p "Choose Your Destiny: " home_choice
+    read -p "选择数字: " home_choice
 
     # Default to choice 1 if no input is provided
     if [ -z "$home_choice" ]; then
@@ -191,8 +191,8 @@ home() {
         7) toolbox ;;
         8) support ;;
         0) exit ;;
-        *) echo -e "${yellow_fg_strong}WARNING: Invalid number. Please insert a valid number.${reset}"
-           read -p "Press Enter to continue..."
+        *) echo -e "${yellow_fg_strong}WARNING: 无效号码.请插入一个有效数字.${reset}"
+           read -p "按Enter继续..."
            home ;;
     esac
 }
@@ -204,8 +204,8 @@ check_nodejs() {
     if [ $? -ne 0 ]; then
         echo -e "${red_fg_strong}[ERROR] node command not found in PATH${reset}"
         echo -e "${red_bg}Please make sure Node.js is installed and added to your PATH.${reset}"
-        echo -e "${blue_bg}To install Node.js, go to Toolbox${reset}"
-        read -p "Press Enter to continue..."
+        echo -e "${blue_bg}去工具箱安装node.js${reset}"
+        read -p "按Enter继续..."
         home
     fi
 }
@@ -250,7 +250,7 @@ start_st()
         detected_terminal=$(find_terminal)
         log_message "INFO" "Found terminal: $detected_terminal"
         # Enable read p command for troubleshooting
-        # read -p "Press Enter to continue..."
+        # read -p "按Enter继续..."
 
         # Start SillyTavern in the detected terminal
         if [ "$(uname)" == "Darwin" ]; then
@@ -273,7 +273,7 @@ start_extras() {
         {
             #has to be after the first one, so we are 1 directory up
             cd "SillyTavern-extras" || {
-                log_message "ERROR" "SillyTavern-extras directory not found. Please make sure you have installed SillyTavern-extras."
+                log_message "ERROR" "SillyTavern-extras 目录没找到. Please make sure you have installed SillyTavern-extras."
                 kill $main_pid
                 exit 1
             }
@@ -292,7 +292,7 @@ start_extras() {
         detected_terminal=$(find_terminal)
         log_message "INFO" "Found terminal: $detected_terminal"
         # Enable read p command for troubleshooting
-        # read -p "Press Enter to continue..."
+        # read -p "按Enter继续..."
 
         # Start SillyTavern in the detected terminal
         if [ "$(uname)" == "Darwin" ]; then
@@ -315,7 +315,7 @@ start_xtts() {
 
         # Move to xtts directory
         cd "xtts" || {
-            log_message "ERROR" "xtts directory not found. Please make sure you have installed xtts"
+            log_message "ERROR" "xtts 目录没找到. Please make sure you have installed xtts"
             kill "$main_pid"
             exit 1
         }
@@ -335,7 +335,7 @@ start_xtts() {
         detected_terminal=$(find_terminal)
         log_message "INFO" "Found terminal: $detected_terminal"
         # Enable read p command for troubleshooting
-        # read -p "Press Enter to continue..."
+        # read -p "按Enter继续..."
 
         # Start XTTS in the detected terminal
         if [ "$(uname)" == "Darwin" ]; then
@@ -361,9 +361,9 @@ update() {
         cd "SillyTavern"
         git pull --rebase --autostash
         cd ..
-        log_message "INFO" "SillyTavern updated successfully."
+        log_message "INFO" "SillyTavern 更新成功."
     else
-        log_message "WARN" "SillyTavern directory not found. Skipping SillyTavern update."
+        log_message "WARN" "SillyTavern 目录没找到. Skipping SillyTavern update."
     fi
 
     # Update Extras if directory exists
@@ -372,9 +372,9 @@ update() {
         cd "SillyTavern-extras"
         git pull --rebase --autostash
         cd ..
-        log_message "INFO" "SillyTavern-extras updated successfully."
+        log_message "INFO" "SillyTavern-extras 更新成功."
     else
-        log_message "WARN" "SillyTavern-extras directory not found. Skipping SillyTavern-extras update."
+        log_message "WARN" "SillyTavern-extras 目录没找到. Skipping SillyTavern-extras update."
     fi
 
     # Update XTTS if directory exists
@@ -385,11 +385,11 @@ update() {
         pip install --upgrade xtts-api-server
         conda deactivate
         cd ..
-        log_message "INFO" "XTTS updated successfully."
+        log_message "INFO" "XTTS 更新成功."
     else
-        log_message "WARN" "xtts directory not found. Skipping XTTS update."
+        log_message "WARN" "xtts 目录没找到. Skipping XTTS update."
     fi
-    read -p "Press Enter to continue..."
+    read -p "按Enter继续..."
     home
 }
 
@@ -425,7 +425,7 @@ create_backup() {
 
     echo -e "${green_fg_strong}Backup created successfully!${reset}"
 
-    read -p "Press Enter to continue..."
+    read -p "按Enter继续..."
     backup_menu
 }
 
@@ -446,7 +446,7 @@ restore_backup() {
     done
 
     echo "========================"
-    read -p "Enter the number of the backup to restore: " restore_choice
+    read -p "输入要还原的备份编号: " restore_choice
 
     if [ "$restore_choice" -ge 1 ] && [ "$restore_choice" -le "$backup_count" ]; then
         selected_backup="${backup_files[restore_choice - 1]}"
@@ -467,7 +467,7 @@ restore_backup() {
         echo -e "${yellow_fg_strong}WARNING: Invalid backup number. Please insert a valid number.${reset}"
     fi
 
-    read -p "Press Enter to continue..."
+    read -p "按Enter继续..."
     backup_menu
 }
 
@@ -479,20 +479,20 @@ backup_menu() {
     clear
     echo -e "${blue_fg_strong}/ Home / Backup${reset}"
     echo "------------------------------------------------"
-    echo "What would you like to do?"
-    echo "1. Create Backup"
-    echo "2. Restore Backup"
-    echo "0. Back to Home"
+    echo "你想干什么?"
+    echo "1. 创建备份"
+    echo "2. 还原备份"
+    echo "0. 返回主页"
 
-    read -p "Choose Your Destiny: " backup_choice
+    read -p "选择数字: " backup_choice
 
 ################# BACKUP - BACKEND ########################
     case $backup_choice in
         1) create_backup ;;
         2) restore_backup ;;
         0) home ;;
-        *) echo -e "${yellow_fg_strong}WARNING: Invalid number. Please insert a valid number.${reset}"
-           read -p "Press Enter to continue..."
+        *) echo -e "${yellow_fg_strong}WARNING: 无效号码.请插入一个有效数字.${reset}"
+           read -p "按Enter继续..."
            backup_menu ;;
     esac
 }
@@ -502,7 +502,7 @@ backup_menu() {
 switch_release_st() {
     log_message "INFO" "Switching to release branch..."
     git switch release
-    read -p "Press Enter to continue..."
+    read -p "按Enter继续..."
     switch_branch_menu
 }
 
@@ -510,7 +510,7 @@ switch_release_st() {
 switch_staging_st() {
     log_message "INFO" "Switching to staging branch..."
     git switch staging
-    read -p "Press Enter to continue..."
+    read -p "按Enter继续..."
     switch_branch_menu
 }
 
@@ -523,26 +523,26 @@ switch_branch_menu() {
     clear
     echo -e "${blue_fg_strong}/ Home / Switch Branch${reset}"
     echo "------------------------------------------------"
-    echo "What would you like to do?"
-    echo "1. Switch to Release - SillyTavern"
-    echo "2. Switch to Staging - SillyTavern"
-    echo "0. Back to Home"
+    echo "你想干什么?"
+    echo "1. 切换到 Release - SillyTavern"
+    echo "2. 切换到 Staging - SillyTavern"
+    echo "0. 返回"
 
     current_branch=$(git branch --show-current)
     echo "======== VERSION STATUS ========"
-    echo -e "SillyTavern branch: ${cyan_fg_strong}$current_branch${reset}"
-    echo -e "Extras branch: ${cyan_fg_strong}$current_branch${reset}"
+    echo -e "SillyTavern 分支: ${cyan_fg_strong}$current_branch${reset}"
+    echo -e "Extras 分支: ${cyan_fg_strong}$current_branch${reset}"
     echo "================================"
 
-    read -p "Choose Your Destiny: " branch_choice
+    read -p "选择数字: " branch_choice
 
 ################# SWITCH BRANCE - BACKEND ########################
     case $branch_choice in
         1) switch_release_st ;;
         2) switch_staging_st ;;
         0) home ;;
-        *) echo -e "${yellow_fg_strong}WARNING: Invalid number. Please insert a valid number.${reset}"
-           read -p "Press Enter to continue..."
+        *) echo -e "${yellow_fg_strong}WARNING: 无效号码.请插入一个有效数字.${reset}"
+           read -p "按Enter继续..."
            switch_branch_menu ;;
     esac
 }
@@ -670,13 +670,13 @@ app_installer() {
     clear
     echo -e "${blue_fg_strong}/ Home / Toolbox / App Installer${reset}"
     echo "------------------------------------------------"
-    echo "What would you like to do?"
-    echo "1. Install 7-Zip"
-    echo "2. Install FFmpeg"
-    echo "3. Install Node.js"
-    echo "0. Back to Toolbox"
+    echo "你想干什么?"
+    echo "1. 安装 7-Zip"
+    echo "2. 安装 FFmpeg"
+    echo "3. 安装 Node.js"
+    echo "0. 返回"
 
-    read -p "Choose Your Destiny: " app_installer_choice
+    read -p "选择数字: " app_installer_choice
 
 ################# APP INSTALLER - BACKEND #######################
     case $app_installer_choice in
@@ -684,8 +684,8 @@ app_installer() {
         2) install_ffmpeg ;;
         3) install_nodejs ;;
         0) toolbox ;;
-        *) echo -e "${yellow_fg_strong}WARNING: Invalid number. Please insert a valid number.${reset}"
-           read -p "Press Enter to continue..."
+        *) echo -e "${yellow_fg_strong}WARNING: 无效号码.请插入一个有效数字.${reset}"
+           read -p "按Enter继续..."
            app_installer ;;
     esac
 }
@@ -698,7 +698,7 @@ uninstall_extras() {
     echo -e "${red_bg}║ If you want to keep any data, make sure to create a backup before proceeding.      ║${reset}"
     echo -e "${red_bg}╚════════════════════════════════════════════════════════════════════════════════════╝${reset}"
     echo
-    echo -n "Are you sure you want to proceed? [Y/N]: "
+    echo -n "你确定要继续? [Y/N]: "
     read confirmation
 
     if [ "$confirmation" = "Y" ] || [ "$confirmation" = "y" ]; then
@@ -707,9 +707,9 @@ uninstall_extras() {
         log_message "INFO" "Removing the Conda environment: extras"
         conda remove --name extras --all -y
 
-        log_message "INFO" "${green_fg_strong}Extras uninstalled successfully.${reset}"
+        log_message "INFO" "${green_fg_strong}Extras 已成功卸载.${reset}"
     else
-        echo "Uninstall canceled."
+        echo "卸载取消."
     fi
     pause
     app_uninstaller
@@ -723,7 +723,7 @@ uninstall_xtts() {
     echo -e "${red_bg}║ If you want to keep any data, make sure to create a backup before proceeding.      ║${reset}"
     echo -e "${red_bg}╚════════════════════════════════════════════════════════════════════════════════════╝${reset}"
     echo
-    echo -n "Are you sure you want to proceed? [Y/N]: "
+    echo -n "你确定要继续? [Y/N]: "
     read confirmation
 
     if [ "$confirmation" = "Y" ] || [ "$confirmation" = "y" ]; then
@@ -732,9 +732,9 @@ uninstall_xtts() {
         log_message "INFO" "Removing the Conda environment: xtts"
         conda remove --name xtts --all -y
 
-        log_message "INFO" "${green_fg_strong}XTTS uninstalled successfully.${reset}"
+        log_message "INFO" "${green_fg_strong}XTTS 已成功卸载.${reset}"
     else
-        echo "Uninstall canceled."
+        echo "卸载取消."
     fi
     pause
     app_uninstaller
@@ -750,15 +750,15 @@ uninstall_st() {
     echo -e "${red_bg}║ If you want to keep any data, make sure to create a backup before proceeding.      ║${reset}"
     echo -e "${red_bg}╚════════════════════════════════════════════════════════════════════════════════════╝${reset}"
     echo
-    echo -n "Are you sure you want to proceed? [Y/N]: "
+    echo -n "你确定要继续? [Y/N]: "
     read confirmation
 
     if [ "$confirmation" = "Y" ] || [ "$confirmation" = "y" ]; then
         log_message "INFO" "Removing the SillyTavern directory..."
         rm -rf SillyTavern
-        log_message "INFO" "${green_fg_strong}SillyTavern uninstalled successfully.${reset}"
+        log_message "INFO" "${green_fg_strong}SillyTavern 已成功卸载.${reset}"
     else
-        echo "Uninstall canceled."
+        echo "卸载取消."
     fi
     pause
     app_uninstaller
@@ -917,17 +917,17 @@ app_uninstaller() {
     clear
     echo -e "${blue_fg_strong}/ Home / Toolbox / App Uninstaller${reset}"
     echo "------------------------------------------------"
-    echo "What would you like to do?"
-    echo "1. UNINSTALL Extras"
-    echo "2. UNINSTALL XTTS"
-    echo "3. UNINSTALL SillyTavern"
-    echo "4. UNINSTALL 7-Zip"
-    echo "5. UNINSTALL FFmpeg"
-    echo "6. UNINSTALL Node.js"
-    echo "7. UNINSTALL git"
-    echo "0. Back to Toolbox"
+    echo "你想干什么?"
+    echo "1. 卸载 Extras"
+    echo "2. 卸载 XTTS"
+    echo "3. 卸载 SillyTavern"
+    echo "4. 卸载 7-Zip"
+    echo "5. 卸载 FFmpeg"
+    echo "6. 卸载 Node.js"
+    echo "7. 卸载 git"
+    echo "0. 返回"
 
-    read -p "Choose Your Destiny: " app_uninstaller_choice
+    read -p "选择数字: " app_uninstaller_choice
 
 ################# APP UNINSTALLER - BACKEND #######################
     case $app_uninstaller_choice in
@@ -939,8 +939,8 @@ app_uninstaller() {
         6) uninstall_nodejs ;;
         7) uninstall_git ;;
         0) toolbox ;;
-        *) echo -e "${yellow_fg_strong}WARNING: Invalid number. Please insert a valid number.${reset}"
-           read -p "Press Enter to continue..."
+        *) echo -e "${yellow_fg_strong}WARNING: 无效号码.请插入一个有效数字.${reset}"
+           read -p "按Enter继续..."
            app_uninstaller ;;
     esac
 }
@@ -961,7 +961,7 @@ edit_extras_modules() {
     clear
     echo -e "${blue_fg_strong}/ Home / Toolbox / Editor / Edit Extras Modules${reset}"
     echo "-------------------------------------"
-    echo "Choose extras modules to enable or disable (e.g., \"1 2 4\" to enable Cuda, RVC, and Caption)"
+    echo "选择要启用或禁用的附加模块 (e.g., \"1 2 4\" to enable Cuda, RVC, and Caption)"
 
     # Display module options with colors based on their status
     printModule "1. Cuda (--gpu 0 --cuda --cuda-device=0)" "$cuda_trigger"
@@ -971,11 +971,11 @@ edit_extras_modules() {
     printModule "5. summarize (--enable-modules=summarize)" "$summarize_trigger"
     printModule "6. listen (--listen)" "$listen_trigger"
     printModule "7. Edge TTS (--enable-modules=edge-tts)" "$edge_tts_trigger"
-    echo "0. Back to Toolbox"
+    echo "0. 返回"
 
     set "python_command="
 
-    read -p "Choose modules to enable/disable (1-6): " module_choices
+    read -p "选择要启用/禁用的模块 (1-6): " module_choices
 
     # Handle the user's module choices and construct the Python command
     for i in $module_choices; do
@@ -1035,7 +1035,7 @@ edit_xtts_modules() {
     printModule "4. cache (--use-cache)" "$xtts_cache_trigger"
     printModule "5. listen (--listen)" "$xtts_listen_trigger"
     printModule "6. model (--model-source local)" "$xtts_model_trigger"
-    echo "0. Back to Editor"s
+    echo "0. 返回"s
 
     set "python_command="
 
@@ -1118,14 +1118,14 @@ editor() {
     clear
     echo -e "${blue_fg_strong}/ Home / Toolbox / Editor${reset}"
     echo "------------------------------------------------"
-    echo "What would you like to do?"
-    echo "1. Edit Extras Modules"
-    echo "2. Edit XTTS Modules"
-    echo "3. Edit Environment Variables"
-    echo "4. Edit SillyTavern config.yaml"
-    echo "0. Back to Toolbox"
+    echo "你想干什么?"
+    echo "1. 编辑 Extras Modules"
+    echo "2. 编辑 XTTS Modules"
+    echo "3. 编辑 Environment Variables"
+    echo "4. 编辑 SillyTavern config.yaml"
+    echo "0. 返回"
 
-    read -p "Choose Your Destiny: " editor_choice
+    read -p "选择数字: " editor_choice
 
 ################# EDITOR - BACKEND #########################
     case $editor_choice in
@@ -1134,8 +1134,8 @@ editor() {
         3) edit_environment_var ;;
         4) edit_st_config ;;
         0) toolbox ;;
-        *) echo -e "${yellow_fg_strong}WARNING: Invalid number. Please insert a valid number.${reset}"
-           read -p "Press Enter to continue..."
+        *) echo -e "${yellow_fg_strong}WARNING: 无效号码.请插入一个有效数字.${reset}"
+           read -p "按Enter继续..."
            editor ;;
     esac
 }
@@ -1148,7 +1148,7 @@ remove_node_modules() {
     rm -rf node_modules package-lock.json
     npm cache clean --force
     log_message "INFO" "node_modules successfully removed."
-    read -p "Press Enter to continue..."
+    read -p "按Enter继续..."
     troubleshooting
 }
 
@@ -1158,7 +1158,7 @@ unresolved_unmerged() {
     git merge --abort
     git reset --hard
     git pull --rebase --autostash
-    read -p "Press Enter to continue..."
+    read -p "按Enter继续..."
     troubleshooting
 }
 
@@ -1166,7 +1166,7 @@ export_system_info() {
     log_message "INFO" "Exporting system information..."
     lshw > "$(dirname "$0")/system_info.txt"
     log_message "INFO" "You can find the system_info.txt at: $(dirname "$0")/system_info.txt"
-    read -p "Press Enter to continue..."
+    read -p "按Enter继续..."
     troubleshooting
 }
 
@@ -1178,7 +1178,7 @@ find_app_port() {
     # Check if the input is a number
     if ! [[ "$port" =~ ^[0-9]+$ ]]; then
         log_message "ERROR" "Invalid input: Not a number."
-        read -p "Press Enter to continue..."
+        read -p "按Enter继续..."
         find_app_port
     fi
 
@@ -1188,7 +1188,7 @@ find_app_port() {
         echo "[0-1023]: These ports are reserved for system services or commonly used protocols."
         echo "[1024-49151]: These ports can be used by user processes or applications."
         echo "[49152-65535]: These ports are available for use by any application or service on the system."
-        read -p "Press Enter to continue..."
+        read -p "按Enter继续..."
         find_app_port
     fi
 
@@ -1201,11 +1201,11 @@ find_app_port() {
         echo -e "PID of Port $port: \e[36;1m$pid\e[0m"
     else
         log_message "WARN" "Port: $port not found."
-        read -p "Press Enter to continue..."
+        read -p "按Enter继续..."
         find_app_port
     fi
 
-    read -p "Press Enter to continue..."
+    read -p "按Enter继续..."
     troubleshooting
 }
 
@@ -1213,12 +1213,12 @@ onboarding_flow() {
     read -p "Enter new value for Onboarding Flow (true/false): " onboarding_flow_value
     if [[ "$onboarding_flow_value" != "true" && "$onboarding_flow_value" != "false" ]]; then
         log_message "WARN" "Invalid input. Please enter 'true' or 'false'."
-        read -p "Press Enter to continue..."
+        read -p "按Enter继续..."
         onboarding_flow
     fi
     sed -i "s/\"firstRun\": .*/\"firstRun\": $onboarding_flow_value,/" "$PWD/SillyTavern/public/settings.json"
     log_message "INFO" "Value of 'firstRun' in settings.json has been updated to $onboarding_flow_value."
-    read -p "Press Enter to continue..."
+    read -p "按Enter继续..."
     troubleshooting
 }
 
@@ -1230,15 +1230,15 @@ troubleshooting() {
     clear
     echo -e "${blue_fg_strong}/ Home / Toolbox / Troubleshooting${reset}"
     echo "------------------------------------------------"
-    echo "What would you like to do?"
+    echo "你想干什么?"
     echo "1. Remove node_modules folder"
     echo "2. Fix unresolved conflicts or unmerged files [SillyTavern]"
     echo "3. Export system info"
     echo "4. Find what app is using port"
     echo "5. Set Onboarding Flow"
-    echo "0. Back to Toolbox"
+    echo "0. 返回"
 
-    read -p "Choose Your Destiny: " troubleshooting_choice
+    read -p "选择数字: " troubleshooting_choice
 
 ################# TROUBLESHOOTING - BACKEND ################
     case $troubleshooting_choice in
@@ -1248,8 +1248,8 @@ troubleshooting() {
         4) find_app_port ;;
         5) onboarding_flow ;;
         0) toolbox ;;
-        *) echo -e "${yellow_fg_strong}WARNING: Invalid number. Please insert a valid number.${reset}"
-           read -p "Press Enter to continue..."
+        *) echo -e "${yellow_fg_strong}WARNING: 无效号码.请插入一个有效数字.${reset}"
+           read -p "按Enter继续..."
            troubleshooting ;;
     esac
 }
@@ -1263,14 +1263,14 @@ toolbox() {
     clear
     echo -e "${blue_fg_strong}/ Home / Toolbox${reset}"
     echo "------------------------------------------------"
-    echo "What would you like to do?"
+    echo "你想干什么?"
     echo "1. App Installer"
     echo "2. App Uninstaller"
     echo "3. Editor"
     echo "4. Troubleshooting"
-    echo "0. Back to Home"
+    echo "0. 返回"
 
-    read -p "Choose Your Destiny: " toolbox_choice
+    read -p "选择数字: " toolbox_choice
 
 ################# TOOLBOX - BACKEND #######################
     case $toolbox_choice in
@@ -1279,8 +1279,8 @@ toolbox() {
         3) editor ;;
         4) troubleshooting ;;
         0) home ;;
-        *) echo -e "${yellow_fg_strong}WARNING: Invalid number. Please insert a valid number.${reset}"
-           read -p "Press Enter to continue..."
+        *) echo -e "${yellow_fg_strong}WARNING: 无效号码.请插入一个有效数字.${reset}"
+           read -p "按Enter继续..."
            toolbox ;;
     esac
 }
@@ -1296,7 +1296,7 @@ issue_report() {
             xdg-open https://github.com/SillyTavern/SillyTavern-Launcher/issues/new/choose
         fi
     fi
-    read -p "Press Enter to continue..."
+    read -p "按Enter继续..."
     support
 }
 
@@ -1310,7 +1310,7 @@ documentation() {
             xdg-open https://docs.sillytavern.app/
         fi
     fi
-    read -p "Press Enter to continue..."
+    read -p "按Enter继续..."
     support
 }
 
@@ -1324,7 +1324,7 @@ discord() {
             xdg-open https://discord.gg/sillytavern
         fi
     fi
-    read -p "Press Enter to continue..."
+    read -p "按Enter继续..."
     support
 }
 
@@ -1337,13 +1337,13 @@ support() {
     clear
     echo -e "${blue_fg_strong}/ Home / Support${reset}"
     echo "------------------------------------------------"
-    echo "What would you like to do?"
+    echo "你想干什么?"
     echo "1. I want to report an issue"
     echo "2. Documentation"
     echo "3. Discord"
-    echo "0. Back to Home"
+    echo "0. 返回"
 
-    read -p "Choose Your Destiny: " support_choice
+    read -p "选择数字: " support_choice
 
 ############## SUPPORT - BACKEND ##########################
     case $support_choice in
@@ -1351,8 +1351,8 @@ support() {
         2) documentation ;;
         3) discord ;;
         0) home ;;
-        *) echo -e "${yellow_fg_strong}WARNING: Invalid number. Please insert a valid number.${reset}"
-           read -p "Press Enter to continue..."
+        *) echo -e "${yellow_fg_strong}WARNING: 无效号码.请插入一个有效数字.${reset}"
+           read -p "按Enter继续..."
            support ;;
     esac
 }

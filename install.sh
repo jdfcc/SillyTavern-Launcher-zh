@@ -9,7 +9,7 @@
 # Usage:
 # chmod +x install.sh && ./install.sh
 #
-# In automated environments, you may want to run as root.
+# In automated 环境s, you may want to run as root.
 # If using curl, we recommend using the -fsSL flags.
 #
 # This script is intended for use on Linux systems. Please
@@ -74,7 +74,7 @@ find_conda() {
 install_miniconda() {
     # Check if Miniconda is already installed
     if command -v conda &>/dev/null; then
-        echo "Miniconda is already installed. Skipping installation."
+        echo "Miniconda已安装.跳过安装."
         installer
         return 0  # Exit the function with success status
     fi
@@ -87,18 +87,18 @@ install_miniconda() {
             case "$arch" in
                 x86_64) miniconda_installer="Miniconda3-latest-Linux-x86_64.sh" ;;
                 aarch64) miniconda_installer="Miniconda3-latest-Linux-aarch64.sh" ;;
-                *) echo "ERROR: Unsupported architecture: $arch" >&2; return 1 ;;
+                *) echo "错误：不支持的体系结构: $arch" >&2; return 1 ;;
             esac
             ;;
         Darwin)
             case "$arch" in
                 x86_64) miniconda_installer="Miniconda3-latest-MacOSX-x86_64.sh" ;;
                 arm64) miniconda_installer="Miniconda3-latest-MacOSX-arm64.sh" ;;
-                *) echo "ERROR: Unsupported architecture: $arch" >&2; return 1 ;;
+                *) echo "错误：不支持的体系结构: $arch" >&2; return 1 ;;
             esac
             ;;
         *)
-            echo "ERROR: Unsupported operating system: $os_name" >&2
+            echo "错误：不支持的操作系统: $os_name" >&2
             return 1
             ;;
     esac
@@ -112,13 +112,13 @@ install_miniconda() {
     # Add Miniconda to PATH
     export PATH="$HOME/miniconda/bin:$PATH"
 
-    # Activate Conda environment
+    # Activate Conda 环境
     source "$HOME/miniconda/etc/profile.d/conda.sh"
 
     # Clean up the Downloaded file
     rm /tmp/miniconda_installer.sh
 
-    echo "Miniconda installed successfully in $HOME/miniconda"
+    echo "Miniconda 已成功安装 in $HOME/miniconda"
 }
 
 # Define the paths and filenames for the shortcut creation
@@ -179,12 +179,12 @@ boxDrawingText()
 #log_message "WARN" "${yellow_fg_strong}Something is not installed on this system.${reset}"
 #log_message "ERROR" "${red_fg_strong}An error occurred during the process.${reset}"
 #log_message "DEBUG" "This is a debug message."
-#read -p "Press Enter to continue..."
+#read -p "按Enter键继续..."
 
 # Function to install Git
 install_git() {
     if ! command -v git &> /dev/null; then
-        log_message "WARN" "${yellow_fg_strong}Git is not installed on this system${reset}"
+        log_message "WARN" "${yellow_fg_strong}未安装Git${reset}"
 
         if command -v apt-get &>/dev/null; then
             # Debian/Ubuntu-based system
@@ -224,9 +224,9 @@ install_git() {
             exit 1
         fi
 
-        log_message "INFO" "${green_fg_strong}Git is installed.${reset}"
+        log_message "INFO" "${green_fg_strong}Git 已安装.${reset}"
     else
-        echo -e "${blue_fg_strong}[INFO] Git is already installed.${reset}"
+        echo -e "${blue_fg_strong}[INFO] Git 已安装.${reset}"
     fi
 }
 
@@ -234,7 +234,7 @@ install_git() {
 # Function to install Node.js and npm
 install_nodejs_npm() {
     if ! command -v npm &>/dev/null || ! command -v node &>/dev/null; then
-        echo -e "${yellow_fg_strong}[WARN] Node.js and/or npm are not installed on this system.${reset}"
+        echo -e "${yellow_fg_strong}[WARN] 此系统上未安装Node.js、npm.${reset}"
 
         if command -v apt-get &>/dev/null; then
             # Debian/Ubuntu-based system
@@ -243,7 +243,7 @@ install_nodejs_npm() {
             sudo apt-get install -y curl
             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
             source "$NVM_DIR/nvm.sh"
-            read -p "Press Enter to continue..."
+            read -p "按Enter键继续..."
             nvm install --lts
             nvm use --lts
         elif command -v yum &>/dev/null; then
@@ -252,7 +252,7 @@ install_nodejs_npm() {
             sudo yum install -y curl
             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
             source "$NVM_DIR/nvm.sh"
-            read -p "Press Enter to continue..."
+            read -p "按Enter键继续..."
             nvm install --lts
             nvm use --lts
         elif command -v apk &>/dev/null; then
@@ -261,7 +261,7 @@ install_nodejs_npm() {
             sudo apk add curl
             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
             source "$NVM_DIR/nvm.sh"
-            read -p "Press Enter to continue..."
+            read -p "按Enter键继续..."
             nvm install --lts
             nvm use --lts
         elif command -v pacman &>/dev/null; then
@@ -270,7 +270,7 @@ install_nodejs_npm() {
             sudo pacman -S --noconfirm curl
             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
             source "$NVM_DIR/nvm.sh"
-            read -p "Press Enter to continue..."
+            read -p "按Enter键继续..."
             nvm install --lts
             nvm use --lts
         elif command -v emerge &>/dev/null; then
@@ -279,7 +279,7 @@ install_nodejs_npm() {
             sudo emerge -av net-misc/curl
             curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
             source "$NVM_DIR/nvm.sh"
-            read -p "Press Enter to continue..."
+            read -p "按Enter键继续..."
             nvm install --lts
             nvm use --lts
         elif command -v pkg &>/dev/null; then
@@ -299,9 +299,9 @@ install_nodejs_npm() {
             exit 1
         fi
 
-        echo "${green_fg_strong}Node.js and npm installed and configured with nvm.${reset}"
+        echo "${green_fg_strong}Node.js和npm已安装并配置了nvm.${reset}"
     else
-        echo -e "${blue_fg_strong}[INFO] Node.js and npm are already installed.${reset}"
+        echo -e "${blue_fg_strong}[INFO] Node.js和npm已经安装.${reset}"
     fi
 }
 
@@ -330,7 +330,7 @@ install_all() {
     echo -e "${blue_bg}╚═══════════════════════════════════════════════════════════════════════════════════════════════╝${reset}"
     echo ""
 
-    echo -n "Are you sure you want to proceed? [Y/N]: "
+    echo -n "这里是安装ST-XTTS扩展你确定要继续吗? [Y/N]: "
     read confirmation
 
     if [ "$confirmation" = "Y" ] || [ "$confirmation" = "y" ]; then
@@ -342,11 +342,11 @@ install_all() {
 
 install_all_y() {
     # Ask the user about the GPU
-    echo -e "What is your GPU?"
+    echo -e "哪个是你的 GPU?"
     echo -e "1. NVIDIA"
     echo -e "2. AMD"
-    echo -e "3. None (CPU-only mode)"
-    echo -e "0. Cancel install"
+    echo -e "3. 无 (CPU-only 模式)"
+    echo -e "0. 取消安装"
 
     # Get GPU information
     gpu_info=""
@@ -363,18 +363,18 @@ install_all_y() {
     echo ""
 
     # Prompt for GPU choice
-    read -p "Enter number corresponding to your GPU: " gpu_choice
+    read -p "输入与GPU对应的数字: " gpu_choice
 
     # GPU menu - Backend
-    # Set the GPU choice in an environment variable for choice callback
+    # Set the GPU choice in an 环境 variable for choice callback
     export GPU_CHOICE=$gpu_choice
 
     # Check the user's response
     if [ "$gpu_choice" == "1" ]; then
-        log_message "INFO" "GPU choice set to NVIDIA"
+        log_message "INFO" "GPU选择设置为NVIDIA"
         install_all_pre
     elif [ "$gpu_choice" == "2" ]; then
-        log_message "INFO" "GPU choice set to AMD"
+        log_message "INFO" "GPU选择设置为AMD"
         install_all_pre
     elif [ "$gpu_choice" == "3" ]; then
         log_message "INFO" "Using CPU-only mode"
@@ -382,8 +382,8 @@ install_all_y() {
     elif [ "$gpu_choice" == "0" ]; then
         installer
     else
-        log_message "ERROR" "${red_fg_strong}Invalid number. Please enter a valid number.${reset}"
-        read -p "Press Enter to continue..."
+        log_message "ERROR" "${red_fg_strong}无效号码。请输入一个有效数字.${reset}"
+        read -p "按 Enter 继续..."
         install_all
     fi
 }
@@ -391,11 +391,11 @@ install_all_y() {
 
 install_all_pre() {
     log_message "INFO" "Installing SillyTavern + Extras + XTTS"
-    echo -e "${cyan_fg_strong}This may take a while. Please be patient.${reset}"
+    echo -e "${cyan_fg_strong}这可能需要一段时间。请耐心等待.${reset}"
 
     log_message "INFO" "Installing SillyTavern..."
     git clone https://github.com/SillyTavern/SillyTavern.git
-    log_message "INFO" "${green_fg_strong}SillyTavern installed successfully.${reset}"
+    log_message "INFO" "${green_fg_strong}SillyTavern 已成功安装.${reset}"
 
     log_message "INFO" "Installing Extras..."
     log_message "INFO" "Cloning SillyTavern-extras repository..."
@@ -405,32 +405,32 @@ install_all_pre() {
     log_message "INFO" "Installing XTTS..."
 
     # Activate the Miniconda installation
-    log_message "INFO" "Activating Miniconda environment..."
+    log_message "INFO" "正在激活 Miniconda 环境..."
     source "$miniconda_path/bin/activate"
 
-    # Create a Conda environment named xtts
-    log_message "INFO" "Creating Conda environment: xtts"
+    # Create a Conda 环境 named xtts
+    log_message "INFO" "正在创建 Conda 环境: xtts"
     conda create -n xtts python=3.10 git -y
 
-    # Activate the xtts environment
-    log_message "INFO" "Activating Conda environment: xtts"
+    # Activate the xtts 环境
+    log_message "INFO" "正在激活 Conda 环境: xtts"
     source activate xtts
 
     # Check if xtts activation was successful
     if [ $? -eq 0 ]; then
-        log_message "INFO" "Successfully activated Conda environment: xtts"
+        log_message "INFO" "已成功激活 Conda 环境: xtts"
         install_all_pre_successful
     else
-        log_message "ERROR" "${red_fg_strong}Failed to activate Conda environment: xtts${reset}"
-        log_message "INFO" "Press Enter to try again otherwise close the installer and restart."
-        read -p "Press Enter to try again..."
+        log_message "ERROR" "${red_fg_strong}激活失败 Conda 环境: xtts${reset}"
+        log_message "INFO" "按Enter键重试,否则关闭安装程序并重新启动."
+        read -p "按 Enter 继续..."
         install_all_pre
     fi
 }
 
 install_all_pre_successful() {
     # Create folders for xtts
-    log_message "INFO" "Creating xtts folders..."
+    log_message "INFO" "正在创建 xtts folders..."
     mkdir "$PWD/xtts"
     mkdir "$PWD/xtts/speakers"
     mkdir "$PWD/xtts/output"
@@ -439,7 +439,7 @@ install_all_pre_successful() {
     log_message "INFO" "Cloning xtts-api-server repository..."
     git clone https://github.com/daswer123/xtts-api-server.git
 
-    log_message "INFO" "Adding voice examples to speakers directory..."
+    log_message "INFO" "正在将语音示例添加到扬声器目录..."
     cp -r "$PWD/xtts-api-server/example/"* "$PWD/xtts/speakers/"
 
     log_message "INFO" "Removing the xtts-api-server directory..."
@@ -471,21 +471,21 @@ install_all_pre_successful() {
 
 
 install_all_post() {
-    # Create a Conda environment named extras
-    log_message "INFO" "Creating Conda environment: extras"
+    # Create a Conda 环境 named extras
+    log_message "INFO" "正在创建 Conda 附加环境"
     conda create -n extras python=3.11 git -y
 
-    log_message "INFO" "Activating Conda environment: extras"
+    log_message "INFO" "正在激活 Conda 附加环境"
     conda activate extras
 
     # Check if extras activation was successful
     if [ $? -eq 0 ]; then
-        log_message "INFO" "Successfully activated Conda environment: extras"
+        log_message "INFO" "已成功激活 Conda 附加环境"
         install_all_post_successful
     else
-        log_message "ERROR" "${red_fg_strong}Failed to activate Conda environment: extras${reset}"
-        log_message "INFO" "Press Enter to try again otherwise close the installer and restart."
-        read -p "Press Enter to try again..."
+        log_message "ERROR" "${red_fg_strong}激活失败 Conda 附加环境${reset}"
+        log_message "INFO" "按Enter键重试,否则关闭安装程序并重新启动."
+        read -p "按 Enter 继续..."
         install_all_post
     fi
 }
@@ -520,11 +520,11 @@ install_all_post_successful() {
 
 install_all_final() {
     # Ask if the user wants to create a shortcut
-    read -p "Do you want to create a shortcut on the desktop? [Y/n] " create_shortcut
+    read -p "是否要在桌面上创建快捷方式? [Y/n] " create_shortcut
     if [[ "${create_shortcut}" == "Y" || "${create_shortcut}" == "y" ]]; then
 
     # Create the desktop shortcut
-    echo -e "${blue_bg}[$(date +%T)]${reset} ${blue_fg_strong}[INFO]${reset} Creating desktop shortcut..."
+    echo -e "${blue_bg}[$(date +%T)]${reset} ${blue_fg_strong}[INFO]${reset} 正在创建 desktop shortcut..."
 	
 	echo "[Desktop Entry]" > "$desktop_file"
 	echo "Version=1.0" >> "$desktop_file"
@@ -540,10 +540,10 @@ install_all_final() {
     fi
 
     # Ask if the user wants to start the launcher
-    read -p "Start the launcher now? [Y/n] " start_launcher
+    read -p "立即启动启动器? [Y/n] " start_launcher
     if [[ "${start_launcher}" == "Y" || "${start_launcher}" == "y" ]]; then
         # Run the launcher
-        echo -e "${blue_bg}[$(date +%T)]${reset} ${blue_fg_strong}[INFO]${reset} Running launcher in a new window..."
+        echo -e "${blue_bg}[$(date +%T)]${reset} ${blue_fg_strong}[INFO]${reset} 在新窗口中运行启动器..."
         cd "$(dirname "$0")"
         chmod +x launcher.sh && ./launcher.sh
     fi
@@ -558,18 +558,18 @@ install_sillytavern() {
     clear
     echo -e "${blue_fg_strong}/ Installer / SillyTavern${reset}"
     echo "---------------------------------------------------------------"
-    echo -e "${cyan_fg_strong}This may take a while. Please be patient.${reset}"
+    echo -e "${cyan_fg_strong}这可能需要一段时间。请耐心等待.${reset}"
     log_message "INFO" "Installing SillyTavern..."
     log_message "INFO" "Cloning SillyTavern repository..."
     git clone https://github.com/SillyTavern/SillyTavern.git
-    log_message "INFO" "${green_fg_strong}SillyTavern installed successfully.${reset}"
+    log_message "INFO" "${green_fg_strong}SillyTavern 已成功安装.${reset}"
 
     # Ask if the user wants to create a desktop shortcut
-    read -p "Do you want to create a shortcut on the desktop? [Y/n] " create_shortcut
+    read -p "是否要在桌面上创建快捷方式? [Y/n] " create_shortcut
     if [[ "${create_shortcut}" == "Y" || "${create_shortcut}" == "y" ]]; then
 
     # Create the desktop shortcut
-    echo -e "${blue_bg}[$(date +%T)]${reset} ${blue_fg_strong}[INFO]${reset} Creating desktop shortcut..."
+    echo -e "${blue_bg}[$(date +%T)]${reset} ${blue_fg_strong}[INFO]${reset} 正在创建 desktop shortcut..."
 	
 	echo "[Desktop Entry]" > "$desktop_file"
 	echo "Version=1.0" >> "$desktop_file"
@@ -581,14 +581,14 @@ install_sillytavern() {
 	echo "Comment=SillyTavern Launcher" >> "$desktop_file"
 	chmod +x "$desktop_file"
 
-    echo -e "${blue_bg}[$(date +%T)]${reset} ${blue_fg_strong}[INFO]${reset} ${green_fg_strong}Desktop shortcut created at: $desktop_file${reset}"
+    echo -e "${blue_bg}[$(date +%T)]${reset} ${blue_fg_strong}[INFO]${reset} ${green_fg_strong}在以下位置创建的桌面快捷方式: $desktop_file${reset}"
     fi
 
     # Ask if the user wants to start the launcher
-    read -p "Start the launcher now? [Y/n] " start_launcher
+    read -p "立即启动启动器? [Y/n] " start_launcher
     if [[ "${start_launcher}" == "Y" || "${start_launcher}" == "y" ]]; then
         # Run the launcher
-        echo -e "${blue_bg}[$(date +%T)]${reset} ${blue_fg_strong}[INFO]${reset} Running launcher in a new window..."
+        echo -e "${blue_bg}[$(date +%T)]${reset} ${blue_fg_strong}[INFO]${reset} 在新窗口中运行启动器..."
         cd "$(dirname "$0")"
         chmod +x launcher.sh && ./launcher.sh
     fi
@@ -618,7 +618,7 @@ install_extras() {
     echo -e "${red_bg}╚═══════════════════════════════════════════════════════════════════════════════════════════════╝${reset}"
     echo ""
 
-    echo -n "Are you sure you want to proceed? [Y/N]: "
+    echo -n "您确定要继续吗? [Y/N]: "
     read confirmation
 
     if [ "$confirmation" = "Y" ] || [ "$confirmation" = "y" ]; then
@@ -631,11 +631,11 @@ install_extras() {
 install_extras_y() {
     clear
     # Ask the user about the GPU
-    echo -e "What is your GPU?"
+    echo -e "哪个是你的 GPU?"
     echo -e "1. NVIDIA"
     echo -e "2. AMD"
     echo -e "3. None (CPU-only mode)"
-    echo -e "0. Cancel install"
+    echo -e "0. 取消安装"
 
     # Get GPU information
     gpu_info=""
@@ -655,15 +655,15 @@ install_extras_y() {
     read -p "Enter number corresponding to your GPU: " gpu_choice
 
     # GPU menu - Backend
-    # Set the GPU choice in an environment variable for choice callback
+    # Set the GPU choice in an 环境 variable for choice callback
     export GPU_CHOICE=$gpu_choice
 
     # Check the user's response
     if [ "$gpu_choice" == "1" ]; then
-        log_message "INFO" "GPU choice set to NVIDIA"
+        log_message "INFO" "GPU选择设置为NVIDIA"
         install_extras_pre
     elif [ "$gpu_choice" == "2" ]; then
-        log_message "INFO" "GPU choice set to AMD"
+        log_message "INFO" "GPU选择设置为AMD"
         install_extras_pre
     elif [ "$gpu_choice" == "3" ]; then
         log_message "INFO" "Using CPU-only mode"
@@ -671,8 +671,8 @@ install_extras_y() {
     elif [ "$gpu_choice" == "0" ]; then
         installer
     else
-        log_message "ERROR" "${red_fg_strong}Invalid number. Please enter a valid number.${reset}"
-        read -p "Press Enter to continue..."
+        log_message "ERROR" "${red_fg_strong}无效号码。请输入一个有效数字.${reset}"
+        read -p "按Enter键继续..."
         install_extras
     fi
 }
@@ -685,21 +685,21 @@ install_extras_pre() {
     git clone https://github.com/SillyTavern/SillyTavern-extras.git
 
 
-    log_message "INFO" "Creating Conda environment: ${cyan_fg_strong}extras${reset}"
+    log_message "INFO" "正在创建 Conda 环境: ${cyan_fg_strong}extras${reset}"
     conda create -n extras python=3.11 git -y
 
-    log_message "INFO" "Activating Conda environment: ${cyan_fg_strong}extras${reset}"
+    log_message "INFO" "正在激活 Conda 环境: ${cyan_fg_strong}extras${reset}"
     conda init bash
     conda activate extras
 
     # Check if extras activation was successful
     if [ $? -eq 0 ]; then
-        log_message "INFO" "Successfully activated Conda environment: extras"
+        log_message "INFO" "已成功激活 Conda 附加环境"
         install_extras_successful
     else
-        log_message "ERROR" "${red_fg_strong}Failed to activate Conda environment: extras${reset}"
-        log_message "INFO" "Press Enter to try again otherwise close the installer and restart."
-        read -p "Press Enter to try again..."
+        log_message "ERROR" "${red_fg_strong}激活失败 Conda 附加环境${reset}"
+        log_message "INFO" "按Enter键重试,否则关闭安装程序并重新启动."
+        read -p "按 Enter 继续..."
         install_extras_pre
     fi
 }
@@ -708,24 +708,24 @@ install_extras_successful() {
     # Navigate to the SillyTavern-extras directory
     cd "$PWD/SillyTavern-extras"
 
-    log_message "INFO" "Installing pip3 requirements-rvc in Conda environment: ${cyan_fg_strong}extras${reset}"
+    log_message "INFO" "Installing pip3 requirements-rvc in Conda 环境: ${cyan_fg_strong}extras${reset}"
     pip3 install -r requirements-rvc.txt
     pip3 install tensorboardX
 
-    # Use the GPU choice made earlier to install requirements in the Conda environment extras
+    # Use the GPU choice made earlier to install requirements in the Conda 环境 extras
     if [ "$GPU_CHOICE" == "1" ]; then
-        log_message "INFO" "Installing modules for NVIDIA from requirements.txt in Conda environment: ${cyan_fg_strong}extras${reset}"
+        log_message "INFO" "Installing modules for NVIDIA from requirements.txt in Conda 环境: ${cyan_fg_strong}extras${reset}"
         pip3 install -r requirements.txt
         conda install -c conda-forge faiss-gpu -y
         log_message "INFO" "${green_fg_strong}Extras successfully installed.${reset}"
         installer
     elif [ "$GPU_CHOICE" == "2" ]; then
-        log_message "INFO" "Installing modules for AMD from requirements-rocm.txt in Conda environment: ${cyan_fg_strong}extras${reset}"
+        log_message "INFO" "Installing modules for AMD from requirements-rocm.txt in Conda 环境: ${cyan_fg_strong}extras${reset}"
         pip3 install -r requirements-rocm.txt
         log_message "INFO" "${green_fg_strong}Extras successfully installed.${reset}"
         installer
     elif [ "$GPU_CHOICE" == "3" ]; then
-        log_message "INFO" "Installing modules for CPU from requirements-silicon.txt in Conda environment: ${cyan_fg_strong}extras${reset}"
+        log_message "INFO" "Installing modules for CPU from requirements-silicon.txt in Conda 环境: ${cyan_fg_strong}extras${reset}"
         pip3 install -r requirements-silicon.txt
         log_message "INFO" "${green_fg_strong}Extras successfully installed.${reset}"
         installer
@@ -738,32 +738,32 @@ install_xtts() {
     log_message "INFO" "Installing XTTS..."
 
     # Activate the Miniconda installation
-    log_message "INFO" "Activating Miniconda environment..."
+    log_message "INFO" "正在激活 Miniconda 环境..."
     source "$miniconda_path/bin/activate"
 
-    # Create a Conda environment named xtts
-    log_message "INFO" "Creating Conda environment: xtts"
+    # Create a Conda 环境 named xtts
+    log_message "INFO" "正在创建 Conda 环境: xtts"
     conda create -n xtts python=3.10 git -y
 
-    # Activate the xtts environment
-    log_message "INFO" "Activating Conda environment: xtts"
+    # Activate the xtts 环境
+    log_message "INFO" "正在激活 Conda 环境: xtts"
     conda activate xtts
 
     # Check if activation was successful
     if [ $? -eq 0 ]; then
-        log_message "INFO" "Successfully activated Conda environment: xtts"
+        log_message "INFO" "已成功激活 Conda 环境: xtts"
         install_xtts_successful
     else
-        log_message "ERROR" "${red_fg_strong}Failed to activate Conda environment: xtts${reset}"
-        log_message "INFO" "Press Enter to try again otherwise close the installer and restart."
-        read -p "Press Enter to try again..."
+        log_message "ERROR" "${red_fg_strong}激活失败 Conda 环境: xtts${reset}"
+        log_message "INFO" "按Enter键重试,否则关闭安装程序并重新启动."
+        read -p "按 Enter 继续..."
         install_xtts
     fi
 }
 
 install_xtts_successful() {
     # Create folders for xtts
-    log_message "INFO" "Creating xtts folders..."
+    log_message "INFO" "正在创建 xtts folders..."
     mkdir "$PWD/xtts"
     mkdir "$PWD/xtts/speakers"
     mkdir "$PWD/xtts/output"
@@ -797,14 +797,14 @@ installer() {
     echo -e "${blue_fg_strong}/ Installer${reset}"
     echo "-------------------------------------"
     echo "What would you like to do?"
-    echo "1. Install SillyTavern"
-    echo "2. Install Extras"
-    echo "3. Install XTTS"
-    echo "4. Install All Options From Above"
-    echo "5. Support"
-    echo "0. Exit"
+    echo "1. 安装 SillyTavern"
+    echo "2. 安装 Extras"
+    echo "3. 安装 XTTS"
+    echo "4. 安装 All Options From Above"
+    echo "5. 支持"
+    echo "0. 离开"
 
-    read -p "Choose Your Destiny (default is 1): " choice
+    read -p "选择数字 (默认 1): " choice
 
     # Default to choice 1 if no input is provided
     if [ -z "$choice" ]; then
@@ -820,7 +820,7 @@ installer() {
         5) support ;;
         0) exit ;;
         *) echo -e "${yellow_fg_strong}WARNING: Invalid number. Please insert a valid number.${reset}"
-           read -p "Press Enter to continue..."
+           read -p "按Enter键继续..."
            installer ;;
     esac
 }
@@ -836,7 +836,7 @@ issue_report() {
             xdg-open https://github.com/SillyTavern/SillyTavern-Launcher/issues/new/choose
         fi
     fi
-    read -p "Press Enter to continue..."
+    read -p "按Enter键继续..."
     support
 }
 
@@ -850,7 +850,7 @@ documentation() {
             xdg-open https://docs.sillytavern.app/
         fi
     fi
-    read -p "Press Enter to continue..."
+    read -p "按Enter键继续..."
     support
 }
 
@@ -864,7 +864,7 @@ discord() {
             xdg-open https://discord.gg/sillytavern
         fi
     fi
-    read -p "Press Enter to continue..."
+    read -p "按Enter键继续..."
     support
 }
 
@@ -875,13 +875,13 @@ support() {
     clear
     echo -e "${blue_fg_strong}/ Home / Support${reset}"
     echo "-------------------------------------"
-    echo "What would you like to do?"
-    echo "1. I want to report an issue"
-    echo "2. Documentation"
+    echo "你想干什么大傻春?"
+    echo "1. 我想报 issue"
+    echo "2. 文档"
     echo "3. Discord"
-    echo "0. Back to installer"
+    echo "0. 返回安装器"
 
-    read -p "Choose Your Destiny: " support_choice
+    read -p "选择数字: " support_choice
 
     # Support Menu - Backend
     case $support_choice in
@@ -889,8 +889,8 @@ support() {
         2) documentation ;;
         3) discord ;;
         0) installer ;;
-        *) echo -e "${yellow_fg_strong}WARNING: Invalid number. Please insert a valid number.${reset}"
-           read -p "Press Enter to continue..."
+        *) echo -e "${yellow_fg_strong}WARNING: 无效号码.请插入一个有效数字.${reset}"
+           read -p "按Enter键继续..."
            support ;;
     esac
 }
@@ -902,63 +902,63 @@ fi
 
 # Detect the package manager and execute the appropriate installation
 if [ -n "$IS_MACOS" ]; then
-    log_message "INFO" "${blue_fg_strong}Detected macOS system.${reset}"
+    log_message "INFO" "${blue_fg_strong}检测到 macOS 系统.${reset}"
     # macOS
     install_git
     install_nodejs_npm
     install_miniconda
     installer
 elif command -v apt-get &>/dev/null; then
-    log_message "INFO" "${blue_fg_strong}Detected Debian/Ubuntu-based system.${reset}"
+    log_message "INFO" "${blue_fg_strong}检测到 Debian/Ubuntu-based 系统.${reset}"
     # Debian/Ubuntu
     install_git
     install_nodejs_npm
     install_miniconda
     installer
 elif command -v yum &>/dev/null; then
-    log_message "INFO" "${blue_fg_strong}Detected Red Hat/Fedora-based system.${reset}"
+    log_message "INFO" "${blue_fg_strong}检测到 Red Hat/Fedora-based 系统.${reset}"
     # Red Hat/Fedora
     install_git
     install_nodejs_npm
     install_miniconda
     installer
 elif command -v apk &>/dev/null; then
-    log_message "INFO" "${blue_fg_strong}Detected Alpine Linux-based system.${reset}"
+    log_message "INFO" "${blue_fg_strong}检测到 Alpine Linux-based 系统.${reset}"
     # Alpine Linux
     install_git
     install_nodejs_npm
     install_miniconda
     installer
 elif command -v pacman &>/dev/null; then
-    log_message "INFO" "${blue_fg_strong}Detected Arch Linux-based system.${reset}"
+    log_message "INFO" "${blue_fg_strong}检测到 Arch Linux-based 系统.${reset}"
     # Arch Linux
     install_git
     install_nodejs_npm
     install_miniconda
     installer
 elif command -v emerge &>/dev/null; then
-    log_message "INFO" "${blue_fg_strong}Detected Gentoo Linux-based system. Now you are the real CHAD${reset}"
+    log_message "INFO" "${blue_fg_strong}检测到 Gentoo Linux-based 系统. 现在你是真正的CHAD${reset}"
     # Gentoo Linux
     install_git
     install_nodejs_npm
     install_miniconda
     installer
 elif command -v pkg &>/dev/null; then
-    log_message "INFO" "${blue_fg_strong}Detected pkg System${reset}"
+    log_message "INFO" "${blue_fg_strong}检测到 pkg 系统${reset}"
     # pkg
     install_git
     install_nodejs_npm
     install_miniconda
     installer
 elif command -v zypper &>/dev/null; then
-    log_message "INFO" "${blue_fg_strong}Detected openSUSE system.${reset}"
+    log_message "INFO" "${blue_fg_strong}检测到 openSUSE 系统.${reset}"
     # openSUSE
     install_git
     install_nodejs_npm
     install_miniconda
     installer
 else
-    log_message "ERROR" "${red_fg_strong}Unsupported package manager. Cannot detect Linux distribution.${reset}"
+    log_message "ERROR" "${red_fg_strong}不支持的包管理器。无法检测Linux发行版.${reset}"
     exit 1
 fi
 
